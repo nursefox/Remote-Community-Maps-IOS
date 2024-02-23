@@ -1,0 +1,77 @@
+[
+    {
+        "id": 1,
+        "name": "Santa Teresa",
+        "indigenousName": "Ltyentye Apurte",
+        "state": "Northern Territory",
+        "latitude": -24.13163822827027,
+        "longitude": 134.37364305192244,
+        "latitudinalMeters": 1000,
+        "longitudinalMeters": 1000,
+        "mapDataFileName": "Lot Data - Santa Teresa - NT.geojson",
+        "imageFileName": "Profile Photo - Santa Teresa - NT",
+        "published": true
+    },
+    {
+        "id": 2,
+        "name": "Hermannsburg",
+        "indigenousName": "Ntaria",
+        "state": "Northern Territory",
+        "latitude": -23.94583428030692,
+        "longitude": 132.7795533845188,
+        "latitudinalMeters": 1600,
+        "longitudinalMeters": 1600,
+        "mapDataFileName": "Lot Data - Hermannsburg - NT.geojson",
+        "imageFileName": "Profile Photo - Hermannsburg - NT",
+        "published": true
+    },
+    {
+        "id": 3,
+        "name": "Amoonguna",
+        "state": "Northern Territory",
+        "latitude": -23.766696566600675,
+        "longitude": 133.9362352638119,
+        "latitudinalMeters": 600,
+        "longitudinalMeters": 600,
+        "mapDataFileName": "Lot Data - Amoonguna - NT.geojson",
+        "imageFileName": "Profile Photo - Amoonguna - NT",
+        "published": true
+    },
+    {
+        "id": 4,
+        "name": "Mutitjulu",
+        "state": "Northern Territory",
+        "latitude": -25.35270162588252,
+        "longitude": 131.06660522181556,
+        "latitudinalMeters": 1200,
+        "longitudinalMeters": 1200,
+        "mapDataFileName": "Lot Data - Mutitjulu - NT.geojson",
+        "imageFileName": "Profile Photo - Mutitjulu - NT",
+        "published": true
+    },
+    {
+        "id": 5,
+        "name": "Docker River",
+        "indigenousName": "Kaltukatjara",
+        "state": "Northern Territory",
+        "latitude": -24.875292977556548,
+        "longitude": 129.08312996925764,
+        "latitudinalMeters": 900,
+        "longitudinalMeters": 900,
+        "mapDataFileName": "Lot Data - Docker River - NT.geojson",
+        "imageFileName": "Profile Photo - Docker River - NT",
+        "published": true
+    },
+    {
+        "id": 5,
+        "name": "Areyonga",
+        "state": "Northern Territory",
+        "latitude": -24.074629710960025,
+        "longitude": 132.26974161566577,
+        "latitudinalMeters": 800,
+        "longitudinalMeters": 800,
+        "mapDataFileName": "Lot Data - Areyonga - NT.geojson",
+        "imageFileName": "Profile Photo - Areyonga - NT",
+        "published": true
+    }
+]
