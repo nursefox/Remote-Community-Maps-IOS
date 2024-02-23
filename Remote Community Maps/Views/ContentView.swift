@@ -12,13 +12,13 @@ struct ContentView: View {
     
     @EnvironmentObject var locationDataManager: LocationDataManager
     //@EnvironmentObject var authService: AuthenticationManager
-    @EnvironmentObject var firestoreManager: FirestoreManager
-    
-    
+    @StateObject var firestoreManager = FirestoreManager.shared
     @StateObject var fruitDataStore = CloudDataStoreFruit.shared
     @StateObject var remoteCommunityDataStore = CloudDataStoreRemoteCommunity.shared
     
     @Environment(\.modelContext) var modelContex
+    
+    @State private var showSignInView: Bool = false
     
     
     //@StateObject var dataStore = CloudDataStoreRemoteCommunity.shared
@@ -91,45 +91,55 @@ struct ContentView: View {
                 //                }
                 //                .listStyle(.plain)
                     .toolbar {
-                        Button("Delete All Data") {
-                            do {
-                                try modelContex.delete(model: RemoteCommunity.self)
-                                try modelContex.delete(model: LotInformation.self)
-                            } catch {
-                                print ("Failed to clear data")
+                        
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button("Delete All Data") {
+                                do {
+                                    try modelContex.delete(model: RemoteCommunity.self)
+                                    try modelContex.delete(model: LotInformation.self)
+                                } catch {
+                                    print ("Failed to clear data")
+                                }
                             }
                         }
                         // Button("Add Destination", systemImage: "plus", action: createNewMap)
                         
                         
-                        //ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: CloudAllRemoteCommunitiesView().environmentObject(self.remoteCommunityDataStore)) {
-                            Image(systemName: "plus")
-                        }
-                        .environmentObject(remoteCommunityDataStore)
-                        
-                        
-                        NavigationLink(destination: CloudAllFruitsView().environmentObject(self.fruitDataStore)) {
-                            Image(systemName: "cross")
-                        }
-                        .environmentObject(fruitDataStore)
-                        
-                        
-//                        NavigationLink(destination: StartView().environmentObject(self.authService)) {
-//                            Image(systemName: "key")
-//                        }
-//                        .environmentObject(authService)
-
-                        
-                            NavigationLink(destination: RootView()) {
-                                Image(systemName: "key")
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            NavigationLink(destination: CloudAllRemoteCommunitiesView().environmentObject(self.remoteCommunityDataStore)) {
+                                Image(systemName: "plus")
                             }
+                            .environmentObject(remoteCommunityDataStore)
+                        }
+                        
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            NavigationLink(destination: CloudAllFruitsView().environmentObject(self.fruitDataStore)) {
+                                Image(systemName: "cross")
+                            }
+                            .environmentObject(fruitDataStore)
+                        }
                             
-
-                        
-                        
-                        
-                        // }
+                            //                        NavigationLink(destination: StartView().environmentObject(self.authService)) {
+                            //                            Image(systemName: "key")
+                            //                        }
+                            //                        .environmentObject(authService)
+                            
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                showSignInView = true
+                            }, label: {
+                                Image(systemName: "key")
+                            })
+                        }
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        //}
                         
                         
                     }
@@ -206,6 +216,13 @@ struct ContentView: View {
             //                    Text("Add New POI Test")
             //                }
         }
+        .sheet(isPresented: $showSignInView) {
+            NavigationStack {
+                SignInMethodView(showSignInView: $showSignInView)
+                //AuthenticationView(showSignInView: $showSignInView)
+            }
+        }
+        
     }
     
     
@@ -219,6 +236,6 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(DataController.previewContainer)
-        //.environmentObject(AuthenticationManager.shared)
+    //.environmentObject(AuthenticationManager.shared)
         .environmentObject(FirestoreManager.shared)
 }

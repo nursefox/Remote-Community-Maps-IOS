@@ -41,18 +41,6 @@ struct SheetHouseDetailsView: View {
                         }
                     }
                     
-                    //                    HStack {
-                    //                        Text ("Latitude:")
-                    //                        Spacer()
-                    //                        Text (String(format: "%.4f", activeLotInfoSelected?.latitude ?? 00)).foregroundColor(.blue).bold()
-                    //                    }
-                    //
-                    //                    HStack {
-                    //                        Text ("Longitude:")
-                    //                        Spacer()
-                    //                        Text (String(format: "%.4f", activeLotInfoSelected?.longitude ?? 00)).foregroundColor(.blue).bold()
-                    //                    }
-                    
                     HStack (alignment: .top) {
                         Spacer()
                         Button("Suggest An Edit", action: activateEditLotInformation)

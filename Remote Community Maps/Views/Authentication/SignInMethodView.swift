@@ -21,6 +21,8 @@ struct SignInMethodView: View {
     @State private var error: Swift.Error?
     
     //@State private var showSignInView: Bool = false
+ 
+    @Environment(\.dismiss) var dismiss
     
     @Binding var showSignInView: Bool
     
@@ -35,11 +37,11 @@ struct SignInMethodView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(minHeight: 150, maxHeight: 200)
             
-            Text("Login")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
+//            Text("Login")
+//                .font(.largeTitle)
+//                .fontWeight(.bold)
+//                .frame(maxWidth: .infinity, alignment: .leading)
+//            
             Divider()
             
             HStack {
@@ -127,7 +129,7 @@ struct SignInMethodView: View {
             }
             .padding([.top, .bottom], 50)
             .foregroundStyle(.black)
-            
+       
             
             
             
@@ -136,10 +138,22 @@ struct SignInMethodView: View {
             
         }
         .errorAlert(error: $error)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction, content: cancelButton)
+        }
         .padding()
         //.navigationTitle("Sign In")
+        .accentColor(.black)
+        .toolbarBackground(.white, for: .navigationBar) //<- Set background
+        .toolbarBackground(.visible, for: .navigationBar)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("Login")
     }
     
+    // the cancel button
+    func cancelButton() -> some View {
+        Button { dismiss() } label: { Image(systemName: "xmark").fontWeight(.bold) }
+    }
     
     func signIntoAuthenticationServer() async throws {
         

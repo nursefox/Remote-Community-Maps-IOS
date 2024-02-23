@@ -228,12 +228,12 @@
 		DBD5CF9D2B8865BB007F6DD6 /* EditData */ = {
 			isa = PBXGroup;
 			children = (
+				DBD5CFA32B8865BB007F6DD6 /* SheetHouseDetailsView.swift */,
 				DBD5CF9E2B8865BB007F6DD6 /* LotInformationEditView.swift */,
 				DBD5CF9F2B8865BB007F6DD6 /* LotInformationEditLotColours.swift */,
 				DBD5CFA02B8865BB007F6DD6 /* LocationListView.swift */,
 				DBD5CFA12B8865BB007F6DD6 /* AddPointOfInterestView.swift */,
 				DBD5CFA22B8865BB007F6DD6 /* EditPointOfInterestLocationView.swift */,
-				DBD5CFA32B8865BB007F6DD6 /* SheetHouseDetailsView.swift */,
 			);
 			path = EditData;
 			sourceTree = "<group>";

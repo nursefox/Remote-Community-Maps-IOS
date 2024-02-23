@@ -11,9 +11,10 @@ import SwiftUI
 
 struct FirebaseWriteTestView: View {
     
-    @EnvironmentObject var authService: AuthenticationManager
-    @EnvironmentObject var firestoreManager: FirestoreManager
-
+    //@EnvironmentObject var authService: AuthenticationManager
+    
+    @StateObject var authService = AuthenticationManager.shared
+    @StateObject var firestoreManager = FirestoreManager.shared
 
     var body: some View {
         
