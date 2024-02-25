@@ -23,6 +23,7 @@ struct UserProfileView: View {
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("User Profile")
+        .navigationBarBackButtonHidden()
         
     }
 

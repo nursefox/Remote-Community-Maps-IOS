@@ -28,7 +28,8 @@ struct AccountSettingsView: View {
         .toolbarBackground(.white, for: .navigationBar) //<- Set background
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("User Profile")
+        .navigationTitle("Acccount & Security")
+        .navigationBarBackButtonHidden()
         
     }
     

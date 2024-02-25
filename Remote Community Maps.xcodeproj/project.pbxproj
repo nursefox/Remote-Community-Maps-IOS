@@ -246,10 +246,10 @@
 			isa = PBXGroup;
 			children = (
 				DBD5CFAE2B8865BB007F6DD6 /* RootView.swift */,
+				DBD5CFA92B8865BB007F6DD6 /* SettingsView.swift */,
 				DBD5CFAC2B8865BB007F6DD6 /* SignInMethodView.swift */,
 				DBD5CFB22B8865BB007F6DD6 /* SignUpViewEmailView.swift */,
 				DBD5CFA82B8865BB007F6DD6 /* StartView.swift */,
-				DBD5CFA92B8865BB007F6DD6 /* SettingsView.swift */,
 				DBD5CFAA2B8865BB007F6DD6 /* LoginView.swift */,
 				DBD5CFAB2B8865BB007F6DD6 /* AuthenticationManager.swift */,
 				DBD5CFAD2B8865BB007F6DD6 /* HomeView.swift */,
