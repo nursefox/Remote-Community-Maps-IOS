@@ -17,7 +17,7 @@ struct SettingsView: View {
         
         VStack (alignment: .center) {
             Form {
-
+                
                 
                 
                 
@@ -42,7 +42,7 @@ struct SettingsView: View {
                 }
                 
                 
-
+                
                 
                 Button {
                     print ("Email & Notifications")
@@ -77,7 +77,7 @@ struct SettingsView: View {
                 
                 
                 Section("Other") {
-             
+                    
                     Button {
                         print ("Favourites Clicked")
                     } label :  {
@@ -99,7 +99,7 @@ struct SettingsView: View {
                     }
                     
                     
-               }
+                }
                 
                 Section("Account") {
                     List {
@@ -121,26 +121,26 @@ struct SettingsView: View {
                                     .foregroundStyle(.red)
                             }
                         }
-                    
-                    
-                    Button {
-                        Task {
-                            do {
-                                try await resetPassword()
-                                print ("Password has been reset")
-                            } catch {
-                                print (error)
+                        
+                        
+                        Button {
+                            Task {
+                                do {
+                                    try await resetPassword()
+                                    print ("Password has been reset")
+                                } catch {
+                                    print (error)
+                                }
                             }
-                        }
-                    } label: {
-                        HStack {
-                            Image(systemName: "lock.open.rotation")
-                            Text ("Reset Password")
+                        } label: {
+                            HStack {
+                                Image(systemName: "lock.open.rotation")
+                                Text ("Reset Password")
+                            }
                         }
                     }
                 }
             }
-        }
             
             
         }
@@ -154,20 +154,20 @@ struct SettingsView: View {
         .navigationTitle("Settings")
         
     }
-
+    
     
     // the cancel button
     func cancelButton() -> some View {
         Button { dismiss() } label: { Image(systemName: "xmark").fontWeight(.bold) }
     }
-
-
+    
+    
     func logOut () throws {
         try AuthenticationManager.shared.signOut()
     }
-
-
-
+    
+    
+    
     func resetPassword() async throws {
         let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
         
@@ -177,9 +177,9 @@ struct SettingsView: View {
         
         try await AuthenticationManager.shared.resetPassword(email: email)
     }
-
-
-
+    
+    
+    
 }
 
 #Preview {

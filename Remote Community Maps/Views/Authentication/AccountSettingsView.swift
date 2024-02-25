@@ -1,5 +1,5 @@
 //
-//  UserProfileView.swift
+//  AccountSettingsView.swift
 //  Remote Community Maps
 //
 //  Created by Benjamin Fox on 25/2/2024.
@@ -7,13 +7,19 @@
 
 import SwiftUI
 
-struct UserProfileView: View {
+struct AccountSettingsView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @State private var firstName = ""
+    @State private var lastName = ""
+    
     var body: some View {
         VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Form {
+                TextField("First Name", text: $firstName)
+                TextField("Last name", text: $lastName)
+            }
         }
         .toolbar {
             ToolbarItem(placement: .cancellationAction, content: cancelButton)
@@ -25,16 +31,15 @@ struct UserProfileView: View {
         .navigationTitle("User Profile")
         
     }
-
+    
     // the cancel button
     func cancelButton() -> some View {
         Button { dismiss() } label: { Image(systemName: "xmark").fontWeight(.bold) }
     }
-
 }
 
 #Preview {
     NavigationStack {
-        UserProfileView()
+        AccountSettingsView()
     }
 }

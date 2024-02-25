@@ -75,6 +75,7 @@
 		DBD5D01D2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D01C2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson */; };
 		DBD5D01F2B8868D3007F6DD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D01E2B8868D3007F6DD6 /* GoogleService-Info.plist */; };
 		DBD5D0212B8B18DD007F6DD6 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */; };
+		DBD5D0232B8B19B1007F6DD6 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0222B8B19B1007F6DD6 /* AccountSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +143,7 @@
 		DBD5D01C2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - Santa Teresa - NT.geojson"; sourceTree = "<group>"; };
 		DBD5D01E2B8868D3007F6DD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		DBD5D0222B8B19B1007F6DD6 /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 				DBD5CFB02B8865BB007F6DD6 /* AuthenticationView.swift */,
 				DBD5CFB12B8865BB007F6DD6 /* SignInEmailView.swift */,
 				DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */,
+				DBD5D0222B8B19B1007F6DD6 /* AccountSettingsView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				DBD5D0052B8865CF007F6DD6 /* Extensions.swift in Sources */,
 				DBD5D0042B8865CF007F6DD6 /* DataController.swift in Sources */,
 				DBD5CFF92B8865C9007F6DD6 /* Agent.swift in Sources */,
+				DBD5D0232B8B19B1007F6DD6 /* AccountSettingsView.swift in Sources */,
 				DBD5CFF52B8865C9007F6DD6 /* CloudAllFruitsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
