@@ -74,6 +74,7 @@
 		DBD5D0192B8865E7007F6DD6 /* RemoteCommunitySamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0182B8865E7007F6DD6 /* RemoteCommunitySamples.swift */; };
 		DBD5D01D2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D01C2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson */; };
 		DBD5D01F2B8868D3007F6DD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D01E2B8868D3007F6DD6 /* GoogleService-Info.plist */; };
+		DBD5D0212B8B18DD007F6DD6 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,7 @@
 		DBD5D0182B8865E7007F6DD6 /* RemoteCommunitySamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteCommunitySamples.swift; sourceTree = "<group>"; };
 		DBD5D01C2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - Santa Teresa - NT.geojson"; sourceTree = "<group>"; };
 		DBD5D01E2B8868D3007F6DD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 				DBD5CFAF2B8865BB007F6DD6 /* WelcomeView.swift */,
 				DBD5CFB02B8865BB007F6DD6 /* AuthenticationView.swift */,
 				DBD5CFB12B8865BB007F6DD6 /* SignInEmailView.swift */,
+				DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				DBD5CFF02B8865C9007F6DD6 /* CloudAllRemoteCommunitiesView.swift in Sources */,
 				DBD5D0082B8865CF007F6DD6 /* Bundle-Decodable.swift in Sources */,
 				DBD5CFC02B8865BB007F6DD6 /* RemoteCommunitySearchView.swift in Sources */,
+				DBD5D0212B8B18DD007F6DD6 /* UserProfileView.swift in Sources */,
 				DBD5CFC92B8865BB007F6DD6 /* AuthenticationView.swift in Sources */,
 				DBD5D0022B8865CF007F6DD6 /* Binding-OnChange.swift in Sources */,
 				DBD5CFB82B8865BB007F6DD6 /* LotInformationEditView.swift in Sources */,

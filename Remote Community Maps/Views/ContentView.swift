@@ -124,11 +124,11 @@ struct ContentView: View {
                             //                        }
                             //                        .environmentObject(authService)
                             
-                        ToolbarItem(placement: .navigationBarTrailing) {
+                        ToolbarItem(placement: .navigationBarLeading) {
                             Button(action: {
                                 showSignInView = true
                             }, label: {
-                                Image(systemName: "key")
+                                Image(systemName: "person.circle")
                             })
                         }
                             
@@ -218,7 +218,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showSignInView) {
             NavigationStack {
-                SignInMethodView(showSignInView: $showSignInView)
+                RootView()
+                //StartView()
+                //SignInMethodView(showSignInView: $showSignInView)
                 //AuthenticationView(showSignInView: $showSignInView)
             }
         }
