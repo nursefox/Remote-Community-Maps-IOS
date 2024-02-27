@@ -9,16 +9,14 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @Binding var showSignInView: Bool
-    
+    //@Binding var showSignInView: Bool
+
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
         VStack (alignment: .center) {
             Form {
-                
-                
                 NavigationLink {
                     UserProfileView()
                 } label :  {
@@ -31,6 +29,8 @@ struct SettingsView: View {
                 
             
                 NavigationLink {
+                    //RootView()
+                    //SignInMethodView(showSignInView: $showSignInView)
                     AccountSettingsView()
                 } label :  {
                     HStack {
@@ -39,6 +39,8 @@ struct SettingsView: View {
                         Text ("Account & Security")
                     }
                 }
+                
+                
                 
             
             
@@ -56,8 +58,9 @@ struct SettingsView: View {
             
             
             
-            Button {
-                print ("Email & Notifications")
+            
+            NavigationLink {
+                EmailAndNotificationsView()
             } label :  {
                 HStack {
                     Image(systemName: "bell.fill")
@@ -67,8 +70,9 @@ struct SettingsView: View {
             }
             
             
-            Button {
-                print ("Privacy & Legal Terms")
+            
+            NavigationLink {
+                PrivacyAndLegalTermsView()
             } label :  {
                 HStack {
                     Image(systemName: "eye.slash.circle")
@@ -77,8 +81,9 @@ struct SettingsView: View {
                 }
             }
             
-            Button {
-                print ("Help")
+            
+            NavigationLink {
+                HelpView()
             } label :  {
                 HStack {
                     Image(systemName: "questionmark.circle")
@@ -119,7 +124,7 @@ struct SettingsView: View {
                         Task {
                             do {
                                 try logOut()
-                                self.showSignInView = true
+                                //self.showSignInView = true
                                 print ( "User Signed Out")
                             } catch {
                                 print (error)
@@ -153,6 +158,8 @@ struct SettingsView: View {
                 }
             }
         }
+            .environment(\.defaultMinListRowHeight, 55)
+
         
         
     }
@@ -197,6 +204,7 @@ func resetPassword() async throws {
 
 #Preview {
     NavigationStack {
-        SettingsView(showSignInView: .constant(true))
+        //SettingsView(showSignInView: .constant(true))
+        SettingsView()
     }
 }

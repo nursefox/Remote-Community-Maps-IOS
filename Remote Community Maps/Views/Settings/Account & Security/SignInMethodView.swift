@@ -148,6 +148,7 @@ struct SignInMethodView: View {
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Login")
+        .navigationBarBackButtonHidden()
     }
     
     // the cancel button

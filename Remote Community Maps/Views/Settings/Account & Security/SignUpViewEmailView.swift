@@ -137,6 +137,7 @@ struct SignUpViewEmailView: View {
         .errorAlert(error: $error)
         .padding()
         //.navigationTitle("Sign Up With Email")
+        
     }
     
     

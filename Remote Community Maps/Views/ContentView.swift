@@ -218,7 +218,8 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showSignInView) {
             NavigationStack {
-                RootView()
+                SettingsView()
+                //RootView()
                 //StartView()
                 //SignInMethodView(showSignInView: $showSignInView)
                 //AuthenticationView(showSignInView: $showSignInView)

@@ -76,6 +76,10 @@
 		DBD5D01F2B8868D3007F6DD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D01E2B8868D3007F6DD6 /* GoogleService-Info.plist */; };
 		DBD5D0212B8B18DD007F6DD6 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */; };
 		DBD5D0232B8B19B1007F6DD6 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0222B8B19B1007F6DD6 /* AccountSettingsView.swift */; };
+		DBD5D0252B8C8CE2007F6DD6 /* SignedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0242B8C8CE2007F6DD6 /* SignedInView.swift */; };
+		DBD5D0282B8D4771007F6DD6 /* EmailAndNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0272B8D4771007F6DD6 /* EmailAndNotificationsView.swift */; };
+		DBD5D02A2B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0292B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift */; };
+		DBD5D02C2B8D4792007F6DD6 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D02B2B8D4792007F6DD6 /* HelpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +148,10 @@
 		DBD5D01E2B8868D3007F6DD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		DBD5D0222B8B19B1007F6DD6 /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
+		DBD5D0242B8C8CE2007F6DD6 /* SignedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInView.swift; sourceTree = "<group>"; };
+		DBD5D0272B8D4771007F6DD6 /* EmailAndNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAndNotificationsView.swift; sourceTree = "<group>"; };
+		DBD5D0292B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAndLegalTermsView.swift; sourceTree = "<group>"; };
+		DBD5D02B2B8D4792007F6DD6 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +231,7 @@
 				DBD5CFA52B8865BB007F6DD6 /* LotInformationDetailView.swift */,
 				DBD5CF9B2B8865BB007F6DD6 /* LotDetailAndMapView.swift */,
 				DBD5CFA42B8865BB007F6DD6 /* ImageCardView.swift */,
+				DBD5D0262B8D4741007F6DD6 /* Settings */,
 				DBD5CFA72B8865BB007F6DD6 /* Authentication */,
 				DBD5CF9D2B8865BB007F6DD6 /* EditData */,
 			);
@@ -246,9 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				DBD5CFAE2B8865BB007F6DD6 /* RootView.swift */,
-				DBD5CFA92B8865BB007F6DD6 /* SettingsView.swift */,
-				DBD5CFAC2B8865BB007F6DD6 /* SignInMethodView.swift */,
-				DBD5CFB22B8865BB007F6DD6 /* SignUpViewEmailView.swift */,
 				DBD5CFA82B8865BB007F6DD6 /* StartView.swift */,
 				DBD5CFAA2B8865BB007F6DD6 /* LoginView.swift */,
 				DBD5CFAB2B8865BB007F6DD6 /* AuthenticationManager.swift */,
@@ -256,8 +262,6 @@
 				DBD5CFAF2B8865BB007F6DD6 /* WelcomeView.swift */,
 				DBD5CFB02B8865BB007F6DD6 /* AuthenticationView.swift */,
 				DBD5CFB12B8865BB007F6DD6 /* SignInEmailView.swift */,
-				DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */,
-				DBD5D0222B8B19B1007F6DD6 /* AccountSettingsView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -410,6 +414,30 @@
 			path = "Seed Data";
 			sourceTree = "<group>";
 		};
+		DBD5D0262B8D4741007F6DD6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DBD5CFA92B8865BB007F6DD6 /* SettingsView.swift */,
+				DBD5D02D2B8D483A007F6DD6 /* Account & Security */,
+				DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */,
+				DBD5D0272B8D4771007F6DD6 /* EmailAndNotificationsView.swift */,
+				DBD5D0292B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift */,
+				DBD5D02B2B8D4792007F6DD6 /* HelpView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DBD5D02D2B8D483A007F6DD6 /* Account & Security */ = {
+			isa = PBXGroup;
+			children = (
+				DBD5D0222B8B19B1007F6DD6 /* AccountSettingsView.swift */,
+				DBD5D0242B8C8CE2007F6DD6 /* SignedInView.swift */,
+				DBD5CFAC2B8865BB007F6DD6 /* SignInMethodView.swift */,
+				DBD5CFB22B8865BB007F6DD6 /* SignUpViewEmailView.swift */,
+			);
+			path = "Account & Security";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -502,9 +530,11 @@
 				DBD5CFBF2B8865BB007F6DD6 /* LotInformationDetailView.swift in Sources */,
 				DBD5CFBA2B8865BB007F6DD6 /* LocationListView.swift in Sources */,
 				DBD5CFB72B8865BB007F6DD6 /* RemoteCommunityMapAllLocationsView.swift in Sources */,
+				DBD5D0252B8C8CE2007F6DD6 /* SignedInView.swift in Sources */,
 				DBD5CFF72B8865C9007F6DD6 /* FirebaseWriteTestView.swift in Sources */,
 				DBD5CFC12B8865BB007F6DD6 /* StartView.swift in Sources */,
 				DBD5CFC42B8865BB007F6DD6 /* AuthenticationManager.swift in Sources */,
+				DBD5D0282B8D4771007F6DD6 /* EmailAndNotificationsView.swift in Sources */,
 				DBD5CFBB2B8865BB007F6DD6 /* AddPointOfInterestView.swift in Sources */,
 				DBD5CFCB2B8865BB007F6DD6 /* SignUpViewEmailView.swift in Sources */,
 				DBD5CFC22B8865BB007F6DD6 /* SettingsView.swift in Sources */,
@@ -518,6 +548,7 @@
 				DBD5CFBC2B8865BB007F6DD6 /* EditPointOfInterestLocationView.swift in Sources */,
 				DBD5D0192B8865E7007F6DD6 /* RemoteCommunitySamples.swift in Sources */,
 				DBD5CFED2B8865C9007F6DD6 /* CloudLotInformation.swift in Sources */,
+				DBD5D02A2B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift in Sources */,
 				DBD5CFC82B8865BB007F6DD6 /* WelcomeView.swift in Sources */,
 				DBD5CFD22B8865C3007F6DD6 /* LotInformation.swift in Sources */,
 				DBD5CFC72B8865BB007F6DD6 /* RootView.swift in Sources */,
@@ -545,6 +576,7 @@
 				DBD5CFBD2B8865BB007F6DD6 /* SheetHouseDetailsView.swift in Sources */,
 				DBD5CF782B88645C007F6DD6 /* Remote_Community_MapsApp.swift in Sources */,
 				DBD5CFC52B8865BB007F6DD6 /* SignInMethodView.swift in Sources */,
+				DBD5D02C2B8D4792007F6DD6 /* HelpView.swift in Sources */,
 				DBD5CFB92B8865BB007F6DD6 /* LotInformationEditLotColours.swift in Sources */,
 				DBD5CFB42B8865BB007F6DD6 /* RemoteCommunitiesListView.swift in Sources */,
 				DBD5D0052B8865CF007F6DD6 /* Extensions.swift in Sources */,

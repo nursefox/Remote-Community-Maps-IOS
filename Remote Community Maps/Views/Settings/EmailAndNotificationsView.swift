@@ -1,25 +1,19 @@
 //
-//  AccountSettingsView.swift
+//  EmailAndNotificationsView.swift
 //  Remote Community Maps
 //
-//  Created by Benjamin Fox on 25/2/2024.
+//  Created by Benjamin Fox on 27/2/2024.
 //
 
 import SwiftUI
 
-struct AccountSettingsView: View {
+struct EmailAndNotificationsView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var firstName = ""
-    @State private var lastName = ""
-    
     var body: some View {
         VStack {
-            Form {
-                TextField("First Name", text: $firstName)
-                TextField("Last name", text: $lastName)
-            }
+            Text("Email and Notifications")
         }
         .toolbar {
             ToolbarItem(placement: .cancellationAction, content: cancelButton)
@@ -28,7 +22,7 @@ struct AccountSettingsView: View {
         .toolbarBackground(.white, for: .navigationBar) //<- Set background
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Acccount & Security")
+        .navigationTitle("Email & Notifications")
         .navigationBarBackButtonHidden()
         
     }
@@ -40,7 +34,5 @@ struct AccountSettingsView: View {
 }
 
 #Preview {
-    NavigationStack {
-        AccountSettingsView()
-    }
+    EmailAndNotificationsView()
 }
