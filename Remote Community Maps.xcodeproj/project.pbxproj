@@ -75,7 +75,7 @@
 		DBD5D01D2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D01C2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson */; };
 		DBD5D01F2B8868D3007F6DD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D01E2B8868D3007F6DD6 /* GoogleService-Info.plist */; };
 		DBD5D0212B8B18DD007F6DD6 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */; };
-		DBD5D0232B8B19B1007F6DD6 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0222B8B19B1007F6DD6 /* AccountSettingsView.swift */; };
+		DBD5D0232B8B19B1007F6DD6 /* AccountSettingsAndSecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0222B8B19B1007F6DD6 /* AccountSettingsAndSecurityView.swift */; };
 		DBD5D0252B8C8CE2007F6DD6 /* SignedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0242B8C8CE2007F6DD6 /* SignedInView.swift */; };
 		DBD5D0282B8D4771007F6DD6 /* EmailAndNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0272B8D4771007F6DD6 /* EmailAndNotificationsView.swift */; };
 		DBD5D02A2B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0292B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift */; };
@@ -147,7 +147,7 @@
 		DBD5D01C2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - Santa Teresa - NT.geojson"; sourceTree = "<group>"; };
 		DBD5D01E2B8868D3007F6DD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
-		DBD5D0222B8B19B1007F6DD6 /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
+		DBD5D0222B8B19B1007F6DD6 /* AccountSettingsAndSecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsAndSecurityView.swift; sourceTree = "<group>"; };
 		DBD5D0242B8C8CE2007F6DD6 /* SignedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInView.swift; sourceTree = "<group>"; };
 		DBD5D0272B8D4771007F6DD6 /* EmailAndNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAndNotificationsView.swift; sourceTree = "<group>"; };
 		DBD5D0292B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAndLegalTermsView.swift; sourceTree = "<group>"; };
@@ -430,7 +430,7 @@
 		DBD5D02D2B8D483A007F6DD6 /* Account & Security */ = {
 			isa = PBXGroup;
 			children = (
-				DBD5D0222B8B19B1007F6DD6 /* AccountSettingsView.swift */,
+				DBD5D0222B8B19B1007F6DD6 /* AccountSettingsAndSecurityView.swift */,
 				DBD5D0242B8C8CE2007F6DD6 /* SignedInView.swift */,
 				DBD5CFAC2B8865BB007F6DD6 /* SignInMethodView.swift */,
 				DBD5CFB22B8865BB007F6DD6 /* SignUpViewEmailView.swift */,
@@ -582,7 +582,7 @@
 				DBD5D0052B8865CF007F6DD6 /* Extensions.swift in Sources */,
 				DBD5D0042B8865CF007F6DD6 /* DataController.swift in Sources */,
 				DBD5CFF92B8865C9007F6DD6 /* Agent.swift in Sources */,
-				DBD5D0232B8B19B1007F6DD6 /* AccountSettingsView.swift in Sources */,
+				DBD5D0232B8B19B1007F6DD6 /* AccountSettingsAndSecurityView.swift in Sources */,
 				DBD5CFF52B8865C9007F6DD6 /* CloudAllFruitsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,6 +722,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Remote-Community-Maps-Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Required For Navigation";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Required for Navigation";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -754,6 +755,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Remote-Community-Maps-Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Required For Navigation";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Required for Navigation";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -13,17 +13,69 @@ struct SignedInView: View {
     
     var body: some View {
         VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            
+            Form {
+                
+                Text ("User Is Authenticated")
+                
+                Section("Account Details") {
+                    displayAuthenticatedUserEmail()
+                }
+                
+                if AuthenticationManager.shared.signedIn {
+                    Section("Account") {
+                        List {
+                            Button {
+                                Task {
+                                    do {
+                                        try logOut()
+                                        //self.showSignInView = true
+                                        print ( "User Signed Out")
+                                    } catch {
+                                        print (error)
+                                    }
+                                }
+                            } label: {
+                                HStack {
+                                    Image(systemName: "rectangle.portrait.and.arrow.right")
+                                        .foregroundStyle(.red)
+                                    Text ("Log Out")
+                                        .foregroundStyle(.red)
+                                }
+                            }
+                            
+                            
+                            Button {
+                                Task {
+                                    do {
+                                        try await resetPassword()
+                                        print ("Password has been reset")
+                                    } catch {
+                                        print (error)
+                                    }
+                                }
+                            } label: {
+                                HStack {
+                                    Image(systemName: "lock.open.rotation")
+                                    Text ("Reset Password")
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction, content: cancelButton)
+            }
+            .accentColor(.black)
+            .toolbarBackground(.white, for: .navigationBar) //<- Set background
+            .toolbarBackground(.visible, for: .navigationBar)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Acccount & Security")
+            .navigationBarBackButtonHidden()
         }
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction, content: cancelButton)
-        }
-        .accentColor(.black)
-        .toolbarBackground(.white, for: .navigationBar) //<- Set background
-        .toolbarBackground(.visible, for: .navigationBar)
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Acccount & Security")
-        .navigationBarBackButtonHidden()
+        
     }
     
     // the cancel button
@@ -31,6 +83,36 @@ struct SignedInView: View {
         Button { dismiss() } label: { Image(systemName: "xmark").fontWeight(.bold) }
     }
     
+    func logOut () throws {
+        try AuthenticationManager.shared.signOut()
+    }
+    
+    
+    
+    func resetPassword() async throws {
+        let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
+        
+        guard let email = authUser.email else {
+            throw URLError(.fileDoesNotExist)
+        }
+        
+        try await AuthenticationManager.shared.resetPassword(email: email)
+    }
+    
+    
+    func displayAuthenticatedUserEmail() -> some View {
+        
+        var userEmail = ""
+        
+        do {
+            let user = try AuthenticationManager.shared.getSignedInUser()
+            userEmail = user.email ?? ""
+            //return Text (user.email ?? "")
+        } catch {
+            return Text ("Sign in Error with attempting to sign into account")
+        }
+        return Text (userEmail)
+    }
 }
 
 #Preview {

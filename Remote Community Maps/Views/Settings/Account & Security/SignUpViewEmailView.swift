@@ -23,7 +23,7 @@ struct SignUpViewEmailView: View {
     
     @State private var error: Swift.Error?
     
-    @Binding var showSignInView: Bool
+    //@Binding var showSignInView: Bool
     
     var body: some View {
         VStack {
@@ -114,7 +114,7 @@ struct SignUpViewEmailView: View {
                     // Sign Up - Create a new account
                     do {
                         try await signIntoAuthenticationServer()
-                        showSignInView = false
+                        //showSignInView = false
                     } catch {
                         print ("Sign in Error with attempting to create new account")
                         print (error)
@@ -176,6 +176,7 @@ struct SignUpViewEmailView: View {
 
 #Preview {
     NavigationStack {
-        SignUpViewEmailView(showSignInView: .constant(false))
+        //SignUpViewEmailView(showSignInView: .constant(false))
+        SignUpViewEmailView()
     }
 }

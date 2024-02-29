@@ -15,7 +15,8 @@ struct AuthenticationView: View {
         NavigationStack {
             VStack {
                 NavigationLink {
-                    SignInMethodView(showSignInView: $showSignInView)
+                    SignInMethodView()
+                    //SignInMethodView(showSignInView: $showSignInView)
                     //SignInEmailView(showSignInView: $showSignInView)
                 } label: {
                     Text ("Sign In With Email")

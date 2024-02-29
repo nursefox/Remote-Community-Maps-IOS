@@ -219,6 +219,7 @@ struct ContentView: View {
         .sheet(isPresented: $showSignInView) {
             NavigationStack {
                 SettingsView()
+                //SettingsView($showSignInView)
                 //RootView()
                 //StartView()
                 //SignInMethodView(showSignInView: $showSignInView)

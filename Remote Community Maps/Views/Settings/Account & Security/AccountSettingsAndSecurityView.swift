@@ -7,16 +7,17 @@
 
 import SwiftUI
 
-struct AccountSettingsView: View {
+struct AccountSettingsAndSecurityView: View {
     
     @Environment(\.dismiss) var dismiss
     
     @State private var firstName = ""
     @State private var lastName = ""
     
+    @State private var showSignInView: Bool = false
+    
     var body: some View {
         VStack {
-            
             
             
             Form {
@@ -25,10 +26,13 @@ struct AccountSettingsView: View {
                     displayAuthenticatedUserEmail()
                 } else {
                     Text ("User Is NOT Signed In")
+                    
+                    SignInMethodView()
+                    //SignInMethodView(showSignInView: $showSignInView)
                 }
                 
-                TextField("First Name", text: $firstName)
-                TextField("Last name", text: $lastName)
+             //   TextField("First Name", text: $firstName)
+             //  TextField("Last Name", text: $lastName)
             }
         }
         .toolbar {
@@ -66,6 +70,6 @@ struct AccountSettingsView: View {
 
 #Preview {
     NavigationStack {
-        AccountSettingsView()
+        AccountSettingsAndSecurityView()
     }
 }

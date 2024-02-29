@@ -24,28 +24,21 @@ struct SignInMethodView: View {
  
     @Environment(\.dismiss) var dismiss
     
-    @Binding var showSignInView: Bool
+ //   @Binding var showSignInView: Bool
     
     
     var body: some View {
         
-        
         VStack {
-            
             Image("Login")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(minHeight: 150, maxHeight: 200)
             
-//            Text("Login")
-//                .font(.largeTitle)
-//                .fontWeight(.bold)
-//                .frame(maxWidth: .infinity, alignment: .leading)
-//            
             Divider()
             
             HStack {
-                Image(systemName: "at")
+                
                 TextField("Email", text: $email)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
@@ -60,7 +53,7 @@ struct SignInMethodView: View {
             .padding(.bottom, 4)
             
             HStack {
-                Image(systemName: "lock")
+                
                 SecureField("Password", text: $password)
                     //.focused($focus, equals: .password)
                     .submitLabel(.go)
@@ -76,7 +69,7 @@ struct SignInMethodView: View {
                 Task {
                     do {
                         try await signIntoAuthenticationServer()
-                        showSignInView = false
+                        //showSignInView = false
                     } catch {
                         print ("Sign in Error with attempting to sign into account")
                         print (error)
@@ -120,7 +113,8 @@ struct SignInMethodView: View {
             
             
             NavigationLink {
-                SignUpViewEmailView(showSignInView: $showSignInView)
+                //SignUpViewEmailView(showSignInView: $showSignInView)
+                SignUpViewEmailView()
             } label: {
                 Text ("Don't have an account yet?")
                 Text ("Sign Up")
@@ -186,6 +180,7 @@ struct SignInMethodView: View {
 
 #Preview {
     NavigationStack {
-        SignInMethodView(showSignInView: .constant(false))
+        //SignInMethodView(showSignInView: .constant(false))
+        SignInMethodView()
     }
 }
