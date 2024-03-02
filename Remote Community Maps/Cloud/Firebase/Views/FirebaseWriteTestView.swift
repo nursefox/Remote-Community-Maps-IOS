@@ -38,8 +38,8 @@ struct FirebaseWriteTestView: View {
                                                          state: "NT",
                                                          latitude: -23.94583428030692,
                                                          longitude: 132.7795533845188,
-                                                         latitudinalMeters: 1200,
-                                                         longitudinalMeters: 1600,
+                                                         latitudinalMeters: 1100,
+                                                         longitudinalMeters: 1350,
                                                          mapDataFileName: "Lot Data - Hermannsburg - NT.geojson",
                                                          imageFileName: "Profile Photo - Hermannsburg - NT",
                                                          published: true)

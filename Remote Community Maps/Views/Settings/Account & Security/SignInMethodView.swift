@@ -111,7 +111,6 @@ struct SignInMethodView: View {
             
             Divider()
             
-            
             NavigationLink {
                 //SignUpViewEmailView(showSignInView: $showSignInView)
                 SignUpViewEmailView()
@@ -123,10 +122,6 @@ struct SignInMethodView: View {
             }
             .padding([.top, .bottom], 50)
             .foregroundStyle(.black)
-       
-            
-            
-            
             
             Spacer()
             
