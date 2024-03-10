@@ -47,82 +47,7 @@ struct RemoteCommunitySearchView: View {
     var body: some View {
         
         VStack (alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-            
-//            HStack {
-//                
-//                // searchBar
-//                
-//                HStack {
-//                    Image(systemName: "magnifyingglass")
-//                    TextField("Search Map ...", text: $lotIdBeingSearched)
-//                        .onTapGesture {
-//                            withAnimation {
-//                                showCancelButton = true
-//                            }
-//                        }
-//                        .autocorrectionDisabled().keyboardType(.asciiCapable)
-//                }
-//                .padding(12)
-//                .background(Color(.systemFill).opacity(0.5))
-//                .clipShape(RoundedRectangle(cornerRadius: 10))
-//                .overlay(
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .stroke(Color(.systemFill), lineWidth: 1)
-//                )
-//                if showCancelButton {
-//                    Button("cancel", action: {
-//                        hideKeyboard()
-//                        lotIdBeingSearched = ""
-//                        withAnimation {
-//                            showCancelButton = false
-//                        }
-//                    })
-//                }
-//            }
-//            .padding(.horizontal, 20)
-//            .padding(.top, 10)
-            
-            
-            
-            //            HStack {
-            //                Image(systemName: "magnifyingglass")
-            //                TextField("Search for a House", text: $lotIdBeingSearched)
-            //                    .autocorrectionDisabled().keyboardType(.asciiCapable)
-            //            }
-            //            .textFieldStyle(.roundedBorder)
-            ////            .modifier(TextFieldGrayBackgroundColor())
-            ////            .border(.gray)
-            //            //.padding(.horizontal, 20)
-            //            .padding(20)
-            //
-            
-            
-            //Spacer()
-            //                Image(systemName: "magnifyingglass")
-            //                TextField ("Search for a House ...", text:$lotIdBeingSearched)
-            //                    .font(.subheadline)
-            //                    .padding (12)
-            //                    .background(.white)
-            //                    //.padding(.horizontal, 80)
-            //                    //.padding(.vertical, 25)
-            //                    .shadow(radius: 10)
-            //                    .autocorrectionDisabled().keyboardType(.asciiCapable)
-            //            Spacer()
-            //            }
-            
-            
-            
-            //            HStack (alignment: .top ) {
-            //                Form {
-            //                    TextField ("Search", text: $lotIdBeingSearched)
-            //                }
-            //                .frame(height: 100)
-            //            }
-            
-            
-            
             ZStack (alignment: .topTrailing) {
-                
                 Menu {
                     Picker("Map Styles", selection: $selectedMapOption) {
                         ForEach (MapOptions.allCases) { mapOption in
@@ -154,7 +79,6 @@ struct RemoteCommunitySearchView: View {
                 }
                 .zIndex(0)
                 .mapControls {
-                    //MapCompass()
                     MapPitchToggle()
                     MapUserLocationButton()
                 }
@@ -163,30 +87,6 @@ struct RemoteCommunitySearchView: View {
                 }
                 .mapStyle(selectedMapOption.mapStyle)
             }
-            //            .overlay (alignment: .topLeading) {
-            //                HStack {
-            //                    Spacer()
-            //                    TextField ("Search for a House ...", text:$lotIdBeingSearched)
-            //                        .font(.subheadline)
-            //                        .padding (12)
-            //                        .background(.white)
-            //                        .padding(.horizontal, 80)
-            //                        .padding(.vertical, 25)
-            //                        .shadow(radius: 10)
-            //                        .autocorrectionDisabled().keyboardType(.asciiCapable)
-            //                    Spacer()
-            //                }
-            //            }
-            //   .overlay (alignment: .bottom) {
-            //VStack ( alignment: .center ) {
-            
-            //   .frame(maxWidth: .infinity, maxHeight: 65, alignment: .center)
-            //.background(.white)
-            //    }
-            
-            //    }
-            //    }
-            
             
             HStack (alignment: .top ) {
                 Button("House Details", action: displayLotDetails )
@@ -207,21 +107,9 @@ struct RemoteCommunitySearchView: View {
             
             
         }
-        .searchable(text: $lotIdBeingSearched).disabled(searchableIsDisabled)
+        .searchable(text: $lotIdBeingSearched).disabled(searchableIsDisabled).autocorrectionDisabled().keyboardType(.asciiCapable)
         .navigationTitle("Search For House")
         .navigationBarTitleDisplayMode(.inline)
-        //.navigationBarTitleDisplayMode(.automatic)
-        
-        
-        //.navigationBarBackButtonHidden(showCancelButton)
-        
-        
-        //.searchable( text: $lotIdBeingSearched, isPresented: $showSearch).focused($houseToFindIsFocused)
-        
-        //.searchable( text: $lotIdBeingSearched, isPresented: $showSearch).autocorrectionDisabled().keyboardType(.asciiCapable)
-        //.searchable(text: $lotIdBeingSearched).autocorrectionDisabled().keyboardType(.asciiCapable)
-        
-        
         .onChange(of: lotIdBeingSearched) {
             searchForLot()
         }
@@ -233,10 +121,11 @@ struct RemoteCommunitySearchView: View {
             print ("Camera Position Longitude : " + String ( remoteCommunity.region.center.longitude ))
         }
         .sheet (isPresented: $isShowingBottomSheet, onDismiss: {searchableIsDisabled = false}){
-                SheetHouseDetailsView (lotInfo: annotatationsArray.first!, searchableFieldDisabled: searchableIsDisabled)
-            .presentationDetents([.height(275)])
-            .presentationCornerRadius(12)
-            .presentationDragIndicator(.hidden)
+            SheetHouseDetailsView (lotInfo: annotatationsArray.first!, searchableFieldDisabled: searchableIsDisabled)
+                .presentationDetents([.height(275)])
+                .presentationCornerRadius(12)
+                .presentationDragIndicator(.hidden)
+
             
             //  .ignoresSafeArea(.keyboard, edges: .bottom)
             

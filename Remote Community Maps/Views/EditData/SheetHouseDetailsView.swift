@@ -63,10 +63,6 @@ struct SheetHouseDetailsView: View {
                 .navigationTitle("House Details")
                 .onAppear() {
                     print ("SheetHouseDetailsView () : onAppear()")
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
-//                        print ("Hiding Keyboard")
-//                        hideKeyboard()
-//                    }
                 }
             }
         }
