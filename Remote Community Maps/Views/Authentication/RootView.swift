@@ -21,7 +21,7 @@ struct RootView: View {
                 SettingsView()
                 //SettingsView(showSignInView: $showSignInView)
             } else {
-                SignInMethodView()
+                AuthenticationView()
                 //SignInMethodView(showSignInView: $showSignInView)
             }
         //}

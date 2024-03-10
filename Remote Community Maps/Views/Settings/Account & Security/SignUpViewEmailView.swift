@@ -146,25 +146,25 @@ struct SignUpViewEmailView: View {
         
         if email.isEmpty {
             print ("Email Not Entered")
-            self.error = AuthenticationError.emailEmpty
+            self.error = AuthenticationManager.AuthenticationError.emailEmpty
             throw MyError.runtimeError("Email has not been entered")
         }
         
         if !email.isValidEmail {
             print ("Email failed Validation")
-            self.error = AuthenticationError.emailFailedValidation
+            self.error = AuthenticationManager.AuthenticationError.emailFailedValidation
             throw MyError.runtimeError("Email is not in a valid format")
         }
         
         if password.isEmpty && passwordConfirmation.isEmpty {
             print ("Both passwords are empty")
-            self.error = AuthenticationError.passwordsBothAreEmpty
+            self.error = AuthenticationManager.AuthenticationError.passwordsBothAreEmpty
             throw MyError.runtimeError("Both passwords do not match")
         }
         
         if password.isEmpty || password != passwordConfirmation {
             print ("Passwords do not match")
-            self.error = AuthenticationError.passwordsDoNotMatch
+            self.error = AuthenticationManager.AuthenticationError.passwordsDoNotMatch
             throw MyError.runtimeError("Passwords do not match")
         }
         

@@ -10,13 +10,14 @@ import SwiftUI
 import CoreLocation
 
 struct RemoteCommunitySearchView: View {
+    
     @Environment(\.modelContext) var modelContex
     @Bindable var remoteCommunity:RemoteCommunity
     
     @State private var activeLotInfoSelected: LotInformation?
     
     //@State private var searchText: String = ""
-    @State private var showSearch: Bool = false
+    //@State private var showSearch: Bool = true
     
     @State private var lotIdBeingSearched = ""
     
@@ -33,112 +34,248 @@ struct RemoteCommunitySearchView: View {
     @State private var selectedTag: String?
     
     @State private var isShowingBottomSheet = false
+    @State private var searchableIsDisabled = false
     
-    
-    @FocusState private var houseToFindIsFocused: Bool
+    //@FocusState private var houseToFindIsFocused: Bool
     
     @Environment(\.dismissSearch) var dismissSearch
     
+    @State var showCancelButton = false
+    // @Binding var text: String
+    
     
     var body: some View {
-        ZStack (alignment: .topTrailing) {
+        
+        VStack (alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
             
-            Menu {
-                Picker("Map Styles", selection: $selectedMapOption) {
-                    ForEach (MapOptions.allCases) { mapOption in
-                        Text (mapOption.rawValue.capitalized).tag(mapOption)
-                    }
-                }
-            } label: {
-                Image(systemName: selectedMapOption.mapStyleImage)
-                    .font(.title3)
-                    .padding([.leading, .trailing], 7)
-                    .padding([.top, .bottom], 10)
-                    .background(.white)
-                    .cornerRadius(8)
-                    .opacity(0.8)
-            }
-            .menuOrder(.fixed)
-            .offset(x:-5, y:115)
-            .zIndex(1)
+//            HStack {
+//                
+//                // searchBar
+//                
+//                HStack {
+//                    Image(systemName: "magnifyingglass")
+//                    TextField("Search Map ...", text: $lotIdBeingSearched)
+//                        .onTapGesture {
+//                            withAnimation {
+//                                showCancelButton = true
+//                            }
+//                        }
+//                        .autocorrectionDisabled().keyboardType(.asciiCapable)
+//                }
+//                .padding(12)
+//                .background(Color(.systemFill).opacity(0.5))
+//                .clipShape(RoundedRectangle(cornerRadius: 10))
+//                .overlay(
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .stroke(Color(.systemFill), lineWidth: 1)
+//                )
+//                if showCancelButton {
+//                    Button("cancel", action: {
+//                        hideKeyboard()
+//                        lotIdBeingSearched = ""
+//                        withAnimation {
+//                            showCancelButton = false
+//                        }
+//                    })
+//                }
+//            }
+//            .padding(.horizontal, 20)
+//            .padding(.top, 10)
             
-            Map(position: $cameraPosition, selection: $selectedTag) {
-                UserAnnotation()
+            
+            
+            //            HStack {
+            //                Image(systemName: "magnifyingglass")
+            //                TextField("Search for a House", text: $lotIdBeingSearched)
+            //                    .autocorrectionDisabled().keyboardType(.asciiCapable)
+            //            }
+            //            .textFieldStyle(.roundedBorder)
+            ////            .modifier(TextFieldGrayBackgroundColor())
+            ////            .border(.gray)
+            //            //.padding(.horizontal, 20)
+            //            .padding(20)
+            //
+            
+            
+            //Spacer()
+            //                Image(systemName: "magnifyingglass")
+            //                TextField ("Search for a House ...", text:$lotIdBeingSearched)
+            //                    .font(.subheadline)
+            //                    .padding (12)
+            //                    .background(.white)
+            //                    //.padding(.horizontal, 80)
+            //                    //.padding(.vertical, 25)
+            //                    .shadow(radius: 10)
+            //                    .autocorrectionDisabled().keyboardType(.asciiCapable)
+            //            Spacer()
+            //            }
+            
+            
+            
+            //            HStack (alignment: .top ) {
+            //                Form {
+            //                    TextField ("Search", text: $lotIdBeingSearched)
+            //                }
+            //                .frame(height: 100)
+            //            }
+            
+            
+            
+            ZStack (alignment: .topTrailing) {
                 
-                withAnimation {
-                    ForEach(annotatationsArray, id:\.self) { lotInfo in
-                        Marker(lotInfo.name, coordinate: lotInfo.lotCoordinates)
-                            .tag(lotInfo.name)
+                Menu {
+                    Picker("Map Styles", selection: $selectedMapOption) {
+                        ForEach (MapOptions.allCases) { mapOption in
+                            Text (mapOption.rawValue.capitalized).tag(mapOption)
+                        }
+                    }
+                } label: {
+                    Image(systemName: selectedMapOption.mapStyleImage)
+                        .font(.title3)
+                        .padding([.leading, .trailing], 7)
+                        .padding([.top, .bottom], 10)
+                        .background(.white)
+                        .cornerRadius(8)
+                        .opacity(0.8)
+                }
+                .menuOrder(.fixed)
+                .offset(x:-5, y:115)
+                .zIndex(1)
+                
+                Map(position: $cameraPosition, selection: $selectedTag) {
+                    UserAnnotation()
+                    
+                    withAnimation {
+                        ForEach(annotatationsArray, id:\.self) { lotInfo in
+                            Marker(lotInfo.name, coordinate: lotInfo.lotCoordinates)
+                                .tag(lotInfo.name)
+                        }
                     }
                 }
-            }
-            .zIndex(0)
-            .mapControls {
-                //MapCompass()
-                MapPitchToggle()
-                MapUserLocationButton()
-            }
-            .onMapCameraChange { mapCameraUpdateContext in
-                print("\(mapCameraUpdateContext.camera.centerCoordinate)")
-            }
-            .mapStyle(selectedMapOption.mapStyle)
-            .overlay (alignment: .bottom){
-                VStack ( alignment: .center ) {
-                    HStack (alignment: .top ) {
-                        
-                        Button("House Details", action: displayLotDetails )
-                            .buttonStyle(.bordered)
-                            .buttonBorderShape(.roundedRectangle)
-                            .disabled(!canBeNavigated())
-                            .tint(.teal)
-                            .controlSize(.small)
-                        
-                        Button("Navigate", action: activateNavigation)
-                            .buttonStyle(.bordered)
-                            .buttonBorderShape(.roundedRectangle)
-                            .disabled(!canBeNavigated())
-                            .tint(.blue)
-                            .controlSize(.small)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: 65, alignment: .center)
-                    .background(.white)
+                .zIndex(0)
+                .mapControls {
+                    //MapCompass()
+                    MapPitchToggle()
+                    MapUserLocationButton()
                 }
-                .navigationTitle("Search For Location")
-                .navigationBarTitleDisplayMode(.inline)
-                .searchable( text: $lotIdBeingSearched, isPresented: $showSearch).focused($houseToFindIsFocused)
-                .onChange(of: lotIdBeingSearched) {
-                    searchForLot()
+                .onMapCameraChange { mapCameraUpdateContext in
+                    // print("\(mapCameraUpdateContext.camera.centerCoordinate)")
                 }
-                .toolbarBackground(.visible, for: .navigationBar)
-                .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+                .mapStyle(selectedMapOption.mapStyle)
             }
+            //            .overlay (alignment: .topLeading) {
+            //                HStack {
+            //                    Spacer()
+            //                    TextField ("Search for a House ...", text:$lotIdBeingSearched)
+            //                        .font(.subheadline)
+            //                        .padding (12)
+            //                        .background(.white)
+            //                        .padding(.horizontal, 80)
+            //                        .padding(.vertical, 25)
+            //                        .shadow(radius: 10)
+            //                        .autocorrectionDisabled().keyboardType(.asciiCapable)
+            //                    Spacer()
+            //                }
+            //            }
+            //   .overlay (alignment: .bottom) {
+            //VStack ( alignment: .center ) {
+            
+            //   .frame(maxWidth: .infinity, maxHeight: 65, alignment: .center)
+            //.background(.white)
+            //    }
+            
+            //    }
+            //    }
+            
+            
+            HStack (alignment: .top ) {
+                Button("House Details", action: displayLotDetails )
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.roundedRectangle)
+                    .disabled(!canBeNavigated())
+                    .tint(.teal)
+                    .controlSize(.small)
+                
+                Button("Navigate", action: activateNavigation)
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.roundedRectangle)
+                    .disabled(!canBeNavigated())
+                    .tint(.blue)
+                    .controlSize(.small)
+            }
+            .padding (.bottom, 10)
+            
+            
         }
+        .searchable(text: $lotIdBeingSearched).disabled(searchableIsDisabled)
+        .navigationTitle("Search For House")
+        .navigationBarTitleDisplayMode(.inline)
+        //.navigationBarTitleDisplayMode(.automatic)
+        
+        
+        //.navigationBarBackButtonHidden(showCancelButton)
+        
+        
+        //.searchable( text: $lotIdBeingSearched, isPresented: $showSearch).focused($houseToFindIsFocused)
+        
+        //.searchable( text: $lotIdBeingSearched, isPresented: $showSearch).autocorrectionDisabled().keyboardType(.asciiCapable)
+        //.searchable(text: $lotIdBeingSearched).autocorrectionDisabled().keyboardType(.asciiCapable)
+        
+        
+        .onChange(of: lotIdBeingSearched) {
+            searchForLot()
+        }
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
         .onAppear() {
             cameraPosition = .region(remoteCommunity.region)
             print ("Camera Position Latitude : " + String ( remoteCommunity.region.center.latitude ))
             print ("Camera Position Longitude : " + String ( remoteCommunity.region.center.longitude ))
         }
-        .sheet (isPresented: $isShowingBottomSheet){
-            NavigationStack {
-                SheetHouseDetailsView (lotInfo: annotatationsArray.first!)
-            }
+        .sheet (isPresented: $isShowingBottomSheet, onDismiss: {searchableIsDisabled = false}){
+                SheetHouseDetailsView (lotInfo: annotatationsArray.first!, searchableFieldDisabled: searchableIsDisabled)
             .presentationDetents([.height(275)])
             .presentationCornerRadius(12)
             .presentationDragIndicator(.hidden)
+            
+            //  .ignoresSafeArea(.keyboard, edges: .bottom)
+            
         }
-        .onChange(of: selectedTag, { oldValue, newValue in
-            if let newValue {
-                print ("mapSelection.name = " + String (newValue))
-                isShowingBottomSheet = true
-            } else {
-                isShowingBottomSheet = false
-            }
-        })
+//        .onChange(of: selectedTag, { oldValue, newValue in
+//            if let newValue {
+//                print ("mapSelection.name = " + String (newValue))
+//                isShowingBottomSheet = true
+//            } else {
+//                isShowingBottomSheet = false
+//            }
+//        })
+    }
+    
+    var searchBar: some View {
+        HStack {
+            Image(systemName: "magnifyingglass").foregroundColor(.gray)
+            TextField("Search", text: $lotIdBeingSearched)
+                .font(Font.system(size: 21))
+                .onTapGesture {
+                    withAnimation {
+                        showCancelButton = true
+                    }
+                }
+                .autocorrectionDisabled().keyboardType(.asciiCapable)
+        }
+        .padding(7)
+        //.background(Color.searchBarColor)
+        .background(Color(.systemFill).opacity(0.5))
+        .cornerRadius(10)
     }
     
     
     func displayLotDetails () {
+        
+        searchableIsDisabled = true
         isShowingBottomSheet = true
+        // hideKeyboard()
+        // UIApplication.shared.endEditing()
     }
     
     func searchForLot () {
@@ -193,5 +330,15 @@ struct RemoteCommunitySearchView: View {
         }
         .modelContainer(DataController.previewContainer)
         .environmentObject(LocationDataManager.preview)
+    }
+}
+
+struct TextFieldGrayBackgroundColor: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(12)
+            .background(.gray.opacity(0.1))
+            .cornerRadius(8)
+            .foregroundColor(.primary)
     }
 }

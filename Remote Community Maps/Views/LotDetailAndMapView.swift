@@ -27,7 +27,7 @@ struct LotDetailAndMapView: View {
     @State private var selectedTag: String?
     
     
-    @FocusState private var houseToFindIsFocused: Bool
+    //@FocusState private var houseToFindIsFocused: Bool
     
     
     @Environment(\.dismissSearch) var dismissSearch

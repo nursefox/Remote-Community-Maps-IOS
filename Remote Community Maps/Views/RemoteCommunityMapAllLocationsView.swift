@@ -27,7 +27,7 @@ struct RemoteCommunityMapAllLocationsView: View {
     @State private var isShowingBottomSheet = false
     @State private var selectedTag: String?
     
-    @FocusState private var houseToFindIsFocused: Bool
+    //@FocusState private var houseToFindIsFocused: Bool
     
     @Environment(\.dismissSearch) var dismissSearch
     
@@ -63,7 +63,8 @@ struct RemoteCommunityMapAllLocationsView: View {
             .pickerStyle(.segmented)
             .navigationTitle(remoteCommunity.name)
             .navigationBarTitleDisplayMode(.inline)
-            .searchable( text: $searchText, isPresented:  $showSearch).focused($houseToFindIsFocused)
+            //.searchable( text: $searchText, isPresented:  $showSearch).focused($houseToFindIsFocused)
+            .searchable( text: $searchText, isPresented:  $showSearch)
             .onChange(of: searchText) {
                 print("Search Field changed to \($searchText.wrappedValue)")
                 

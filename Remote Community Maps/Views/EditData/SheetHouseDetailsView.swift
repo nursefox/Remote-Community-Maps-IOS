@@ -10,6 +10,7 @@ import SwiftUI
 struct SheetHouseDetailsView: View {
     
     @Bindable var lotInfo: LotInformation
+    @State var searchableFieldDisabled: Bool
     @State private var isLotInfoEditView = false
     @Environment(\.dismiss) var dismiss
     
@@ -50,7 +51,6 @@ struct SheetHouseDetailsView: View {
                             .controlSize(.small)
                         Spacer()
                     }
-                    
                 }
                 .listStyle(PlainListStyle())
                 .toolbar {
@@ -61,6 +61,13 @@ struct SheetHouseDetailsView: View {
                 .toolbarBackground(.visible, for: .navigationBar)
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("House Details")
+                .onAppear() {
+                    print ("SheetHouseDetailsView () : onAppear()")
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+//                        print ("Hiding Keyboard")
+//                        hideKeyboard()
+//                    }
+                }
             }
         }
         .sheet(isPresented: $isLotInfoEditView) {
@@ -70,6 +77,7 @@ struct SheetHouseDetailsView: View {
             .presentationDetents([.height(450)])
             .presentationCornerRadius(12)
             .presentationDragIndicator(.hidden)
+         // .ignoresSafeArea(.keyboard, edges: .bottom)
         }
     }
     
@@ -86,11 +94,11 @@ struct SheetHouseDetailsView: View {
 
 
 #Preview {
-    NavigationStack {
+    //NavigationStack {
         SingleItemPreview<LotInformation> { lotInfo in // set the type
-            SheetHouseDetailsView(lotInfo: lotInfo)
+            SheetHouseDetailsView(lotInfo: lotInfo, searchableFieldDisabled: false)
         }
         .modelContainer(DataController.previewContainer)
         .environmentObject(LocationDataManager.preview)
-    }
+   // }
 }

@@ -35,7 +35,7 @@ struct SettingsView: View {
                     if AuthenticationManager.shared.signedIn {
                         SignedInView()
                     } else {
-                        SignInMethodView()
+                        AuthenticationView()
                     }
                     
                     //AccountSettingsAndSecurityView()
@@ -145,7 +145,6 @@ struct SettingsView: View {
                                 }
                             }
                             
-                            
                             Button {
                                 Task {
                                     do {
@@ -166,8 +165,6 @@ struct SettingsView: View {
                 }
             }
             .environment(\.defaultMinListRowHeight, 55)
-            
-            
             
         }
         .toolbar {

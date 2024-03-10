@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AuthenticationView: View {
+struct OldAuthenticationView: View {
     
     @Binding var showSignInView: Bool
     
@@ -15,7 +15,7 @@ struct AuthenticationView: View {
         NavigationStack {
             VStack {
                 NavigationLink {
-                    SignInMethodView()
+                    AuthenticationView()
                     //SignInMethodView(showSignInView: $showSignInView)
                     //SignInEmailView(showSignInView: $showSignInView)
                 } label: {
@@ -37,6 +37,6 @@ struct AuthenticationView: View {
 
 #Preview {
     NavigationStack {
-        AuthenticationView(showSignInView: .constant(false))
+        OldAuthenticationView(showSignInView: .constant(false))
     }
 }

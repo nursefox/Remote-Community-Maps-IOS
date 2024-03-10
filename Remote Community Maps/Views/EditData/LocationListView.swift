@@ -14,7 +14,7 @@ struct LocationListView: View {
     
     @State private var lotIdBeingSearched = ""
     @State private var showSearch: Bool = false
-    @FocusState private var houseToFindIsFocused: Bool
+    //@FocusState private var houseToFindIsFocused: Bool
     
     
     var sortedLots: [LotInformation] {
@@ -37,7 +37,8 @@ struct LocationListView: View {
         }
         .navigationBarTitle(remoteCommunity.name, displayMode: .inline)
         .navigationBarTitleDisplayMode(.inline)
-        .searchable( text: $lotIdBeingSearched, isPresented: $showSearch).focused($houseToFindIsFocused)
+        //.searchable( text: $lotIdBeingSearched, isPresented: $showSearch).focused($houseToFindIsFocused)
+        .searchable( text: $lotIdBeingSearched, isPresented: $showSearch)
     }
 }
 

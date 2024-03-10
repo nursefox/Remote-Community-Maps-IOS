@@ -5,15 +5,39 @@
 //  Created by Benjamin Fox on 23/2/2024.
 //
 
-import SwiftUI
 import AuthenticationServices
+import FirebaseCore
+//import FirebaseAuth
+import GoogleSignIn
+import GoogleSignInSwift
+import SwiftUI
+import UIKit
 
 private enum FocusableField: Hashable {
     case email
     case password
 }
 
-struct SignInMethodView: View {
+
+@MainActor
+final class AuthenticationViewModel: ObservableObject {
+
+    func signIntoGoogle() async throws {
+        let helper = SignInGoogleHelper()
+        let tokens = try await helper.signIn()
+        try await AuthenticationManager.shared.signInWithGoogle(tokens: tokens)
+    }
+    
+    
+    func signIntoEmail() async throws {
+        
+    }
+}
+
+
+struct AuthenticationView: View {
+    
+    @StateObject private var viewModel = AuthenticationViewModel()
     
     //@FocusState private var focus: FocusableField?
     @State private var email = ""
@@ -38,7 +62,6 @@ struct SignInMethodView: View {
             Divider()
             
             HStack {
-                
                 TextField("Email", text: $email)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
@@ -53,7 +76,6 @@ struct SignInMethodView: View {
             .padding(.bottom, 4)
             
             HStack {
-                
                 SecureField("Password", text: $password)
                     //.focused($focus, equals: .password)
                     .submitLabel(.go)
@@ -89,15 +111,17 @@ struct SignInMethodView: View {
             Text ("Or")
                 .padding([.top, .bottom], 20)
             
-            Button (action: {}) {
-                Image ("Google")
-                Text ("Sign in With Google")
-                    .foregroundStyle(.black)
-                    .font(.headline)
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            GoogleSignInButton(scheme: .dark, style: .wide, state: .normal) {
+                Task {
+                    do {
+                        try await viewModel.signIntoGoogle()
+                        print ("Successfully signed into Google")
+                    } catch {
+                        print (error)
+                    }
+                }
             }
-            .buttonStyle(.bordered)
-            
+                        
             Divider()
             
             SignInWithAppleButton { request in
@@ -145,30 +169,38 @@ struct SignInMethodView: View {
         Button { dismiss() } label: { Image(systemName: "xmark").fontWeight(.bold) }
     }
     
+    
+    
+    
+    
+    
     func signIntoAuthenticationServer() async throws {
         
         // The user is telling us they have an account - lets check it out
         guard !email.isEmpty else {
             print ("Email Not Entered")
-            self.error = AuthenticationError.emailEmpty
+            self.error = AuthenticationManager.AuthenticationError.emailEmpty
             throw MyError.runtimeError("Email has not been entered")
         }
         
         if !email.isValidEmail {
             print ("Email failed Validation")
-            self.error = AuthenticationError.emailFailedValidation
+            self.error = AuthenticationManager.AuthenticationError.emailFailedValidation
             throw MyError.runtimeError("Email is not in a valid format")
         }
         
         guard !password.isEmpty else {
             print ("Password is empty")
-            self.error = AuthenticationError.passwordEmpty
+            self.error = AuthenticationManager.AuthenticationError.passwordEmpty
             throw MyError.runtimeError("Password is empty")
         }
         
+//        let (userAuthInfo, isNewUser) = try await AuthManager.shared.signInEmail(emailAddress: email, password: password)
+        
         let returnedUserData = try await AuthenticationManager.shared.signInUser(email: email, password: password)
+        
         print ("Success")
-        print (returnedUserData)
+      //  print (returnedUserData)
     }
 }
 
@@ -176,6 +208,6 @@ struct SignInMethodView: View {
 #Preview {
     NavigationStack {
         //SignInMethodView(showSignInView: .constant(false))
-        SignInMethodView()
+        AuthenticationView()
     }
 }

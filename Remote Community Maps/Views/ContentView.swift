@@ -192,6 +192,7 @@ struct ContentView: View {
             
             //.navigationBarTitle("Remote Community Maps", displayMode: .inline)
             .navigationBarTitle("RCM", displayMode: .automatic)
+            //.navigationViewStyle(.stack)
             Spacer()
             
             //            List {

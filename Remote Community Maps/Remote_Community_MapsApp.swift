@@ -5,8 +5,11 @@
 //  Created by Benjamin Fox on 23/2/2024.
 //
 
+
+//import SwiftfulFirebaseAuth
 import Firebase
 import FirebaseCore
+import GoogleSignIn
 import SwiftData
 import SwiftUI
 
@@ -23,8 +26,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
       
     FirebaseApp.configure()
 
+    
+      
     return true
   }
+    
+    func application(_ app: UIApplication,
+                 open url: URL,
+                 options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance.handle(url)
+    }
+    
 }
 
 @main
@@ -37,14 +49,21 @@ struct Remote_Community_MapsApp: App {
     @ObservedObject var router = Router()
     @StateObject var authService = AuthenticationManager()
     @StateObject var firestoreManager = FirestoreManager()
+
+    
+    //@StateObject var authManager = AuthManager(configuration: .firebase)
+
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+            //MapTestView()
+            // SearchableTestView()
         }
         .environmentObject(router)
         .environmentObject(authService)
         .environmentObject(firestoreManager)
+        //.environmentObject(authManager)
         .modelContainer(container)
     }
     

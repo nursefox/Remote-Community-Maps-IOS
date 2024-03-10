@@ -43,6 +43,17 @@ class AuthenticationManager: ObservableObject {
     }
     
     
+    func getProvider() throws {
+        guard let providerData = Auth.auth().currentUser?.providerData else {
+            throw URLError(.badServerResponse)
+        }
+        
+        for provider in providerData {
+            print (provider.providerID)
+        }
+    }
+    
+    
     func getSignedInUser () throws -> AuthDataResultModel {
         let user = Auth.auth().currentUser
         if let user = user {
@@ -63,6 +74,64 @@ class AuthenticationManager: ObservableObject {
         throw ("User Not Found")
     }
     
+ 
+    
+    
+    func getAuthenticatedUser() throws -> AuthDataResultModel {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badServerResponse)
+        }
+        return AuthDataResultModel(user: user)
+    }
+    
+    
+    
+    // Regular password acount sign out.
+    // Closure has whether sign out was successful or not
+    func regularSignOut(completion: @escaping (Error?) -> Void) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            completion(nil)
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+            completion(signOutError)
+        }
+    }
+    
+}
+
+
+
+
+// MARK: SIGN IN EMAIL
+extension AuthenticationManager {
+    
+    //MARK: - Traditional sign in
+    // Traditional sign in with password and email
+    func regularSignIn(email:String, password:String, completion: @escaping (Error?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) {  authResult, error in
+            if let e = error {
+                completion(e)
+            } else {
+                print("Login success")
+                completion(nil)
+            }
+        }
+    }
+    
+    // MARK: - Password Account
+    func regularCreateAccount(email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let e = error {
+                print(e.localizedDescription)
+                
+            } else {
+                print("Successfully created password account")
+            }
+        }
+    }
+    
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
         return AuthDataResultModel(user: authDataResult.user)
@@ -77,6 +146,9 @@ class AuthenticationManager: ObservableObject {
             throw (error)
         }
     }
+    
+    
+    
     
     
     
@@ -115,104 +187,69 @@ class AuthenticationManager: ObservableObject {
         throw ("Unknown Error")
     }
     
-    func getAuthenticatedUser() throws -> AuthDataResultModel {
-        guard let user = Auth.auth().currentUser else {
-            throw URLError(.badServerResponse)
-        }
-        return AuthDataResultModel(user: user)
-    }
-    
-    func signOut() throws {
-        try Auth.auth().signOut()
-    }
-    
     func resetPassword (email: String) async throws {
         try await Auth.auth().sendPasswordReset(withEmail: email)
     }
     
     
-    
-    
-    
-    
-    
-    
-    // MARK: - Password Account
-    func regularCreateAccount(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let e = error {
-                print(e.localizedDescription)
-                
-            } else {
-                print("Successfully created password account")
-            }
-        }
+    func signOut () throws {
+        try Auth.auth().signOut()
     }
     
-    //MARK: - Traditional sign in
-    // Traditional sign in with password and email
-    func regularSignIn(email:String, password:String, completion: @escaping (Error?) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) {  authResult, error in
-            if let e = error {
-                completion(e)
-            } else {
-                print("Login success")
-                completion(nil)
+    enum AuthenticationError: LocalizedError {
+        case emailEmpty
+        case emailFailedValidation
+        case passwordEmpty
+        case passwordsBothAreEmpty
+        case passwordsDoNotMatch
+        
+        var errorDescription: String? {
+            switch self {
+            case .emailEmpty:
+                return "Error"
+            case .emailFailedValidation:
+                return "Error"
+            case .passwordEmpty:
+                return "Error"
+            case .passwordsBothAreEmpty:
+                return "Error"
+            case .passwordsDoNotMatch:
+                return "Error"
             }
         }
-    }
-    
-    // Regular password acount sign out.
-    // Closure has whether sign out was successful or not
-    func regularSignOut(completion: @escaping (Error?) -> Void) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            completion(nil)
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
-            completion(signOutError)
+        
+        var recoverySuggestion: String? {
+            switch self {
+            case .emailEmpty:
+                return "Fill in a valid email address"
+            case .emailFailedValidation:
+                return "Please create a valid email address"
+            case .passwordEmpty:
+                return "Fill in a password"
+            case.passwordsBothAreEmpty:
+                return "Fill in both passwords"
+            case .passwordsDoNotMatch:
+                return "Please ensure both passwords match"
+            }
         }
     }
     
 }
 
-enum AuthenticationError: LocalizedError {
-    case emailEmpty
-    case emailFailedValidation
-    case passwordEmpty
-    case passwordsBothAreEmpty
-    case passwordsDoNotMatch
+
+// MARK: SIGN IN SSO
+extension AuthenticationManager {
     
-    var errorDescription: String? {
-        switch self {
-        case .emailEmpty:
-            return "Error"
-        case .emailFailedValidation:
-            return "Error"
-        case .passwordEmpty:
-            return "Error"
-        case .passwordsBothAreEmpty:
-            return "Error"
-        case .passwordsDoNotMatch:
-            return "Error"
-        }
+    @discardableResult
+    func signInWithGoogle(tokens: GoogleSignInResultModel) async throws -> AuthDataResultModel {
+        let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
+
+        return try await signIn(credential: credential)
     }
     
-    var recoverySuggestion: String? {
-        switch self {
-        case .emailEmpty:
-            return "Fill in a valid email address"
-        case .emailFailedValidation:
-            return "Please create a valid email address"
-        case .passwordEmpty:
-            return "Fill in a password"
-        case.passwordsBothAreEmpty:
-            return "Fill in both passwords"
-        case .passwordsDoNotMatch:
-            return "Please ensure both passwords match"
-        }
+    func signIn(credential: AuthCredential) async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signIn(with: credential)
+        return AuthDataResultModel(user: authDataResult.user)
     }
+    
 }
-
-

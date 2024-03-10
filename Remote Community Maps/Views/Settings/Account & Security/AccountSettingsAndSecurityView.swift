@@ -27,7 +27,7 @@ struct AccountSettingsAndSecurityView: View {
                 } else {
                     Text ("User Is NOT Signed In")
                     
-                    SignInMethodView()
+                    AuthenticationView()
                     //SignInMethodView(showSignInView: $showSignInView)
                 }
                 
