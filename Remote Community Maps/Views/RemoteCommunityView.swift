@@ -66,8 +66,18 @@ struct RemoteCommunityView: View {
                     NavigationLink (value: Router.Destination.communityListOfLocations(remoteCommunity) ){
                         Text("Update Details of Existing Location")
                     }
-                    
                 }
+                
+                Section(header: Text("Firebase")) {
+                    NavigationLink (value:
+                        Router.Destination.communityRemoteManagement(remoteCommunity) ){
+                        Text("Local/Remote Data Management")
+                    }
+                }
+                
+                
+                
+                
                 
                 
 //                Section(header: Text("Edit Map Data")) {
@@ -81,8 +91,48 @@ struct RemoteCommunityView: View {
 //                    }
 //                }
             }
+            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button("Delete Remote Data") {
+//                        //do {
+//                            print ("Deleting all remote data ...")
+////                            try modelContex.delete(model: RemoteCommunity.self)
+////                            try modelContex.delete(model: LotInformation.self)
+////                        } catch {
+////                            print ("Failed to delete data")
+////                        }
+//                    }
+//                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        print ("Saving remote data to Firebase ...")
+                        //showSignInView = true
+                    }, label: {
+                        Image(systemName: "checkmark.circle")
+                    })
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        print ("Saving remote data to Firebase ...")
+                        //showSignInView = true
+                    }, label: {
+                        Image(systemName: "x.circle")
+                    })
+                }
+                
+                
+            }
             .navigationBarTitle(remoteCommunity.name, displayMode: .inline)
         }
+    }
+    
+    func pushToRemoteServer () {
+        print ("pushToRemoteServer() : Start")
+     
+        
+        
     }
 }
 

@@ -25,9 +25,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     AppCheck.setAppCheckProviderFactory(providerFactory)
       
     FirebaseApp.configure()
-
-    
-      
+  
     return true
   }
     
@@ -36,7 +34,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                  options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance.handle(url)
     }
-    
 }
 
 @main
@@ -44,14 +41,12 @@ struct Remote_Community_MapsApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    let container: ModelContainer
-    @StateObject var locationDataManager: LocationDataManager
     @ObservedObject var router = Router()
     @StateObject var authService = AuthenticationManager()
     @StateObject var firestoreManager = FirestoreManager()
-
+    @StateObject var locationDataManager: LocationDataManager
     
-    //@StateObject var authManager = AuthManager(configuration: .firebase)
+    let container: ModelContainer
 
     
     var body: some Scene {
@@ -60,10 +55,9 @@ struct Remote_Community_MapsApp: App {
             //MapTestView()
             // SearchableTestView()
         }
-        .environmentObject(router)
         .environmentObject(authService)
         .environmentObject(firestoreManager)
-        //.environmentObject(authManager)
+        .environmentObject(router)
         .modelContainer(container)
     }
     
@@ -75,10 +69,6 @@ struct Remote_Community_MapsApp: App {
         
         let locationDataManager = LocationDataManager()
         _locationDataManager = StateObject(wrappedValue: locationDataManager)
-        
-//        let firestoreManager = FirestoreManager()
-//        _firestoreManager = StateObject(wrappedValue: firestoreManager)
-        
         
         // Setup SwiftData
         let schema = Schema([RemoteCommunity.self])

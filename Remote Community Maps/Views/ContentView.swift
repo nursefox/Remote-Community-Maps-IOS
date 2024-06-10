@@ -132,13 +132,6 @@ struct ContentView: View {
                             })
                         }
                             
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                         //}
                         
                         
@@ -146,6 +139,9 @@ struct ContentView: View {
                 //.searchable (text: $searchText)
                     .navigationDestination(for: Router.Destination.self) { destination in
                         switch destination {
+                            
+                        case let .communityRemoteManagement(community):
+                            FirebaseWriteTestView(remoteCommunity: community)
                             
                         case let .communityHomePageView (community):
                             RemoteCommunityView(remoteCommunity: community)
@@ -190,8 +186,7 @@ struct ContentView: View {
                     }
             }
             
-            //.navigationBarTitle("Remote Community Maps", displayMode: .inline)
-            .navigationBarTitle("RCM", displayMode: .automatic)
+            .navigationBarTitle("Remote Maps", displayMode: .automatic)
             //.navigationViewStyle(.stack)
             Spacer()
             

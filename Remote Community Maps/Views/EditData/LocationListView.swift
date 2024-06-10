@@ -16,7 +16,6 @@ struct LocationListView: View {
     @State private var showSearch: Bool = false
     //@FocusState private var houseToFindIsFocused: Bool
     
-    
     var sortedLots: [LotInformation] {
         remoteCommunity.lotData.sorted {
             $0.name < $1.name

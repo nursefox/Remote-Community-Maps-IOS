@@ -17,6 +17,7 @@ final class Router: ObservableObject {
         case communityEditColours (RemoteCommunity)
         case communityAddPointOfInterest (RemoteCommunity)
         case communityListOfLocations (RemoteCommunity)
+        case communityRemoteManagement (RemoteCommunity)
         
         case lotInfoDetailView (LotInformation)
         case lotInfoEditView (LotInformation)

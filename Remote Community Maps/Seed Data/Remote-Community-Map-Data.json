@@ -6,8 +6,8 @@
         "state": "Northern Territory",
         "latitude": -24.13163822827027,
         "longitude": 134.37364305192244,
-        "latitudinalMeters": 1000,
-        "longitudinalMeters": 1000,
+        "latitudinalMeters": 1200,
+        "longitudinalMeters": 1200,
         "mapDataFileName": "Lot Data - Santa Teresa - NT.geojson",
         "imageFileName": "Profile Photo - Santa Teresa - NT",
         "published": true

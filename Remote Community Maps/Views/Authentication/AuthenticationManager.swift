@@ -22,8 +22,6 @@ struct AuthDataResultModel {
 }
 
 
-
-
 class AuthenticationManager: ObservableObject {
     
     static let shared: AuthenticationManager = AuthenticationManager()

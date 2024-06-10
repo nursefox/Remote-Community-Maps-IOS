@@ -85,18 +85,6 @@
 		DBD5D0302B92B4FA007F6DD6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = DBD5D02F2B92B4FA007F6DD6 /* GoogleSignIn */; };
 		DBD5D0322B92B4FA007F6DD6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DBD5D0312B92B4FA007F6DD6 /* GoogleSignInSwift */; };
 		DBD5D0342B93F7B2007F6DD6 /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0332B93F7B2007F6DD6 /* SignInGoogleHelper.swift */; };
-		DBD5D0492B943D15007F6DD6 /* SignInWithAppleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D03A2B943D15007F6DD6 /* SignInWithAppleButtonView.swift */; };
-		DBD5D04A2B943D15007F6DD6 /* AuthManagerEnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D03B2B943D15007F6DD6 /* AuthManagerEnvironmentKey.swift */; };
-		DBD5D04B2B943D15007F6DD6 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D03C2B943D15007F6DD6 /* AuthManager.swift */; };
-		DBD5D04C2B943D15007F6DD6 /* SignInWithGoogleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D03D2B943D15007F6DD6 /* SignInWithGoogleButtonView.swift */; };
-		DBD5D04D2B943D15007F6DD6 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D03F2B943D15007F6DD6 /* AuthProvider.swift */; };
-		DBD5D04E2B943D15007F6DD6 /* FirebaseAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0402B943D15007F6DD6 /* FirebaseAuthProvider.swift */; };
-		DBD5D04F2B943D15007F6DD6 /* MockAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0412B943D15007F6DD6 /* MockAuthProvider.swift */; };
-		DBD5D0502B943D15007F6DD6 /* UIApplication+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0432B943D15007F6DD6 /* UIApplication+EXT.swift */; };
-		DBD5D0512B943D15007F6DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D0452B943D15007F6DD6 /* Assets.xcassets */; };
-		DBD5D0522B943D15007F6DD6 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0472B943D15007F6DD6 /* SignInWithApple.swift */; };
-		DBD5D0532B943D15007F6DD6 /* SignInWithGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0482B943D15007F6DD6 /* SignInWithGoogle.swift */; };
-		DBD5D0552B9441CD007F6DD6 /* SignInWithEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0542B9441CD007F6DD6 /* SignInWithEmail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,18 +160,6 @@
 		DBD5D0292B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAndLegalTermsView.swift; sourceTree = "<group>"; };
 		DBD5D02B2B8D4792007F6DD6 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		DBD5D0332B93F7B2007F6DD6 /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
-		DBD5D03A2B943D15007F6DD6 /* SignInWithAppleButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButtonView.swift; sourceTree = "<group>"; };
-		DBD5D03B2B943D15007F6DD6 /* AuthManagerEnvironmentKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManagerEnvironmentKey.swift; sourceTree = "<group>"; };
-		DBD5D03C2B943D15007F6DD6 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		DBD5D03D2B943D15007F6DD6 /* SignInWithGoogleButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleButtonView.swift; sourceTree = "<group>"; };
-		DBD5D03F2B943D15007F6DD6 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
-		DBD5D0402B943D15007F6DD6 /* FirebaseAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthProvider.swift; sourceTree = "<group>"; };
-		DBD5D0412B943D15007F6DD6 /* MockAuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAuthProvider.swift; sourceTree = "<group>"; };
-		DBD5D0432B943D15007F6DD6 /* UIApplication+EXT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+EXT.swift"; sourceTree = "<group>"; };
-		DBD5D0452B943D15007F6DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DBD5D0472B943D15007F6DD6 /* SignInWithApple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
-		DBD5D0482B943D15007F6DD6 /* SignInWithGoogle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWithGoogle.swift; sourceTree = "<group>"; };
-		DBD5D0542B9441CD007F6DD6 /* SignInWithEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +207,6 @@
 				DBD5CFD42B8865C9007F6DD6 /* Cloud */,
 				DBD5CFFA2B8865CF007F6DD6 /* Utilities */,
 				DBD5D0092B8865D8007F6DD6 /* Seed Data */,
-				DBD5D0382B943D15007F6DD6 /* SwiftfulFirebaseAuth */,
 				DBD5CF7B2B88645E007F6DD6 /* Assets.xcassets */,
 				DBD5CF972B886536007F6DD6 /* Remote-Community-Maps-Info.plist */,
 				DBD5D01E2B8868D3007F6DD6 /* GoogleService-Info.plist */,
@@ -305,9 +280,9 @@
 		DBD5CFCD2B8865C3007F6DD6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DBD5CFCE2B8865C3007F6DD6 /* HealthCentre.swift */,
-				DBD5CFCF2B8865C3007F6DD6 /* LotInformation.swift */,
 				DBD5CFD02B8865C3007F6DD6 /* RemoteCommunity.swift */,
+				DBD5CFCF2B8865C3007F6DD6 /* LotInformation.swift */,
+				DBD5CFCE2B8865C3007F6DD6 /* HealthCentre.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,8 +311,8 @@
 		DBD5CFD62B8865C9007F6DD6 /* CloudModels */ = {
 			isa = PBXGroup;
 			children = (
-				DBD5CFD72B8865C9007F6DD6 /* CloudLotInformation.swift */,
 				DBD5CFD82B8865C9007F6DD6 /* CloudModelRemoteCommunity.swift */,
+				DBD5CFD72B8865C9007F6DD6 /* CloudLotInformation.swift */,
 			);
 			path = CloudModels;
 			sourceTree = "<group>";
@@ -399,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				DBD5CFE72B8865C9007F6DD6 /* FirestoreManager.swift */,
+				DBD5CFE92B8865C9007F6DD6 /* FirebaseWriteTestView.swift */,
 			);
 			path = FirestoreManager;
 			sourceTree = "<group>";
@@ -406,7 +382,6 @@
 		DBD5CFE82B8865C9007F6DD6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DBD5CFE92B8865C9007F6DD6 /* FirebaseWriteTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -474,65 +449,6 @@
 				DBD5D0222B8B19B1007F6DD6 /* AccountSettingsAndSecurityView.swift */,
 			);
 			path = "Account & Security";
-			sourceTree = "<group>";
-		};
-		DBD5D0382B943D15007F6DD6 /* SwiftfulFirebaseAuth */ = {
-			isa = PBXGroup;
-			children = (
-				DBD5D0392B943D15007F6DD6 /* Core */,
-				DBD5D0422B943D15007F6DD6 /* Extensions */,
-				DBD5D0462B943D15007F6DD6 /* Helpers */,
-				DBD5D03E2B943D15007F6DD6 /* Providers */,
-				DBD5D0442B943D15007F6DD6 /* Support */,
-			);
-			path = SwiftfulFirebaseAuth;
-			sourceTree = "<group>";
-		};
-		DBD5D0392B943D15007F6DD6 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				DBD5D03C2B943D15007F6DD6 /* AuthManager.swift */,
-				DBD5D03B2B943D15007F6DD6 /* AuthManagerEnvironmentKey.swift */,
-				DBD5D03A2B943D15007F6DD6 /* SignInWithAppleButtonView.swift */,
-				DBD5D03D2B943D15007F6DD6 /* SignInWithGoogleButtonView.swift */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		DBD5D03E2B943D15007F6DD6 /* Providers */ = {
-			isa = PBXGroup;
-			children = (
-				DBD5D03F2B943D15007F6DD6 /* AuthProvider.swift */,
-				DBD5D0402B943D15007F6DD6 /* FirebaseAuthProvider.swift */,
-				DBD5D0412B943D15007F6DD6 /* MockAuthProvider.swift */,
-			);
-			path = Providers;
-			sourceTree = "<group>";
-		};
-		DBD5D0422B943D15007F6DD6 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				DBD5D0432B943D15007F6DD6 /* UIApplication+EXT.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		DBD5D0442B943D15007F6DD6 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				DBD5D0452B943D15007F6DD6 /* Assets.xcassets */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
-		DBD5D0462B943D15007F6DD6 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				DBD5D0472B943D15007F6DD6 /* SignInWithApple.swift */,
-				DBD5D0482B943D15007F6DD6 /* SignInWithGoogle.swift */,
-				DBD5D0542B9441CD007F6DD6 /* SignInWithEmail.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -609,7 +525,6 @@
 			files = (
 				DBD5D0132B8865D8007F6DD6 /* Lot Data - Amoonguna - NT.geojson in Resources */,
 				DBD5D0142B8865D8007F6DD6 /* Lot Data - Mutitjulu - NT.geojson in Resources */,
-				DBD5D0512B943D15007F6DD6 /* Assets.xcassets in Resources */,
 				DBD5D0122B8865D8007F6DD6 /* Lot Data - Hermannsburg - NT.geojson in Resources */,
 				DBD5D0112B8865D8007F6DD6 /* Lot Data - Docker River - NT.geojson in Resources */,
 				DBD5D0152B8865D8007F6DD6 /* Lot Data - Areyonga - NT.geojson in Resources */,
@@ -629,9 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBD5CFBF2B8865BB007F6DD6 /* LotInformationDetailView.swift in Sources */,
-				DBD5D04B2B943D15007F6DD6 /* AuthManager.swift in Sources */,
 				DBD5CFBA2B8865BB007F6DD6 /* LocationListView.swift in Sources */,
-				DBD5D0492B943D15007F6DD6 /* SignInWithAppleButtonView.swift in Sources */,
 				DBD5CFB72B8865BB007F6DD6 /* RemoteCommunityMapAllLocationsView.swift in Sources */,
 				DBD5D0252B8C8CE2007F6DD6 /* SignedInView.swift in Sources */,
 				DBD5CFF72B8865C9007F6DD6 /* FirebaseWriteTestView.swift in Sources */,
@@ -647,7 +560,6 @@
 				DBD5CFD32B8865C3007F6DD6 /* RemoteCommunity.swift in Sources */,
 				DBD5CFB52B8865BB007F6DD6 /* RemoteCommunityView.swift in Sources */,
 				DBD5CFCA2B8865BB007F6DD6 /* SignInEmailView.swift in Sources */,
-				DBD5D0522B943D15007F6DD6 /* SignInWithApple.swift in Sources */,
 				DBD5D0172B8865E0007F6DD6 /* SingleItemPreview.swift in Sources */,
 				DBD5CFEF2B8865C9007F6DD6 /* CloudDataStoreRemoteCommunity.swift in Sources */,
 				DBD5CFBC2B8865BB007F6DD6 /* EditPointOfInterestLocationView.swift in Sources */,
@@ -655,7 +567,6 @@
 				DBD5CFED2B8865C9007F6DD6 /* CloudLotInformation.swift in Sources */,
 				DBD5D02A2B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift in Sources */,
 				DBD5CFC82B8865BB007F6DD6 /* WelcomeView.swift in Sources */,
-				DBD5D0532B943D15007F6DD6 /* SignInWithGoogle.swift in Sources */,
 				DBD5CFD22B8865C3007F6DD6 /* LotInformation.swift in Sources */,
 				DBD5CFC72B8865BB007F6DD6 /* RootView.swift in Sources */,
 				DBD5D0032B8865CF007F6DD6 /* UtilityHelpers.swift in Sources */,
@@ -666,36 +577,29 @@
 				DBD5CFD12B8865C3007F6DD6 /* HealthCentre.swift in Sources */,
 				DBD5CFF02B8865C9007F6DD6 /* CloudAllRemoteCommunitiesView.swift in Sources */,
 				DBD5D0082B8865CF007F6DD6 /* Bundle-Decodable.swift in Sources */,
-				DBD5D04F2B943D15007F6DD6 /* MockAuthProvider.swift in Sources */,
 				DBD5CFC02B8865BB007F6DD6 /* RemoteCommunitySearchView.swift in Sources */,
 				DBD5D0212B8B18DD007F6DD6 /* UserProfileView.swift in Sources */,
 				DBD5CFC92B8865BB007F6DD6 /* OldAuthenticationView.swift in Sources */,
 				DBD5D0022B8865CF007F6DD6 /* Binding-OnChange.swift in Sources */,
 				DBD5CFB82B8865BB007F6DD6 /* LotInformationEditView.swift in Sources */,
 				DBD5CFC32B8865BB007F6DD6 /* LoginView.swift in Sources */,
-				DBD5D0502B943D15007F6DD6 /* UIApplication+EXT.swift in Sources */,
 				DBD5CFC62B8865BB007F6DD6 /* HomeView.swift in Sources */,
 				DBD5D0062B8865CF007F6DD6 /* LocationDataManager.swift in Sources */,
 				DBD5CFF12B8865C9007F6DD6 /* CloudRemoteCommunityDetailView.swift in Sources */,
 				DBD5CFF62B8865C9007F6DD6 /* FirestoreManager.swift in Sources */,
 				DBD5CFF22B8865C9007F6DD6 /* CloudModelFruit.swift in Sources */,
-				DBD5D0552B9441CD007F6DD6 /* SignInWithEmail.swift in Sources */,
 				DBD5D0072B8865CF007F6DD6 /* Router.swift in Sources */,
 				DBD5CFF42B8865C9007F6DD6 /* CloudFruitDetailView.swift in Sources */,
 				DBD5CFBD2B8865BB007F6DD6 /* SheetHouseDetailsView.swift in Sources */,
 				DBD5CF782B88645C007F6DD6 /* Remote_Community_MapsApp.swift in Sources */,
 				DBD5CFC52B8865BB007F6DD6 /* AuthenticationView.swift in Sources */,
-				DBD5D04E2B943D15007F6DD6 /* FirebaseAuthProvider.swift in Sources */,
 				DBD5D02C2B8D4792007F6DD6 /* HelpView.swift in Sources */,
 				DBD5D0342B93F7B2007F6DD6 /* SignInGoogleHelper.swift in Sources */,
 				DBD5CFB92B8865BB007F6DD6 /* LotInformationEditLotColours.swift in Sources */,
-				DBD5D04A2B943D15007F6DD6 /* AuthManagerEnvironmentKey.swift in Sources */,
 				DBD5CFB42B8865BB007F6DD6 /* RemoteCommunitiesListView.swift in Sources */,
-				DBD5D04C2B943D15007F6DD6 /* SignInWithGoogleButtonView.swift in Sources */,
 				DBD5D0052B8865CF007F6DD6 /* Extensions.swift in Sources */,
 				DBD5D0042B8865CF007F6DD6 /* DataController.swift in Sources */,
 				DBD5CFF92B8865C9007F6DD6 /* Agent.swift in Sources */,
-				DBD5D04D2B943D15007F6DD6 /* AuthProvider.swift in Sources */,
 				DB4B77892B9D6293005FB6C5 /* MapTestView.swift in Sources */,
 				DBD5D0232B8B19B1007F6DD6 /* AccountSettingsAndSecurityView.swift in Sources */,
 				DBD5CFF52B8865C9007F6DD6 /* CloudAllFruitsView.swift in Sources */,
@@ -831,6 +735,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Remote Community Maps/Preview Content\"";
@@ -855,6 +760,7 @@
 				"OTHER_LDFLAGS[sdk=iphonesimulator*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nursefox.Remote-Community-Maps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -866,6 +772,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Remote Community Maps/Preview Content\"";
@@ -888,6 +795,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nursefox.Remote-Community-Maps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

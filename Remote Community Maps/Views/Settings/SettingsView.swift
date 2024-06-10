@@ -12,9 +12,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     //    @Binding var showSignInView: Bool
     
-    
     var body: some View {
-        
         VStack (alignment: .center) {
             Form {
                 NavigationLink {
@@ -27,10 +25,12 @@ struct SettingsView: View {
                     }
                 }
                 
-                
                 NavigationLink {
                     //RootView()
                     //SignInMethodView(showSignInView: $showSignInView)
+                    
+                    //if AuthManager.shared.currentUser.isSignedIn
+                    
                     
                     if AuthenticationManager.shared.signedIn {
                         SignedInView()
