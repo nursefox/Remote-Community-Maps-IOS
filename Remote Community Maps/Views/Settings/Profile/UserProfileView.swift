@@ -21,6 +21,8 @@ struct UserProfileView: View {
 
     @State private var jobTitle = ""
     
+    @State private var user: AuthDataResultModel? = nil
+    
     var body: some View {
         VStack {
             Form {
@@ -40,8 +42,17 @@ struct UserProfileView: View {
                 }
             }
         }
+        .onAppear {
+            try? loadCurrentUser()
+        }
         .toolbar {
             ToolbarItem(placement: .cancellationAction, content: cancelButton)
+            ToolbarItem(placement: .topBarTrailing) {
+                Image (systemName: "gear")
+                    .font(.headline
+                    )
+            
+            }
         }
         .accentColor(.black)
         .toolbarBackground(.white, for: .navigationBar) //<- Set background
@@ -57,6 +68,10 @@ struct UserProfileView: View {
         Button { dismiss() } label: { Image(systemName: "xmark").fontWeight(.bold) }
     }
 
+    func loadCurrentUser() throws {
+        self.user = try AuthenticationManager.shared.getAuthenticatedUser()
+    }
+    
 }
 
 #Preview {

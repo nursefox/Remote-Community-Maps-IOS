@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @Environment(\.dismiss) var dismiss
-    //    @Binding var showSignInView: Bool
+    @Binding var showSignInView: Bool
     
     var body: some View {
         VStack (alignment: .center) {
@@ -35,7 +35,8 @@ struct SettingsView: View {
                     if AuthenticationManager.shared.signedIn {
                         SignedInView()
                     } else {
-                        AuthenticationView()
+                        //AuthenticationView()
+                        AuthenticationView(showSignInView: $showSignInView)
                     }
                     
                     //AccountSettingsAndSecurityView()
@@ -205,6 +206,7 @@ struct SettingsView: View {
 
 #Preview {
     NavigationStack {
-        SettingsView()
+        SettingsView(showSignInView: .constant(false))
+        //SettingsView()
     }
 }

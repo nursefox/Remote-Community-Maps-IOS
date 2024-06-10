@@ -13,14 +13,21 @@ struct AuthDataResultModel {
     let uid: String
     let email: String?
     let photoUrl: String?
+    let isAnonymous: Bool
     
     init(user: User) {
         self.uid = user.uid
         self.email = user.email
         self.photoUrl = user.photoURL?.absoluteString
+        self.isAnonymous = user.isAnonymous
     }
 }
 
+enum AuthProviderOption: String {
+    case email = "password"
+    case google = "google.com"
+    case apple = "apple.com"
+}
 
 class AuthenticationManager: ObservableObject {
     
@@ -40,7 +47,6 @@ class AuthenticationManager: ObservableObject {
         }
     }
     
-    
     func getProvider() throws {
         guard let providerData = Auth.auth().currentUser?.providerData else {
             throw URLError(.badServerResponse)
@@ -51,7 +57,23 @@ class AuthenticationManager: ObservableObject {
         }
     }
     
-    
+    func getProviders() throws -> [AuthProviderOption] {
+        guard let providerData = Auth.auth().currentUser?.providerData else {
+            throw URLError(.badServerResponse)
+        }
+        
+        var providers: [AuthProviderOption] = []
+        for provider in providerData {
+            if let option = AuthProviderOption(rawValue: provider.providerID) {
+                providers.append(option)
+            } else {
+                assertionFailure("Provider option not found: \(provider.providerID)")
+            }
+        }
+        print (providers)
+        return providers
+    }
+        
     func getSignedInUser () throws -> AuthDataResultModel {
         let user = Auth.auth().currentUser
         if let user = user {
@@ -72,17 +94,12 @@ class AuthenticationManager: ObservableObject {
         throw ("User Not Found")
     }
     
- 
-    
-    
     func getAuthenticatedUser() throws -> AuthDataResultModel {
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badServerResponse)
         }
         return AuthDataResultModel(user: user)
     }
-    
-    
     
     // Regular password acount sign out.
     // Closure has whether sign out was successful or not
@@ -96,7 +113,6 @@ class AuthenticationManager: ObservableObject {
             completion(signOutError)
         }
     }
-    
 }
 
 
@@ -105,7 +121,7 @@ class AuthenticationManager: ObservableObject {
 // MARK: SIGN IN EMAIL
 extension AuthenticationManager {
     
-    //MARK: - Traditional sign in
+    // MARK: - Traditional sign in
     // Traditional sign in with password and email
     func regularSignIn(email:String, password:String, completion: @escaping (Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) {  authResult, error in
@@ -136,7 +152,6 @@ extension AuthenticationManager {
     }
     
     func signUpUser(email: String, password: String) async throws -> AuthDataResultModel {
-        
         do {
             let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
             return AuthDataResultModel(user: authDataResult.user)
@@ -144,12 +159,6 @@ extension AuthenticationManager {
             throw (error)
         }
     }
-    
-    
-    
-    
-    
-    
     
     func signInUser(email: String, password: String) async throws -> AuthDataResultModel {
         do {
@@ -231,7 +240,6 @@ extension AuthenticationManager {
             }
         }
     }
-    
 }
 
 
@@ -241,13 +249,61 @@ extension AuthenticationManager {
     @discardableResult
     func signInWithGoogle(tokens: GoogleSignInResultModel) async throws -> AuthDataResultModel {
         let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
-
         return try await signIn(credential: credential)
     }
+    
+    
+    @discardableResult
+    func signInWithApple (tokens: SignInWithAppleResult) async throws -> AuthDataResultModel {
+        
+        let credential = OAuthProvider.credential(withProviderID: AuthProviderOption.apple.rawValue, idToken: tokens.token, rawNonce: tokens.nonce)
+        
+        return try await signIn(credential: credential)
+//        let authDataResult = try await Auth.auth().signInAnonymously()
+//        return AuthDataResultModel(user: authDataResult.user)
+    }
+    
+    
+    
     
     func signIn(credential: AuthCredential) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(with: credential)
         return AuthDataResultModel(user: authDataResult.user)
     }
     
+    // MARK: - Sign in anonymous
+    // Traditional sign in with password and email
+    @discardableResult
+    func signInAnonymous () async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signInAnonymously()
+        return AuthDataResultModel(user: authDataResult.user)
+    }
+    
+    
+    
+    
+    
+    
+    func linkEmail(email: String, password: String) async throws -> AuthDataResultModel {
+        let credential = EmailAuthProvider.credential(withEmail: email, link: password)
+        
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badURL)
+        }
+        
+        let authDataResult = try await user.link(with: credential)
+        return AuthDataResultModel(user: authDataResult.user)
+    }
+    
+//    func linkApple(tokens: SignInWithAppleResult) async throws -> AuthDataResultModel {
+//        let credential = OAuthProvider.credential(withProviderID: AuthProviderOption.apple.rawValue, idToken: tokens.token, rawNonece: tokens.nonce)
+//        
+//        guard let user = Auth.auth().currentUser else {
+//            throw URLError(.badURL)
+//        }
+//        
+//        let authDataResult = try await user.link(with: credential)
+//        return AuthDataResultModel(user: authDataResult.user)
+//    }
+
 }

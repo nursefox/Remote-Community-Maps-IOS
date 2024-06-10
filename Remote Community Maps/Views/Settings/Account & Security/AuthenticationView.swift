@@ -5,9 +5,8 @@
 //  Created by Benjamin Fox on 23/2/2024.
 //
 
-import AuthenticationServices
+
 import FirebaseCore
-//import FirebaseAuth
 import GoogleSignIn
 import GoogleSignInSwift
 import SwiftUI
@@ -18,19 +17,29 @@ private enum FocusableField: Hashable {
     case password
 }
 
-
 @MainActor
 final class AuthenticationViewModel: ObservableObject {
-
+    
+    let signInAppleHelper = SignInAppleHelper()
+    
     func signIntoGoogle() async throws {
         let helper = SignInGoogleHelper()
         let tokens = try await helper.signIn()
         try await AuthenticationManager.shared.signInWithGoogle(tokens: tokens)
     }
     
+    func signInApple() async throws {
+        let helper = SignInAppleHelper()
+        let tokens = try await helper.startSignInWithAppleFlow()
+        try await AuthenticationManager.shared.signInWithApple(tokens: tokens)
+    }
     
     func signIntoEmail() async throws {
         
+    }
+    
+    func signInAnonymous() async throws {
+        try await AuthenticationManager.shared.signInAnonymous()
     }
 }
 
@@ -45,10 +54,10 @@ struct AuthenticationView: View {
     @State private var error: Swift.Error?
     
     //@State private var showSignInView: Bool = false
- 
+    
     @Environment(\.dismiss) var dismiss
     
- //   @Binding var showSignInView: Bool
+    @Binding var showSignInView: Bool
     
     
     var body: some View {
@@ -65,11 +74,11 @@ struct AuthenticationView: View {
                 TextField("Email", text: $email)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
-                    //.focused($focus, equals: .email)
-//                    .submitLabel(.next)
-//                    .onSubmit {
-//                        self.focus = .password
-//                    }
+                //.focused($focus, equals: .email)
+                //                    .submitLabel(.next)
+                //                    .onSubmit {
+                //                        self.focus = .password
+                //                    }
             }
             .padding(.vertical, 6)
             .background(Divider(), alignment: .bottom)
@@ -77,7 +86,7 @@ struct AuthenticationView: View {
             
             HStack {
                 SecureField("Password", text: $password)
-                    //.focused($focus, equals: .password)
+                //.focused($focus, equals: .password)
                     .submitLabel(.go)
                     .onSubmit {
                         print ( "Calling sign in method")
@@ -111,27 +120,55 @@ struct AuthenticationView: View {
             Text ("Or")
                 .padding([.top, .bottom], 20)
             
+            Button (action: {
+                Task {
+                    do {
+                        try await viewModel.signInAnonymous()
+                        //showSignInView = false
+                        print ("Successfully signed in anonymously")
+                    } catch {
+                        print (error)
+                    }
+                }
+            }, label: {
+                Text ("Sign in Anonymously")
+                    .font(.headline)
+                    .frame(height: 40)
+                    .frame(maxWidth: .infinity)
+                    .foregroundStyle(.white)
+                    .background(.teal)
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+            })
+            
+            
             GoogleSignInButton(scheme: .dark, style: .wide, state: .normal) {
                 Task {
                     do {
                         try await viewModel.signIntoGoogle()
+                        showSignInView = false
                         print ("Successfully signed into Google")
                     } catch {
                         print (error)
                     }
                 }
             }
-                        
+            
             Divider()
             
-            SignInWithAppleButton { request in
-                print ("Signing in")
-            } onCompletion: { result in
-                print ("Finished Signing in")
-            }
-            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 45)
-            
-            //            .cornerRadius(8)
+            Button(action: {
+                Task {
+                    do {
+                        try await viewModel.signInApple()
+                        showSignInView = false
+                    } catch {
+                        print (error)
+                    }
+                }
+            }, label: {
+                SignInWithAppleButtonRepresentable(type: .default, style: .black)
+                    .allowsHitTesting(false)
+            })
+            .frame (height: 55)
             
             Divider()
             
@@ -170,10 +207,6 @@ struct AuthenticationView: View {
     }
     
     
-    
-    
-    
-    
     func signIntoAuthenticationServer() async throws {
         
         // The user is telling us they have an account - lets check it out
@@ -195,19 +228,19 @@ struct AuthenticationView: View {
             throw MyError.runtimeError("Password is empty")
         }
         
-//        let (userAuthInfo, isNewUser) = try await AuthManager.shared.signInEmail(emailAddress: email, password: password)
+        //        let (userAuthInfo, isNewUser) = try await AuthManager.shared.signInEmail(emailAddress: email, password: password)
         
         let returnedUserData = try await AuthenticationManager.shared.signInUser(email: email, password: password)
         
         print ("Success")
-      //  print (returnedUserData)
+        print (returnedUserData)
     }
 }
 
-
 #Preview {
     NavigationStack {
-        //SignInMethodView(showSignInView: .constant(false))
-        AuthenticationView()
+        
+        AuthenticationView(showSignInView: .constant(false))
+        //AuthenticationView()
     }
 }

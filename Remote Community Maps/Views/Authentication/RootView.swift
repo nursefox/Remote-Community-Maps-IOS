@@ -18,10 +18,11 @@ struct RootView: View {
         
         //ZStack {
             if AuthenticationManager.shared.signedIn {
-                SettingsView()
-                //SettingsView(showSignInView: $showSignInView)
+                //SettingsView()
+                SettingsView(showSignInView: $showSignInView)
             } else {
-                AuthenticationView()
+                //AuthenticationView()
+                AuthenticationView(showSignInView: $showSignInView)
                 //SignInMethodView(showSignInView: $showSignInView)
             }
         //}

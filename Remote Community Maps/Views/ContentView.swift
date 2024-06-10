@@ -214,8 +214,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showSignInView) {
             NavigationStack {
-                SettingsView()
-                //SettingsView($showSignInView)
+                //SettingsView()
+                SettingsView(showSignInView: $showSignInView)
+                //SettingsView(dismiss: <#T##arg#>, showSignInView: $showSignInView)
                 //RootView()
                 //StartView()
                 //SignInMethodView(showSignInView: $showSignInView)
