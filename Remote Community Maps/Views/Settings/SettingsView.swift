@@ -204,6 +204,12 @@ struct SettingsView: View {
     }
 }
 
+@MainActor
+final class SettingsViewModel: ObservableObject {
+    @Published var authProviders: [AuthProviderOption] = []
+    @Published var authUser: [AuthDataResultModel] = []
+}
+
 #Preview {
     NavigationStack {
         SettingsView(showSignInView: .constant(false))

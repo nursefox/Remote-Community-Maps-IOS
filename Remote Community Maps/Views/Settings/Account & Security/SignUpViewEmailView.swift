@@ -27,12 +27,10 @@ struct SignUpViewEmailView: View {
     
     var body: some View {
         VStack {
-            
-            
-            Image("SignUp")
+            Image("RCMIcon")
               .resizable()
               .aspectRatio(contentMode: .fit)
-              .frame(minHeight: 150, maxHeight: 200)
+              .frame(minHeight: 100, maxHeight: 100)
             
             Text("Sign up")
               .font(.largeTitle)

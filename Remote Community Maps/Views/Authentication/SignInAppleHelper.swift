@@ -23,7 +23,6 @@ struct SignInWithAppleButtonRepresentable: UIViewRepresentable {
         
     }
     
-    
 }
 
 struct SignInWithAppleResult {

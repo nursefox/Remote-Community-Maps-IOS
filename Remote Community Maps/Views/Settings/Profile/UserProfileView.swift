@@ -9,6 +9,8 @@ import SwiftUI
 
 struct UserProfileView: View {
     
+    @StateObject private var viewModel = UserProfileViewModel()
+    
     @Environment(\.dismiss) var dismiss
     
     @State private var firstName = ""
@@ -21,7 +23,7 @@ struct UserProfileView: View {
 
     @State private var jobTitle = ""
     
-    @State private var user: AuthDataResultModel? = nil
+    //@State private var user: AuthDataResultModel? = nil
     
     var body: some View {
         VStack {
@@ -40,10 +42,35 @@ struct UserProfileView: View {
                 Section ("Other") {
                     TextField("Job Title", text: $jobTitle)
                 }
+                
+                
             }
+            
+            List {
+                if let user = viewModel.user {
+                    Text ("UserID: \(user.userId)")
+                    
+                    if let isAnonymous = user.isAnonymous {
+                        Text ("Is Anonymous: \(isAnonymous.description.capitalized)")
+                    }
+                    
+                    
+                    
+                    Button {
+                        viewModel.togglePremiumStatus()
+                    } label: {
+                        Text ("User is premium: \((user.isPremium ?? false).description.capitalized)")
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+            }
+            
+            
+            
         }
-        .onAppear {
-            try? loadCurrentUser()
+        .task {
+            //try? loadCurrentUser()
+            try? await viewModel.loadCurrentUser()
         }
         .toolbar {
             ToolbarItem(placement: .cancellationAction, content: cancelButton)
@@ -68,9 +95,6 @@ struct UserProfileView: View {
         Button { dismiss() } label: { Image(systemName: "xmark").fontWeight(.bold) }
     }
 
-    func loadCurrentUser() throws {
-        self.user = try AuthenticationManager.shared.getAuthenticatedUser()
-    }
     
 }
 

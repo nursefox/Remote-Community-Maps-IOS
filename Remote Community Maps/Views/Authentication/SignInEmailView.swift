@@ -147,10 +147,10 @@ struct SignInEmailView: View {
             print (returnedUserData)
         }
     }
-    
-    
-   
 }
+
+
+
 
 #Preview {
     NavigationStack {

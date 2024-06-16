@@ -18,9 +18,15 @@ struct SignedInView: View {
                 
                 Text ("User Is Authenticated")
                 
+                Section("User ID:") {
+                    displayAuthenticatedUserId()
+                }
+                
                 Section("Account Details") {
                     displayAuthenticatedUserEmail()
                 }
+                
+                
                 
                 if AuthenticationManager.shared.signedIn {
                     Section("Account") {
@@ -109,9 +115,25 @@ struct SignedInView: View {
             userEmail = user.email ?? ""
             //return Text (user.email ?? "")
         } catch {
-            return Text ("Sign in Error with attempting to sign into account")
+            //return Text ("Sign in Error with attempting to sign into account")
+            return Text ("")
         }
         return Text (userEmail)
+    }
+    
+    
+    func displayAuthenticatedUserId() -> some View {
+        var userID = ""
+        
+        do {
+            let user = try AuthenticationManager.shared.getAuthenticatedUser()
+            userID = user.uid
+            print ("User ID: \(userID)")
+        } catch {
+            print (error)
+            return Text ("")
+        }
+        return Text (userID)
     }
 }
 

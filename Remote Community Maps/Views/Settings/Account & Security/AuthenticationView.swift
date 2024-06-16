@@ -17,33 +17,6 @@ private enum FocusableField: Hashable {
     case password
 }
 
-@MainActor
-final class AuthenticationViewModel: ObservableObject {
-    
-    let signInAppleHelper = SignInAppleHelper()
-    
-    func signIntoGoogle() async throws {
-        let helper = SignInGoogleHelper()
-        let tokens = try await helper.signIn()
-        try await AuthenticationManager.shared.signInWithGoogle(tokens: tokens)
-    }
-    
-    func signInApple() async throws {
-        let helper = SignInAppleHelper()
-        let tokens = try await helper.startSignInWithAppleFlow()
-        try await AuthenticationManager.shared.signInWithApple(tokens: tokens)
-    }
-    
-    func signIntoEmail() async throws {
-        
-    }
-    
-    func signInAnonymous() async throws {
-        try await AuthenticationManager.shared.signInAnonymous()
-    }
-}
-
-
 struct AuthenticationView: View {
     
     @StateObject private var viewModel = AuthenticationViewModel()
@@ -63,26 +36,19 @@ struct AuthenticationView: View {
     var body: some View {
         
         VStack {
-            Image("Login")
+            Image("RCMIcon")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(minHeight: 150, maxHeight: 200)
+                .frame(minHeight: 75, maxHeight: 75)
             
-            Divider()
+            //Divider()
             
             HStack {
                 TextField("Email", text: $email)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
-                //.focused($focus, equals: .email)
-                //                    .submitLabel(.next)
-                //                    .onSubmit {
-                //                        self.focus = .password
-                //                    }
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
             }
-            .padding(.vertical, 6)
-            .background(Divider(), alignment: .bottom)
-            .padding(.bottom, 4)
             
             HStack {
                 SecureField("Password", text: $password)
@@ -91,10 +57,8 @@ struct AuthenticationView: View {
                     .onSubmit {
                         print ( "Calling sign in method")
                     }
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
             }
-            .padding(.vertical, 6)
-            .background(Divider(), alignment: .bottom)
-            .padding(.bottom, 8)
             
             Button {
                 Task {
@@ -107,7 +71,7 @@ struct AuthenticationView: View {
                     }
                 }
             } label: {
-                Text ("Log In")
+                Text ("Sign In")
                     .font(.headline)
                     .frame(height: 40)
                     .frame(maxWidth: .infinity)
@@ -115,40 +79,17 @@ struct AuthenticationView: View {
                     .background(.blue)
                     .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             }
-            Divider()
             
-            Text ("Or")
-                .padding([.top, .bottom], 20)
-            
-            Button (action: {
-                Task {
-                    do {
-                        try await viewModel.signInAnonymous()
-                        //showSignInView = false
-                        print ("Successfully signed in anonymously")
-                    } catch {
-                        print (error)
-                    }
-                }
-            }, label: {
-                Text ("Sign in Anonymously")
-                    .font(.headline)
-                    .frame(height: 40)
-                    .frame(maxWidth: .infinity)
-                    .foregroundStyle(.white)
-                    .background(.teal)
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-            })
-            
-            
-            GoogleSignInButton(scheme: .dark, style: .wide, state: .normal) {
-                Task {
-                    do {
-                        try await viewModel.signIntoGoogle()
-                        showSignInView = false
-                        print ("Successfully signed into Google")
-                    } catch {
-                        print (error)
+            HStack {
+                GoogleSignInButton(scheme: .light, style: .wide, state: .normal) {
+                    Task {
+                        do {
+                            try await viewModel.signIntoGoogle()
+                            showSignInView = false
+                            print ("Successfully signed into Google")
+                        } catch {
+                            print (error)
+                        }
                     }
                 }
             }
@@ -165,10 +106,37 @@ struct AuthenticationView: View {
                     }
                 }
             }, label: {
-                SignInWithAppleButtonRepresentable(type: .default, style: .black)
+                SignInWithAppleButtonRepresentable(type: .default, style: .whiteOutline)
                     .allowsHitTesting(false)
             })
-            .frame (height: 55)
+            .frame (height: 50)
+            
+            
+            
+            Button (action: {
+                Task {
+                    do {
+                        try await viewModel.signInAnonymous()
+                        //showSignInView = false
+                        print ("Successfully signed in anonymously")
+                    } catch {
+                        print (error)
+                    }
+                }
+            }, label: {
+                Text ("Sign in Anonymously")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+            })
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.gray, lineWidth: 1)
+            )
+            .frame (height: 50)
+            
+            
+            
             
             Divider()
             
@@ -197,7 +165,7 @@ struct AuthenticationView: View {
         .toolbarBackground(.white, for: .navigationBar) //<- Set background
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Login")
+        .navigationTitle("Sign in to Community Maps")
         .navigationBarBackButtonHidden()
     }
     

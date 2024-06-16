@@ -10,6 +10,10 @@
 		DB4B77892B9D6293005FB6C5 /* MapTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B77882B9D6293005FB6C5 /* MapTestView.swift */; };
 		DB4B778B2B9DE90C005FB6C5 /* SearchableTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B778A2B9DE90C005FB6C5 /* SearchableTestView.swift */; };
 		DB6416872C1733CC00789767 /* SignInAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6416862C1733CC00789767 /* SignInAppleHelper.swift */; };
+		DB64168A2C1D4A0900789767 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6416892C1D4A0900789767 /* UserManager.swift */; };
+		DB64168C2C1E732900789767 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64168B2C1E732900789767 /* AuthenticationViewModel.swift */; };
+		DB64168E2C1E976700789767 /* SignInEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64168D2C1E976700789767 /* SignInEmailViewModel.swift */; };
+		DB6416902C1E980C00789767 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64168F2C1E980C00789767 /* UserProfileViewModel.swift */; };
 		DBD5CF782B88645C007F6DD6 /* Remote_Community_MapsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CF772B88645C007F6DD6 /* Remote_Community_MapsApp.swift */; };
 		DBD5CF7C2B88645E007F6DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD5CF7B2B88645E007F6DD6 /* Assets.xcassets */; };
 		DBD5CF7F2B88645E007F6DD6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD5CF7E2B88645E007F6DD6 /* Preview Assets.xcassets */; };
@@ -93,6 +97,10 @@
 		DB4B778A2B9DE90C005FB6C5 /* SearchableTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableTestView.swift; sourceTree = "<group>"; };
 		DB6416852C16E6AF00789767 /* Remote Community Maps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Remote Community Maps.entitlements"; sourceTree = "<group>"; };
 		DB6416862C1733CC00789767 /* SignInAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleHelper.swift; sourceTree = "<group>"; };
+		DB6416892C1D4A0900789767 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		DB64168B2C1E732900789767 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		DB64168D2C1E976700789767 /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
+		DB64168F2C1E980C00789767 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		DBD5CF742B88645C007F6DD6 /* Remote Community Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Remote Community Maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD5CF772B88645C007F6DD6 /* Remote_Community_MapsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote_Community_MapsApp.swift; sourceTree = "<group>"; };
 		DBD5CF7B2B88645E007F6DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */,
+				DB64168F2C1E980C00789767 /* UserProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -280,10 +289,12 @@
 				DBD5CFA82B8865BB007F6DD6 /* StartView.swift */,
 				DBD5CFAA2B8865BB007F6DD6 /* LoginView.swift */,
 				DBD5CFAB2B8865BB007F6DD6 /* AuthenticationManager.swift */,
+				DB64168B2C1E732900789767 /* AuthenticationViewModel.swift */,
 				DBD5CFAD2B8865BB007F6DD6 /* HomeView.swift */,
 				DBD5CFAF2B8865BB007F6DD6 /* WelcomeView.swift */,
 				DBD5CFB02B8865BB007F6DD6 /* OldAuthenticationView.swift */,
 				DBD5CFB12B8865BB007F6DD6 /* SignInEmailView.swift */,
+				DB64168D2C1E976700789767 /* SignInEmailViewModel.swift */,
 				DBD5D0332B93F7B2007F6DD6 /* SignInGoogleHelper.swift */,
 				DB6416862C1733CC00789767 /* SignInAppleHelper.swift */,
 			);
@@ -388,6 +399,7 @@
 			children = (
 				DBD5CFE72B8865C9007F6DD6 /* FirestoreManager.swift */,
 				DBD5CFE92B8865C9007F6DD6 /* FirebaseWriteTestView.swift */,
+				DB6416892C1D4A0900789767 /* UserManager.swift */,
 			);
 			path = FirestoreManager;
 			sourceTree = "<group>";
@@ -443,8 +455,8 @@
 		DBD5D0262B8D4741007F6DD6 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				DB6416842C16AA6500789767 /* Profile */,
 				DBD5CFA92B8865BB007F6DD6 /* SettingsView.swift */,
+				DB6416842C16AA6500789767 /* Profile */,
 				DBD5D02D2B8D483A007F6DD6 /* Account & Security */,
 				DBD5D0272B8D4771007F6DD6 /* EmailAndNotificationsView.swift */,
 				DBD5D0292B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift */,
@@ -560,6 +572,7 @@
 				DBD5CFBA2B8865BB007F6DD6 /* LocationListView.swift in Sources */,
 				DBD5CFB72B8865BB007F6DD6 /* RemoteCommunityMapAllLocationsView.swift in Sources */,
 				DBD5D0252B8C8CE2007F6DD6 /* SignedInView.swift in Sources */,
+				DB64168E2C1E976700789767 /* SignInEmailViewModel.swift in Sources */,
 				DBD5CFF72B8865C9007F6DD6 /* FirebaseWriteTestView.swift in Sources */,
 				DBD5CFC12B8865BB007F6DD6 /* StartView.swift in Sources */,
 				DBD5CFC42B8865BB007F6DD6 /* AuthenticationManager.swift in Sources */,
@@ -604,12 +617,15 @@
 				DBD5CFF22B8865C9007F6DD6 /* CloudModelFruit.swift in Sources */,
 				DBD5D0072B8865CF007F6DD6 /* Router.swift in Sources */,
 				DBD5CFF42B8865C9007F6DD6 /* CloudFruitDetailView.swift in Sources */,
+				DB6416902C1E980C00789767 /* UserProfileViewModel.swift in Sources */,
 				DBD5CFBD2B8865BB007F6DD6 /* SheetHouseDetailsView.swift in Sources */,
 				DBD5CF782B88645C007F6DD6 /* Remote_Community_MapsApp.swift in Sources */,
 				DBD5CFC52B8865BB007F6DD6 /* AuthenticationView.swift in Sources */,
+				DB64168C2C1E732900789767 /* AuthenticationViewModel.swift in Sources */,
 				DBD5D02C2B8D4792007F6DD6 /* HelpView.swift in Sources */,
 				DBD5D0342B93F7B2007F6DD6 /* SignInGoogleHelper.swift in Sources */,
 				DBD5CFB92B8865BB007F6DD6 /* LotInformationEditLotColours.swift in Sources */,
+				DB64168A2C1D4A0900789767 /* UserManager.swift in Sources */,
 				DBD5CFB42B8865BB007F6DD6 /* RemoteCommunitiesListView.swift in Sources */,
 				DBD5D0052B8865CF007F6DD6 /* Extensions.swift in Sources */,
 				DBD5D0042B8865CF007F6DD6 /* DataController.swift in Sources */,
