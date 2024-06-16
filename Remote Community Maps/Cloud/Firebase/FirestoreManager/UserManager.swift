@@ -8,6 +8,13 @@
 import Foundation
 import FirebaseFirestore
 
+struct Movie: Codable {
+    let id: String
+    let title: String
+    let isPopular: Bool
+}
+
+
 struct DBUser: Codable {
     let userId: String
     let isAnonymous: Bool?
@@ -15,6 +22,8 @@ struct DBUser: Codable {
     let photoUrl: String?
     let dateCreated: Date?
     let isPremium: Bool?
+    let preferences: [String]?
+    let favouriteMovie: Movie?
     
     init(auth: AuthDataResultModel) {
         self.userId = auth.uid
@@ -23,6 +32,8 @@ struct DBUser: Codable {
         self.photoUrl = auth.photoUrl
         self.dateCreated = Date()
         self.isPremium = false
+        self.preferences = nil
+        self.favouriteMovie = nil
     }
     
     
@@ -31,7 +42,9 @@ struct DBUser: Codable {
           email: String? = nil,
           photoUrl: String? = nil,
           dateCreated: Date? = nil,
-          isPremium: Bool? = nil
+          isPremium: Bool? = nil,
+          preferences: [String]? = nil,
+          favouriteMovie: Movie? = nil
     ) {
         self.userId = userId
         self.isAnonymous = isAnonymous
@@ -39,21 +52,25 @@ struct DBUser: Codable {
         self.photoUrl = photoUrl
         self.dateCreated = dateCreated
         self.isPremium = isPremium
+        self.preferences = preferences
+        self.favouriteMovie = favouriteMovie
     }
     
-//    mutating func togglePremiumStatus() {
-//        let currentValue = isPremium ?? false
-//        isPremium = !currentValue        
-//    }
+    //    mutating func togglePremiumStatus() {
+    //        let currentValue = isPremium ?? false
+    //        isPremium = !currentValue
+    //    }
     
     
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"
-        case isAnonymous = "is_Anonymous"
+        case isAnonymous = "is_anonymous"
         case email = "email"
-        case photoUrl = "photo_Url"
-        case dateCreated = "date_Created"
+        case photoUrl = "photo_url"
+        case dateCreated = "date_created"
         case isPremium = "user_isPremium"
+        case preferences = "preferences"
+        case favouriteMovie = "favourite_movie"
     }
     
     init(from decoder: any Decoder) throws {
@@ -64,6 +81,8 @@ struct DBUser: Codable {
         self.photoUrl = try container.decodeIfPresent(String.self, forKey: .photoUrl)
         self.dateCreated = try container.decodeIfPresent(Date.self, forKey: .dateCreated)
         self.isPremium = try container.decodeIfPresent(Bool.self, forKey: .isPremium)
+        self.preferences = try container.decodeIfPresent([String].self, forKey: .preferences)
+        self.favouriteMovie = try container.decodeIfPresent(Movie.self, forKey: .favouriteMovie)
     }
     
     func encode(to encoder: any Encoder) throws {
@@ -74,6 +93,8 @@ struct DBUser: Codable {
         try container.encodeIfPresent(self.photoUrl, forKey: .photoUrl)
         try container.encodeIfPresent(self.dateCreated, forKey: .dateCreated)
         try container.encodeIfPresent(self.isPremium, forKey: .isPremium)
+        try container.encodeIfPresent(self.preferences, forKey: .preferences)
+        try container.encodeIfPresent(self.favouriteMovie, forKey: .favouriteMovie)
     }
     
     
@@ -90,45 +111,40 @@ final class UserManager {
         userCollection.document(userId)
     }
     
-//    private let encoder: Firestore.Encoder = {
-//        let encoder = Firestore.Encoder()
-//        encoder.keyEncodingStrategy = .convertToSnakeCase
-//        return encoder
-//    }()
-//    
-//    
-//    private let decoder: Firestore.Decoder = {
-//        let decoder = Firestore.Decoder()
-//        decoder.keyDecodingStrategy = .convertFromSnakeCase
-//        return decoder
-//    }()
-    
-    
-    
+    private let encoder: Firestore.Encoder = {
+        let encoder = Firestore.Encoder()
+        return encoder
+    }()
+
+
+    private let decoder: Firestore.Decoder = {
+        let decoder = Firestore.Decoder()
+        return decoder
+    }()
     
     
     func createNewUser(user: DBUser) async throws {
         try userDocument(userId: user.userId).setData(from: user, merge: false)
     }
     
-//    func createNewUser (auth: AuthDataResultModel) async throws {
-//        var userData: [String: Any] = [
-//            "user_id" : auth.uid,
-//            "is_anonymous" : auth.isAnonymous,
-//            "date_created" : Timestamp(),
-//        ]
-//        if let email = auth.email {
-//            userData["email"] = email
-//        }
-//        
-//        if let photoUrl = auth.photoUrl {
-//            userData ["photo_url"] = photoUrl
-//        }
-//        
-//        try await userDocument(userId: auth.uid).setData(userData, merge: false)
-//        //try await Firestore.firestore().collection("users").document(auth.uid).setData(userData, merge: false)
-//    }
-//    
+    //    func createNewUser (auth: AuthDataResultModel) async throws {
+    //        var userData: [String: Any] = [
+    //            "user_id" : auth.uid,
+    //            "is_anonymous" : auth.isAnonymous,
+    //            "date_created" : Timestamp(),
+    //        ]
+    //        if let email = auth.email {
+    //            userData["email"] = email
+    //        }
+    //
+    //        if let photoUrl = auth.photoUrl {
+    //            userData ["photo_url"] = photoUrl
+    //        }
+    //
+    //        try await userDocument(userId: auth.uid).setData(userData, merge: false)
+    //        //try await Firestore.firestore().collection("users").document(auth.uid).setData(userData, merge: false)
+    //    }
+    //
     
     
     func getUser(userId: String) async throws -> DBUser {
@@ -136,9 +152,9 @@ final class UserManager {
     }
     
     
-//    func updateUserPremiumStatus(user: DBUser) async throws {
-//        try userDocument(userId: user.userId).setData(from: user, merge: true)
-//    }
+    //    func updateUserPremiumStatus(user: DBUser) async throws {
+    //        try userDocument(userId: user.userId).setData(from: user, merge: true)
+    //    }
     
     
     func updateUserPremiumStatus(userId: String, isPremium: Bool) async throws {
@@ -150,18 +166,62 @@ final class UserManager {
     }
     
     
-//    func getUser(userId: String) async throws -> DBUser {
-//        let snapShot = try await userDocument(userId: userId).getDocument()
-// 
-//        guard let data = snapShot.data(), let userId = data["user_id"] as? String else {
-//            throw URLError (.badServerResponse)
-//        }
-//        
-//        let isAnonymous = data["is_anonymous"] as? Bool
-//        let email = data["email"] as? String
-//        let photoUrl = data["photo_url"] as? String
-//        let dateCreated = data["date_created"] as? Date
-//        
-//        return DBUser(userId: userId, isAnonymous: isAnonymous, email: email, photoUrl: photoUrl, dataCreated: dateCreated)
-//    }
+    func addUserPreference(userId: String, preference: String) async throws {
+        let data: [String: Any] = [
+            DBUser.CodingKeys.preferences.rawValue : FieldValue.arrayUnion([preference])
+        ]
+        
+        try await userDocument(userId: userId).updateData(data)
+    }
+    
+    
+    func removeUserPreference(userId: String, preference: String) async throws {
+        let data: [String: Any] = [
+            DBUser.CodingKeys.preferences.rawValue : FieldValue.arrayRemove([preference])
+        ]
+        
+        try await userDocument(userId: userId).updateData(data)
+    }
+    
+    
+    func addFavouriteMovie(userId: String, movie: Movie) async throws {
+        
+        guard let data = try? encoder.encode (movie) else {
+            throw URLError (.badURL)
+        }
+        
+        let dict: [String: Any] = [
+            DBUser.CodingKeys.favouriteMovie.rawValue : data
+        ]
+        
+        try await userDocument(userId: userId).updateData(dict)
+    }
+    
+    
+    func removeFavouriteMovie(userId: String) async throws {
+        let data: [String: Any?] = [
+            DBUser.CodingKeys.favouriteMovie.rawValue : nil
+        ]
+        
+        try await userDocument(userId: userId).updateData(data as [AnyHashable : Any])
+    }
+    
+    
+    
+    
+    
+    //    func getUser(userId: String) async throws -> DBUser {
+    //        let snapShot = try await userDocument(userId: userId).getDocument()
+    //
+    //        guard let data = snapShot.data(), let userId = data["user_id"] as? String else {
+    //            throw URLError (.badServerResponse)
+    //        }
+    //
+    //        let isAnonymous = data["is_anonymous"] as? Bool
+    //        let email = data["email"] as? String
+    //        let photoUrl = data["photo_url"] as? String
+    //        let dateCreated = data["date_created"] as? Date
+    //
+    //        return DBUser(userId: userId, isAnonymous: isAnonymous, email: email, photoUrl: photoUrl, dataCreated: dateCreated)
+    //    }
 }

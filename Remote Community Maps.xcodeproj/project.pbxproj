@@ -14,6 +14,10 @@
 		DB64168C2C1E732900789767 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64168B2C1E732900789767 /* AuthenticationViewModel.swift */; };
 		DB64168E2C1E976700789767 /* SignInEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64168D2C1E976700789767 /* SignInEmailViewModel.swift */; };
 		DB6416902C1E980C00789767 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64168F2C1E980C00789767 /* UserProfileViewModel.swift */; };
+		DB6416922C1EE22A00789767 /* ProductsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6416912C1EE22A00789767 /* ProductsDatabase.swift */; };
+		DB6416972C1EE2E800789767 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6416962C1EE2E800789767 /* ProductsView.swift */; };
+		DB6416992C1EE61100789767 /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6416982C1EE61100789767 /* ProductsManager.swift */; };
+		DB64169C2C1EF57300789767 /* ProductCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64169B2C1EF57300789767 /* ProductCellView.swift */; };
 		DBD5CF782B88645C007F6DD6 /* Remote_Community_MapsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CF772B88645C007F6DD6 /* Remote_Community_MapsApp.swift */; };
 		DBD5CF7C2B88645E007F6DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD5CF7B2B88645E007F6DD6 /* Assets.xcassets */; };
 		DBD5CF7F2B88645E007F6DD6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD5CF7E2B88645E007F6DD6 /* Preview Assets.xcassets */; };
@@ -101,6 +105,10 @@
 		DB64168B2C1E732900789767 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		DB64168D2C1E976700789767 /* SignInEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailViewModel.swift; sourceTree = "<group>"; };
 		DB64168F2C1E980C00789767 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		DB6416912C1EE22A00789767 /* ProductsDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsDatabase.swift; sourceTree = "<group>"; };
+		DB6416962C1EE2E800789767 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
+		DB6416982C1EE61100789767 /* ProductsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManager.swift; sourceTree = "<group>"; };
+		DB64169B2C1EF57300789767 /* ProductCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellView.swift; sourceTree = "<group>"; };
 		DBD5CF742B88645C007F6DD6 /* Remote Community Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Remote Community Maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD5CF772B88645C007F6DD6 /* Remote_Community_MapsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote_Community_MapsApp.swift; sourceTree = "<group>"; };
 		DBD5CF7B2B88645E007F6DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -199,6 +207,23 @@
 				DB64168F2C1E980C00789767 /* UserProfileViewModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		DB6416932C1EE2C800789767 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB6416962C1EE2E800789767 /* ProductsView.swift */,
+				DB64169A2C1EF54400789767 /* Subviews */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		DB64169A2C1EF54400789767 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				DB64169B2C1EF57300789767 /* ProductCellView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		DBD5CF6B2B88645C007F6DD6 = {
@@ -400,6 +425,7 @@
 				DBD5CFE72B8865C9007F6DD6 /* FirestoreManager.swift */,
 				DBD5CFE92B8865C9007F6DD6 /* FirebaseWriteTestView.swift */,
 				DB6416892C1D4A0900789767 /* UserManager.swift */,
+				DB6416982C1EE61100789767 /* ProductsManager.swift */,
 			);
 			path = FirestoreManager;
 			sourceTree = "<group>";
@@ -433,6 +459,7 @@
 				DBD5D0012B8865CF007F6DD6 /* Bundle-Decodable.swift */,
 				DBD5D0162B8865E0007F6DD6 /* SingleItemPreview.swift */,
 				DB4B778A2B9DE90C005FB6C5 /* SearchableTestView.swift */,
+				DB6416912C1EE22A00789767 /* ProductsDatabase.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -455,6 +482,7 @@
 		DBD5D0262B8D4741007F6DD6 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				DB6416932C1EE2C800789767 /* Products */,
 				DBD5CFA92B8865BB007F6DD6 /* SettingsView.swift */,
 				DB6416842C16AA6500789767 /* Profile */,
 				DBD5D02D2B8D483A007F6DD6 /* Account & Security */,
@@ -595,13 +623,16 @@
 				DBD5D02A2B8D4786007F6DD6 /* PrivacyAndLegalTermsView.swift in Sources */,
 				DBD5CFC82B8865BB007F6DD6 /* WelcomeView.swift in Sources */,
 				DBD5CFD22B8865C3007F6DD6 /* LotInformation.swift in Sources */,
+				DB6416972C1EE2E800789767 /* ProductsView.swift in Sources */,
 				DBD5CFC72B8865BB007F6DD6 /* RootView.swift in Sources */,
 				DBD5D0032B8865CF007F6DD6 /* UtilityHelpers.swift in Sources */,
 				DBD5CFF32B8865C9007F6DD6 /* CloudDataStoreFruit.swift in Sources */,
 				DBD5CFCC2B8865BB007F6DD6 /* ContentView.swift in Sources */,
 				DBD5CFBE2B8865BB007F6DD6 /* ImageCardView.swift in Sources */,
 				DBD5CFEE2B8865C9007F6DD6 /* CloudModelRemoteCommunity.swift in Sources */,
+				DB64169C2C1EF57300789767 /* ProductCellView.swift in Sources */,
 				DBD5CFD12B8865C3007F6DD6 /* HealthCentre.swift in Sources */,
+				DB6416922C1EE22A00789767 /* ProductsDatabase.swift in Sources */,
 				DBD5CFF02B8865C9007F6DD6 /* CloudAllRemoteCommunitiesView.swift in Sources */,
 				DBD5D0082B8865CF007F6DD6 /* Bundle-Decodable.swift in Sources */,
 				DBD5CFC02B8865BB007F6DD6 /* RemoteCommunitySearchView.swift in Sources */,
@@ -617,6 +648,7 @@
 				DBD5CFF22B8865C9007F6DD6 /* CloudModelFruit.swift in Sources */,
 				DBD5D0072B8865CF007F6DD6 /* Router.swift in Sources */,
 				DBD5CFF42B8865C9007F6DD6 /* CloudFruitDetailView.swift in Sources */,
+				DB6416992C1EE61100789767 /* ProductsManager.swift in Sources */,
 				DB6416902C1E980C00789767 /* UserProfileViewModel.swift in Sources */,
 				DBD5CFBD2B8865BB007F6DD6 /* SheetHouseDetailsView.swift in Sources */,
 				DBD5CF782B88645C007F6DD6 /* Remote_Community_MapsApp.swift in Sources */,

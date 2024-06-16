@@ -20,8 +20,14 @@ struct UserProfileView: View {
     @State private var state = ""
     @State private var postCode = ""
     @State private var country = ""
-
+    
     @State private var jobTitle = ""
+    
+    let preferenceOptions: [String] = ["Sports", "Movies", "Books"]
+    
+    private func preferenceIsSelected(text: String) -> Bool {
+        viewModel.user?.preferences?.contains(text) == true
+    }
     
     //@State private var user: AuthDataResultModel? = nil
     
@@ -41,9 +47,7 @@ struct UserProfileView: View {
                 }
                 Section ("Other") {
                     TextField("Job Title", text: $jobTitle)
-                }
-                
-                
+                }                
             }
             
             List {
@@ -54,19 +58,49 @@ struct UserProfileView: View {
                         Text ("Is Anonymous: \(isAnonymous.description.capitalized)")
                     }
                     
-                    
-                    
                     Button {
                         viewModel.togglePremiumStatus()
                     } label: {
                         Text ("User is premium: \((user.isPremium ?? false).description.capitalized)")
                     }
-                    .buttonStyle(.borderedProminent)
+                    //.buttonStyle(.borderedProminent)
+                    
+                    VStack {
+                        HStack {
+                            ForEach (preferenceOptions, id: \.self) { string in
+                                Button (string) {
+                                    
+                                    if preferenceIsSelected(text: string) {
+                                        viewModel.removeUserPreferences(text: string)
+                                    } else {
+                                        viewModel.addUserPreferences(text: string)
+                                    }
+                                    
+                                    viewModel.addUserPreferences(text: string)
+                                }
+                                .font (.headline)
+                                .buttonStyle(.borderedProminent)
+                                .tint(preferenceIsSelected(text: string) ? .green : .red)
+                            }
+                        }
+                        
+                        Text ("User Preferences: \((user.preferences ?? []).joined(separator: ", "))")
+                            .frame (maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                        
+                        
+                        Button {
+                            if user.favouriteMovie == nil {
+                                viewModel.addFavouriteMovie()
+                            } else {
+                                viewModel.removeFavouriteMovie()
+                            }
+                        } label: {
+                            Text ("Favourite Movie: \((user.favouriteMovie?.title ?? "").description.capitalized)")
+                        }
+
+                    }
                 }
             }
-            
-            
-            
         }
         .task {
             //try? loadCurrentUser()
@@ -78,10 +112,10 @@ struct UserProfileView: View {
                 Image (systemName: "gear")
                     .font(.headline
                     )
-            
+                
             }
         }
-        .accentColor(.black)
+        //.accentColor(.black)
         .toolbarBackground(.white, for: .navigationBar) //<- Set background
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
@@ -89,12 +123,12 @@ struct UserProfileView: View {
         .navigationBarBackButtonHidden()
         
     }
-
+    
     // the cancel button
     func cancelButton() -> some View {
         Button { dismiss() } label: { Image(systemName: "xmark").fontWeight(.bold) }
     }
-
+    
     
 }
 

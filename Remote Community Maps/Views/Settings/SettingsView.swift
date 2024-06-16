@@ -65,6 +65,17 @@ struct SettingsView: View {
                 
                 
                 
+                NavigationLink {
+                    ProductsView()
+                } label :  {
+                    HStack {
+                        Image(systemName: "book.pages")
+                            .foregroundStyle(.blue)
+                        Text ("Products")
+                    }
+                }
+                
+                
                 
                 
                 NavigationLink {

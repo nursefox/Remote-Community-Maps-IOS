@@ -27,4 +27,50 @@ final class UserProfileViewModel: ObservableObject {
             self.user = try await UserManager.shared.getUser(userId: user.userId)
         }
     }
+    
+    func addUserPreferences(text: String) {
+        guard let user else { return }
+        
+        Task {
+            try await UserManager.shared.addUserPreference(userId: user.userId,  preference: text)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
+    
+    func removeUserPreferences(text: String) {
+        guard let user else { return }
+        
+        
+        
+        Task {
+            try await UserManager.shared.removeUserPreference(userId: user.userId,  preference: text)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
+    
+    func addFavouriteMovie() {
+        guard let user else { return }
+        
+        let movie = Movie (id: "1", title: "Avatar 2" , isPopular: true )
+        
+        Task {
+            try await UserManager.shared.addFavouriteMovie(userId: user.userId , movie: movie)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
+    
+    func removeFavouriteMovie() {
+        guard let user else { return }
+        
+
+        Task {
+            try await UserManager.shared.removeFavouriteMovie(userId: user.userId)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
+    
+    
 }
