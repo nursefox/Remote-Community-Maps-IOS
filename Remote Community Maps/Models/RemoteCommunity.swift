@@ -14,6 +14,7 @@ class RemoteCommunity: Codable, Hashable {
     var name: String
     var traditionalName: String?
     var state: String
+    var country: String
     var latitude: Double
     var longitude: Double
     var latitudinalMeters: Double
@@ -27,10 +28,11 @@ class RemoteCommunity: Codable, Hashable {
 
    // var healthCentre: HealthCentre?
     
-    init(name: String, traditionalName: String, state: String, latitude: Double, longitude: Double, latitudinalMeters: Double, longitudinalMeters: Double, mapDataFileName: String,  imageFileName: String, published: Bool) {
+    init(name: String, traditionalName: String, state: String, country: String, latitude: Double, longitude: Double, latitudinalMeters: Double, longitudinalMeters: Double, mapDataFileName: String,  imageFileName: String, published: Bool) {
         self.name = name
         self.traditionalName = traditionalName
         self.state = state
+        self.country = country
         self.latitude = latitude
         self.longitude = longitude
         self.latitudinalMeters = latitudinalMeters
@@ -38,7 +40,6 @@ class RemoteCommunity: Codable, Hashable {
         self.mapDataFileName = mapDataFileName
         self.imageFileName = imageFileName
         self.published = published
-        
         self.lotData = [LotInformation]()
     }
     
@@ -46,6 +47,7 @@ class RemoteCommunity: Codable, Hashable {
         case name,
              traditionalName,
              state,
+             country,
              latitude,
              longitude,
              latitudinalMeters,
@@ -59,8 +61,8 @@ class RemoteCommunity: Codable, Hashable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name)
         self.traditionalName = try container.decodeIfPresent(String.self, forKey: .traditionalName)
-        
         self.state = try container.decode(String.self, forKey: .state)
+        self.country = try container.decode(String.self, forKey: .country)
         self.latitude = try container.decode(Double.self, forKey: .latitude)
         self.longitude = try container.decode(Double.self, forKey: .longitude)
         self.latitudinalMeters = try container.decode(Double.self, forKey: .latitudinalMeters)
@@ -69,13 +71,13 @@ class RemoteCommunity: Codable, Hashable {
         self.imageFileName = try container.decode(String.self, forKey: .imageFileName)
         self.published = try container.decode(Bool.self, forKey: .published)
         self.lotData = [LotInformation]()
+        
     }
 
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
     }
-    
     
     public var orderedLots: [LotInformation] {
         lotData.sorted { lhs, rhs in

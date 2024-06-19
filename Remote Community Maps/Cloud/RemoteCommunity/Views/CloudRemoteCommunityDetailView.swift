@@ -55,7 +55,7 @@ struct CloudRemoteCommunityDetailView: View {
                             lotInfo.longitude = 200
                             lotInfo.colourDescriptor = "Blue"
                             
-                            remoteCommunity.value.lotData.append(lotInfo)
+                            //remoteCommunity.value.lotData.append(lotInfo)
                             
                             // Ltyentye Apurte
                             var lotInfo2 = CloudLotInformation()
@@ -65,7 +65,7 @@ struct CloudRemoteCommunityDetailView: View {
                             lotInfo2.longitude = -24.1294314
                             lotInfo2.colourDescriptor = "White"
                             
-                            remoteCommunity.value.lotData.append(lotInfo2)
+                            //remoteCommunity.value.lotData.append(lotInfo2)
                             
                             remoteCommunity = await dataStore.addOrUpdate(remoteCommunity: remoteCommunity)
                             isEditing = false
@@ -203,8 +203,8 @@ struct CloudRemoteCommunityDetailView: View {
                                                      longitudinalMeters: 1000,
                                                      mapDataFileName: "Lot Data - Santa Teresa - NT.geojson",
                                                      imageFileName: "Profile Photo - Santa Teresa - NT",
-                                                     published: true,
-                                                     lotData: [CloudLotInformation(name:"Santa Teresa", details: "Clinic", latitude: 200, longitude: -30 )])
+                                                     published: true)
+                    //lotData: [CloudLotInformation(name:"Santa Teresa", details: "Clinic", latitude: 200, longitude: -30 )])
                 )
         )
     }

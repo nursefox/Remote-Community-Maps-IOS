@@ -45,9 +45,10 @@ struct FirebaseWriteTestView: View {
     
     func saveDataToFirestore () async {
         
-        var remoteCommunity = CloudModelRemoteCommunity (name: remoteCommunity.name.replacingOccurrences(of: " ", with: "-"),
+        var remoteCommunity = CloudModelRemoteCommunity (name: remoteCommunity.name.replacingOccurrences(of: " ", with: "_"),
                                                          traditionalName: remoteCommunity.traditionalName,
                                                          state: remoteCommunity.state.replacingOccurrences(of: " ", with: "_") ,
+                                                         country: remoteCommunity.country,
                                                          latitude: remoteCommunity.latitude,
                                                          longitude: remoteCommunity.longitude,
                                                          latitudinalMeters: remoteCommunity.latitudinalMeters,
@@ -58,19 +59,13 @@ struct FirebaseWriteTestView: View {
         
         
         do {
-            //try firestoreManager.db.collection("remote-communities").document(remoteCommunity.state + "-" + remoteCommunity.name ).setData(from: remoteCommunity)
             
-//            try firestoreManager.db
-//                .collection ("remote-communities").document(remoteCommunity.state)
-//                .collection ("places").document(remoteCommunity.name).setData (from: remoteCommunity)
+            let country = remoteCommunity.country.lowercased().replacingOccurrences(of: " ", with: "_")
+            let state = remoteCommunity.state.lowercased().replacingOccurrences(of: " ", with: "_")
+            let communityName = remoteCommunity.name.lowercased().replacingOccurrences(of: " ", with: "_")
             
-            try firestoreManager.db
-                .collection ("remote-communities")
-                .document(remoteCommunity.state.lowercased())
-                .collection (remoteCommunity.name.lowercased())
-                .document(remoteCommunity.name).setData(from: remoteCommunity)
-                
-                
+            try firestoreManager.db.document("remote_communities/countries/\(country)/\(state)/\(communityName)/community_details").setData (from: remoteCommunity)
+
             for lot in sortedLots {
                 
                 var lotInfo = CloudLotInformation()
@@ -80,12 +75,13 @@ struct FirebaseWriteTestView: View {
                 lotInfo.longitude = lot.longitude
                 lotInfo.colourDescriptor = lot.colourDescriptor
                 
-                try firestoreManager.db
-                    .collection ("remote-communities")
-                    .document(remoteCommunity.state.lowercased())
-                    .collection (remoteCommunity.name.lowercased())
-                    .document (lotInfo.name).setData (from: lotInfo)
+                try firestoreManager.db.document("remote_communities/countries/\(country)/\(state)/\(communityName)/community_details/lot_data/\(lotInfo.name)").setData (from: lotInfo)
                 
+//                try firestoreManager.db
+//                    .collection ("remote_communities").document(remoteCommunity.country.lowercased())
+//                    .collection (remoteCommunity.state.lowercased()).document(remoteCommunity.state.lowercased())
+//                    .collection (remoteCommunity.name.lowercased()).document (lotInfo.name).setData (from: lotInfo)
+//                
 //                var lotInfo = CloudLotInformation()
 //                lotInfo.name = lot.name
 //                lotInfo.details = lot.details
@@ -95,9 +91,7 @@ struct FirebaseWriteTestView: View {
 //        
 //                remoteCommunity.lotData.append(lotInfo)
             }
-                
-                
-            
+             
             
             
         } catch let error {

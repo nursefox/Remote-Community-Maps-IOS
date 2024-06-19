@@ -13,5 +13,7 @@ struct CloudLotInformation: Codable {
     var latitude: Double = 0.00
     var longitude: Double = 0.00
     var colourDescriptor: String?
-    var unitIdentifier: String?    
+    var unitIdentifier: String?   
+    
+    var alsoKnownAs: [String] = []
 }
