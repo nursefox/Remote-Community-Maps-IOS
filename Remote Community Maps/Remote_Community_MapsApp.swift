@@ -51,7 +51,9 @@ struct Remote_Community_MapsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ViewCoordinatorView()
+            CommunityMapsHomeScreenView()
+            //ContentView()
             //MapTestView()
             // SearchableTestView()
         }

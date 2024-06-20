@@ -47,6 +47,9 @@ struct ContentView: View {
     
     @State private var searchText = ""
     
+    
+    
+    
     var body: some View {
         
         //        ZStack {
@@ -90,6 +93,9 @@ struct ContentView: View {
                 //                    }
                 //                }
                 //                .listStyle(.plain)
+                
+                
+                
                     .toolbar {
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
@@ -118,12 +124,12 @@ struct ContentView: View {
                             }
                             .environmentObject(fruitDataStore)
                         }
-                            
-                            //                        NavigationLink(destination: StartView().environmentObject(self.authService)) {
-                            //                            Image(systemName: "key")
-                            //                        }
-                            //                        .environmentObject(authService)
-                            
+                        
+                        //                        NavigationLink(destination: StartView().environmentObject(self.authService)) {
+                        //                            Image(systemName: "key")
+                        //                        }
+                        //                        .environmentObject(authService)
+                        
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(action: {
                                 showSignInView = true
@@ -131,7 +137,7 @@ struct ContentView: View {
                                 Image(systemName: "person.circle")
                             })
                         }
-                            
+                        
                         //}
                         
                         

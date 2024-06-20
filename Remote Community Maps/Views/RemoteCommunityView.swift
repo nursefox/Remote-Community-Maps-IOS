@@ -41,13 +41,15 @@ struct RemoteCommunityView: View {
                     }
                     .bold()
                     .foregroundColor(.blue)
+                    
+                    NavigationLink (value: Router.Destination.communityAllLocations(remoteCommunity) ) {
+                        Text("Display All Locations")
+                    }
                 }
                 
                 Section(header: Text("Advanced")) {
                  
-                    NavigationLink (value: Router.Destination.communityAllLocations(remoteCommunity) ) {
-                        Text("Display All Locations")
-                    }
+                    
                     
                     
                     
@@ -104,23 +106,23 @@ struct RemoteCommunityView: View {
 //                    }
 //                }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        print ("Saving remote data to Firebase ...")
-                        //showSignInView = true
-                    }, label: {
-                        Image(systemName: "checkmark.circle")
-                    })
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        print ("Saving remote data to Firebase ...")
-                        //showSignInView = true
-                    }, label: {
-                        Image(systemName: "x.circle")
-                    })
-                }
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button(action: {
+//                        print ("Saving remote data to Firebase ...")
+//                        //showSignInView = true
+//                    }, label: {
+//                        Image(systemName: "checkmark.circle")
+//                    })
+//                }
+//                
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button(action: {
+//                        print ("Saving remote data to Firebase ...")
+//                        //showSignInView = true
+//                    }, label: {
+//                        Image(systemName: "x.circle")
+//                    })
+//                }
                 
                 
             }

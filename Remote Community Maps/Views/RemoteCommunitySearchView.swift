@@ -125,19 +125,19 @@ struct RemoteCommunitySearchView: View {
                 .presentationDetents([.height(275)])
                 .presentationCornerRadius(12)
                 .presentationDragIndicator(.hidden)
-
+            
             
             //  .ignoresSafeArea(.keyboard, edges: .bottom)
             
         }
-//        .onChange(of: selectedTag, { oldValue, newValue in
-//            if let newValue {
-//                print ("mapSelection.name = " + String (newValue))
-//                isShowingBottomSheet = true
-//            } else {
-//                isShowingBottomSheet = false
-//            }
-//        })
+        //        .onChange(of: selectedTag, { oldValue, newValue in
+        //            if let newValue {
+        //                print ("mapSelection.name = " + String (newValue))
+        //                isShowingBottomSheet = true
+        //            } else {
+        //                isShowingBottomSheet = false
+        //            }
+        //        })
     }
     
     var searchBar: some View {
@@ -170,28 +170,84 @@ struct RemoteCommunitySearchView: View {
     func searchForLot () {
         print("Search Field changed to \($lotIdBeingSearched.wrappedValue)")
         
-        annotatationsArray.removeAll()
+        let searchTerm = $lotIdBeingSearched.wrappedValue
         
-        // Search the JSON to see if we find a match
-        if let lotInfo = remoteCommunity.lotData.first(where: {$0.name == (lotIdBeingSearched.uppercased())}) {
-            
-            // Found a match - Create a mapmarker
-            annotatationsArray.append(lotInfo)
-            lotIdBeingSearched = lotInfo.name
-            
-            activeLotInfoSelected = lotInfo
-            
-            withAnimation {
-                selectedItem = MKMapItem(placemark: MKPlacemark(coordinate: lotInfo.lotCoordinates))
-                selectedItem?.name = lotInfo.name
-                cameraPosition = .region(MKCoordinateRegion(center: lotInfo.lotCoordinates, latitudinalMeters: 500, longitudinalMeters: 500))
-            }
+        
+        if searchTerm.isEmpty {
+            print ("Doing nothing - search term empty")
         } else {
-            withAnimation {
-                //lotIdBeingSearched = ""
-                cameraPosition = .region(remoteCommunity.region)
+            
+            annotatationsArray.removeAll()
+            
+            // Search the JSON to see if we find a match
+            if let lotInfo = remoteCommunity.lotData.first(where: {$0.name == (lotIdBeingSearched.uppercased())}) {
+                
+                // Found a match - Create a mapmarker
+                annotatationsArray.append(lotInfo)
+                lotIdBeingSearched = lotInfo.name
+                
+                activeLotInfoSelected = lotInfo
+                
+                withAnimation {
+                    selectedItem = MKMapItem(placemark: MKPlacemark(coordinate: lotInfo.lotCoordinates))
+                    selectedItem?.name = lotInfo.name
+                    cameraPosition = .region(MKCoordinateRegion(center: lotInfo.lotCoordinates, latitudinalMeters: 500, longitudinalMeters: 500))
+                }
+            } else {
+                
+                // We didn't find an exact match on house number - let's search for house colour
+                var lotsFound = remoteCommunity.lotData.filter({ $0.colourDescriptor?.uppercased() == lotIdBeingSearched.uppercased() })
+                
+                if lotsFound.count > 0 {
+                    for lotInfo in lotsFound {
+                        
+                        annotatationsArray.append(lotInfo)
+                        // lotIdBeingSearched = lotInfo.name
+                        //activeLotInfoSelected = lotInfo
+                        
+                        withAnimation {
+                            
+                            selectedItem = MKMapItem(placemark: MKPlacemark(coordinate: lotInfo.lotCoordinates))
+                            selectedItem?.name = lotInfo.name + "(\( lotInfo.colourDescriptor!)"
+                            
+                            
+                            if lotsFound.count == 1 {
+                                cameraPosition = .region(MKCoordinateRegion(center: lotInfo.lotCoordinates, latitudinalMeters: 500, longitudinalMeters: 500))
+                            }
+                        }
+                    
+                    }
+                } else {
+                    withAnimation {
+                        cameraPosition = .region(remoteCommunity.region)
+                    }
+                }
             }
         }
+        
+        
+        
+        // Search the JSON to see if we find a match - now this time searching colour
+        //        if let lotInfo = remoteCommunity.lotData.first(where: {$0.colourDescriptor == (lotIdBeingSearched.uppercased())}) {
+        //
+        //            // Found a match - Create a mapmarker
+        //            annotatationsArray.append(lotInfo)
+        //            lotIdBeingSearched = lotInfo.name
+        //
+        //            activeLotInfoSelected = lotInfo
+        //
+        //            withAnimation {
+        //                selectedItem = MKMapItem(placemark: MKPlacemark(coordinate: lotInfo.lotCoordinates))
+        //                selectedItem?.name = lotInfo.name
+        //                cameraPosition = .region(MKCoordinateRegion(center: lotInfo.lotCoordinates, latitudinalMeters: 500, longitudinalMeters: 500))
+        //            }
+        //        } else {
+        //            withAnimation {
+        //                //lotIdBeingSearched = ""
+        //                cameraPosition = .region(remoteCommunity.region)
+        //            }
+        //        }
+        
     }
     
     // The save button is disabled until the user has entered at least one character
