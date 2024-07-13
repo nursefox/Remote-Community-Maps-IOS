@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB0368D32C2D5D62004C83D3 /* FirestoreAdminsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0368D22C2D5D62004C83D3 /* FirestoreAdminsView.swift */; };
+		DB0368D52C2D5EF3004C83D3 /* AdministratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0368D42C2D5EF3004C83D3 /* AdministratorManager.swift */; };
+		DB0B6F722C427F3C00C8A0E6 /* Lot Data - NT - Bulman.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DB0B6F712C427F3C00C8A0E6 /* Lot Data - NT - Bulman.geojson */; };
+		DB0B6F742C42878200C8A0E6 /* Lot Data - WA - Punmu.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DB0B6F732C42878200C8A0E6 /* Lot Data - WA - Punmu.geojson */; };
+		DB0B6F762C42ACC700C8A0E6 /* Lot Data - WA - Jigalong.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DB0B6F752C42ACC700C8A0E6 /* Lot Data - WA - Jigalong.geojson */; };
+		DB11AEF02C2455D600CE70A1 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB11AEEF2C2455D600CE70A1 /* View+.swift */; };
+		DB11AEF22C24568A00CE70A1 /* Animation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB11AEF12C24568A00CE70A1 /* Animation+.swift */; };
+		DB11AEF42C24572500CE70A1 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB11AEF32C24572500CE70A1 /* SplashScreen.swift */; };
+		DB11AEF62C24626E00CE70A1 /* CommunityMapsHomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB11AEF52C24626E00CE70A1 /* CommunityMapsHomeScreenView.swift */; };
+		DB429E802C23EBA300EE3B4F /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB429E7F2C23EBA300EE3B4F /* SplashScreenView.swift */; };
+		DB429E822C23EC7600EE3B4F /* ViewCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB429E812C23EC7600EE3B4F /* ViewCoordinatorView.swift */; };
 		DB4B77892B9D6293005FB6C5 /* MapTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B77882B9D6293005FB6C5 /* MapTestView.swift */; };
 		DB4B778B2B9DE90C005FB6C5 /* SearchableTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B778A2B9DE90C005FB6C5 /* SearchableTestView.swift */; };
 		DB6416872C1733CC00789767 /* SignInAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6416862C1733CC00789767 /* SignInAppleHelper.swift */; };
@@ -18,6 +29,9 @@
 		DB6416972C1EE2E800789767 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6416962C1EE2E800789767 /* ProductsView.swift */; };
 		DB6416992C1EE61100789767 /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6416982C1EE61100789767 /* ProductsManager.swift */; };
 		DB64169C2C1EF57300789767 /* ProductCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64169B2C1EF57300789767 /* ProductCellView.swift */; };
+		DBB0E6CE2C3CD70200B5BC82 /* Lot Data - NT - Imanpa.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBB0E6CD2C3CD70200B5BC82 /* Lot Data - NT - Imanpa.geojson */; };
+		DBB0E6D02C3F86E300B5BC82 /* RemoteCommunitySortedByDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0E6CF2C3F86E300B5BC82 /* RemoteCommunitySortedByDistanceView.swift */; };
+		DBB0E6D22C42292F00B5BC82 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0E6D12C42292F00B5BC82 /* LocationManager.swift */; };
 		DBD5CF782B88645C007F6DD6 /* Remote_Community_MapsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CF772B88645C007F6DD6 /* Remote_Community_MapsApp.swift */; };
 		DBD5CF7C2B88645E007F6DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD5CF7B2B88645E007F6DD6 /* Assets.xcassets */; };
 		DBD5CF7F2B88645E007F6DD6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBD5CF7E2B88645E007F6DD6 /* Preview Assets.xcassets */; };
@@ -76,14 +90,14 @@
 		DBD5D0072B8865CF007F6DD6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0002B8865CF007F6DD6 /* Router.swift */; };
 		DBD5D0082B8865CF007F6DD6 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0012B8865CF007F6DD6 /* Bundle-Decodable.swift */; };
 		DBD5D0102B8865D8007F6DD6 /* Remote-Community-Map-Data.json in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D00A2B8865D8007F6DD6 /* Remote-Community-Map-Data.json */; };
-		DBD5D0112B8865D8007F6DD6 /* Lot Data - Docker River - NT.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D00B2B8865D8007F6DD6 /* Lot Data - Docker River - NT.geojson */; };
-		DBD5D0122B8865D8007F6DD6 /* Lot Data - Hermannsburg - NT.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D00C2B8865D8007F6DD6 /* Lot Data - Hermannsburg - NT.geojson */; };
-		DBD5D0132B8865D8007F6DD6 /* Lot Data - Amoonguna - NT.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D00D2B8865D8007F6DD6 /* Lot Data - Amoonguna - NT.geojson */; };
-		DBD5D0142B8865D8007F6DD6 /* Lot Data - Mutitjulu - NT.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D00E2B8865D8007F6DD6 /* Lot Data - Mutitjulu - NT.geojson */; };
-		DBD5D0152B8865D8007F6DD6 /* Lot Data - Areyonga - NT.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D00F2B8865D8007F6DD6 /* Lot Data - Areyonga - NT.geojson */; };
+		DBD5D0112B8865D8007F6DD6 /* Lot Data - NT - Docker River.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D00B2B8865D8007F6DD6 /* Lot Data - NT - Docker River.geojson */; };
+		DBD5D0122B8865D8007F6DD6 /* Lot Data - NT - Hermannsburg.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D00C2B8865D8007F6DD6 /* Lot Data - NT - Hermannsburg.geojson */; };
+		DBD5D0132B8865D8007F6DD6 /* Lot Data - NT - Amoonguna.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D00D2B8865D8007F6DD6 /* Lot Data - NT - Amoonguna.geojson */; };
+		DBD5D0142B8865D8007F6DD6 /* Lot Data - NT - Mutitjulu.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D00E2B8865D8007F6DD6 /* Lot Data - NT - Mutitjulu.geojson */; };
+		DBD5D0152B8865D8007F6DD6 /* Lot Data - NT - Areyonga.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D00F2B8865D8007F6DD6 /* Lot Data - NT - Areyonga.geojson */; };
 		DBD5D0172B8865E0007F6DD6 /* SingleItemPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0162B8865E0007F6DD6 /* SingleItemPreview.swift */; };
 		DBD5D0192B8865E7007F6DD6 /* RemoteCommunitySamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0182B8865E7007F6DD6 /* RemoteCommunitySamples.swift */; };
-		DBD5D01D2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D01C2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson */; };
+		DBD5D01D2B886793007F6DD6 /* Lot Data - NT - Santa Teresa.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D01C2B886793007F6DD6 /* Lot Data - NT - Santa Teresa.geojson */; };
 		DBD5D01F2B8868D3007F6DD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBD5D01E2B8868D3007F6DD6 /* GoogleService-Info.plist */; };
 		DBD5D0212B8B18DD007F6DD6 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */; };
 		DBD5D0232B8B19B1007F6DD6 /* AccountSettingsAndSecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5D0222B8B19B1007F6DD6 /* AccountSettingsAndSecurityView.swift */; };
@@ -97,6 +111,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB0368D22C2D5D62004C83D3 /* FirestoreAdminsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreAdminsView.swift; sourceTree = "<group>"; };
+		DB0368D42C2D5EF3004C83D3 /* AdministratorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministratorManager.swift; sourceTree = "<group>"; };
+		DB0B6F712C427F3C00C8A0E6 /* Lot Data - NT - Bulman.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - NT - Bulman.geojson"; sourceTree = "<group>"; };
+		DB0B6F732C42878200C8A0E6 /* Lot Data - WA - Punmu.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - WA - Punmu.geojson"; sourceTree = "<group>"; };
+		DB0B6F752C42ACC700C8A0E6 /* Lot Data - WA - Jigalong.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - WA - Jigalong.geojson"; sourceTree = "<group>"; };
+		DB11AEEF2C2455D600CE70A1 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		DB11AEF12C24568A00CE70A1 /* Animation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation+.swift"; sourceTree = "<group>"; };
+		DB11AEF32C24572500CE70A1 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		DB11AEF52C24626E00CE70A1 /* CommunityMapsHomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityMapsHomeScreenView.swift; sourceTree = "<group>"; };
+		DB429E7F2C23EBA300EE3B4F /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		DB429E812C23EC7600EE3B4F /* ViewCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinatorView.swift; sourceTree = "<group>"; };
 		DB4B77882B9D6293005FB6C5 /* MapTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTestView.swift; sourceTree = "<group>"; };
 		DB4B778A2B9DE90C005FB6C5 /* SearchableTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableTestView.swift; sourceTree = "<group>"; };
 		DB6416852C16E6AF00789767 /* Remote Community Maps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Remote Community Maps.entitlements"; sourceTree = "<group>"; };
@@ -109,6 +134,9 @@
 		DB6416962C1EE2E800789767 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		DB6416982C1EE61100789767 /* ProductsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManager.swift; sourceTree = "<group>"; };
 		DB64169B2C1EF57300789767 /* ProductCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellView.swift; sourceTree = "<group>"; };
+		DBB0E6CD2C3CD70200B5BC82 /* Lot Data - NT - Imanpa.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - NT - Imanpa.geojson"; sourceTree = "<group>"; };
+		DBB0E6CF2C3F86E300B5BC82 /* RemoteCommunitySortedByDistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommunitySortedByDistanceView.swift; sourceTree = "<group>"; };
+		DBB0E6D12C42292F00B5BC82 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DBD5CF742B88645C007F6DD6 /* Remote Community Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Remote Community Maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD5CF772B88645C007F6DD6 /* Remote_Community_MapsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote_Community_MapsApp.swift; sourceTree = "<group>"; };
 		DBD5CF7B2B88645E007F6DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,14 +191,14 @@
 		DBD5D0002B8865CF007F6DD6 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DBD5D0012B8865CF007F6DD6 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		DBD5D00A2B8865D8007F6DD6 /* Remote-Community-Map-Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Remote-Community-Map-Data.json"; sourceTree = "<group>"; };
-		DBD5D00B2B8865D8007F6DD6 /* Lot Data - Docker River - NT.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - Docker River - NT.geojson"; sourceTree = "<group>"; };
-		DBD5D00C2B8865D8007F6DD6 /* Lot Data - Hermannsburg - NT.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - Hermannsburg - NT.geojson"; sourceTree = "<group>"; };
-		DBD5D00D2B8865D8007F6DD6 /* Lot Data - Amoonguna - NT.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - Amoonguna - NT.geojson"; sourceTree = "<group>"; };
-		DBD5D00E2B8865D8007F6DD6 /* Lot Data - Mutitjulu - NT.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - Mutitjulu - NT.geojson"; sourceTree = "<group>"; };
-		DBD5D00F2B8865D8007F6DD6 /* Lot Data - Areyonga - NT.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - Areyonga - NT.geojson"; sourceTree = "<group>"; };
+		DBD5D00B2B8865D8007F6DD6 /* Lot Data - NT - Docker River.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - NT - Docker River.geojson"; sourceTree = "<group>"; };
+		DBD5D00C2B8865D8007F6DD6 /* Lot Data - NT - Hermannsburg.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - NT - Hermannsburg.geojson"; sourceTree = "<group>"; };
+		DBD5D00D2B8865D8007F6DD6 /* Lot Data - NT - Amoonguna.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - NT - Amoonguna.geojson"; sourceTree = "<group>"; };
+		DBD5D00E2B8865D8007F6DD6 /* Lot Data - NT - Mutitjulu.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - NT - Mutitjulu.geojson"; sourceTree = "<group>"; };
+		DBD5D00F2B8865D8007F6DD6 /* Lot Data - NT - Areyonga.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - NT - Areyonga.geojson"; sourceTree = "<group>"; };
 		DBD5D0162B8865E0007F6DD6 /* SingleItemPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleItemPreview.swift; sourceTree = "<group>"; };
 		DBD5D0182B8865E7007F6DD6 /* RemoteCommunitySamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteCommunitySamples.swift; sourceTree = "<group>"; };
-		DBD5D01C2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - Santa Teresa - NT.geojson"; sourceTree = "<group>"; };
+		DBD5D01C2B886793007F6DD6 /* Lot Data - NT - Santa Teresa.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - NT - Santa Teresa.geojson"; sourceTree = "<group>"; };
 		DBD5D01E2B8868D3007F6DD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DBD5D0202B8B18DD007F6DD6 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		DBD5D0222B8B19B1007F6DD6 /* AccountSettingsAndSecurityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsAndSecurityView.swift; sourceTree = "<group>"; };
@@ -200,6 +228,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB11AEEE2C2455B600CE70A1 /* rebeloper */ = {
+			isa = PBXGroup;
+			children = (
+				DB11AEEF2C2455D600CE70A1 /* View+.swift */,
+				DB11AEF12C24568A00CE70A1 /* Animation+.swift */,
+			);
+			path = rebeloper;
+			sourceTree = "<group>";
+		};
+		DB429E7E2C23EB8400EE3B4F /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				DB429E7F2C23EBA300EE3B4F /* SplashScreenView.swift */,
+				DB11AEF32C24572500CE70A1 /* SplashScreen.swift */,
+			);
+			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
 		DB6416842C16AA6500789767 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,9 +325,12 @@
 		DBD5CF982B8865BB007F6DD6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB11AEF52C24626E00CE70A1 /* CommunityMapsHomeScreenView.swift */,
 				DBD5CFB32B8865BB007F6DD6 /* ContentView.swift */,
+				DB429E812C23EC7600EE3B4F /* ViewCoordinatorView.swift */,
 				DBD5CF992B8865BB007F6DD6 /* RemoteCommunitiesListView.swift */,
 				DBD5CF9A2B8865BB007F6DD6 /* RemoteCommunityView.swift */,
+				DBB0E6CF2C3F86E300B5BC82 /* RemoteCommunitySortedByDistanceView.swift */,
 				DBD5CF9C2B8865BB007F6DD6 /* RemoteCommunityMapAllLocationsView.swift */,
 				DBD5CFA62B8865BB007F6DD6 /* RemoteCommunitySearchView.swift */,
 				DBD5CFA52B8865BB007F6DD6 /* LotInformationDetailView.swift */,
@@ -290,6 +339,7 @@
 				DBD5D0262B8D4741007F6DD6 /* Settings */,
 				DBD5CFA72B8865BB007F6DD6 /* Authentication */,
 				DBD5CF9D2B8865BB007F6DD6 /* EditData */,
+				DB429E7E2C23EB8400EE3B4F /* Splash Screen */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -424,8 +474,10 @@
 			children = (
 				DBD5CFE72B8865C9007F6DD6 /* FirestoreManager.swift */,
 				DBD5CFE92B8865C9007F6DD6 /* FirebaseWriteTestView.swift */,
+				DB0368D22C2D5D62004C83D3 /* FirestoreAdminsView.swift */,
 				DB6416892C1D4A0900789767 /* UserManager.swift */,
 				DB6416982C1EE61100789767 /* ProductsManager.swift */,
+				DB0368D42C2D5EF3004C83D3 /* AdministratorManager.swift */,
 			);
 			path = FirestoreManager;
 			sourceTree = "<group>";
@@ -449,6 +501,7 @@
 		DBD5CFFA2B8865CF007F6DD6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DB11AEEE2C2455B600CE70A1 /* rebeloper */,
 				DB4B77882B9D6293005FB6C5 /* MapTestView.swift */,
 				DBD5CFFB2B8865CF007F6DD6 /* Binding-OnChange.swift */,
 				DBD5CFFC2B8865CF007F6DD6 /* UtilityHelpers.swift */,
@@ -460,6 +513,7 @@
 				DBD5D0162B8865E0007F6DD6 /* SingleItemPreview.swift */,
 				DB4B778A2B9DE90C005FB6C5 /* SearchableTestView.swift */,
 				DB6416912C1EE22A00789767 /* ProductsDatabase.swift */,
+				DBB0E6D12C42292F00B5BC82 /* LocationManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -468,12 +522,16 @@
 			isa = PBXGroup;
 			children = (
 				DBD5D00A2B8865D8007F6DD6 /* Remote-Community-Map-Data.json */,
-				DBD5D01C2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson */,
-				DBD5D00B2B8865D8007F6DD6 /* Lot Data - Docker River - NT.geojson */,
-				DBD5D00C2B8865D8007F6DD6 /* Lot Data - Hermannsburg - NT.geojson */,
-				DBD5D00D2B8865D8007F6DD6 /* Lot Data - Amoonguna - NT.geojson */,
-				DBD5D00E2B8865D8007F6DD6 /* Lot Data - Mutitjulu - NT.geojson */,
-				DBD5D00F2B8865D8007F6DD6 /* Lot Data - Areyonga - NT.geojson */,
+				DBD5D00D2B8865D8007F6DD6 /* Lot Data - NT - Amoonguna.geojson */,
+				DBD5D00F2B8865D8007F6DD6 /* Lot Data - NT - Areyonga.geojson */,
+				DB0B6F712C427F3C00C8A0E6 /* Lot Data - NT - Bulman.geojson */,
+				DBD5D00B2B8865D8007F6DD6 /* Lot Data - NT - Docker River.geojson */,
+				DBD5D00C2B8865D8007F6DD6 /* Lot Data - NT - Hermannsburg.geojson */,
+				DBB0E6CD2C3CD70200B5BC82 /* Lot Data - NT - Imanpa.geojson */,
+				DBD5D00E2B8865D8007F6DD6 /* Lot Data - NT - Mutitjulu.geojson */,
+				DBD5D01C2B886793007F6DD6 /* Lot Data - NT - Santa Teresa.geojson */,
+				DB0B6F752C42ACC700C8A0E6 /* Lot Data - WA - Jigalong.geojson */,
+				DB0B6F732C42878200C8A0E6 /* Lot Data - WA - Punmu.geojson */,
 				DBD5D0182B8865E7007F6DD6 /* RemoteCommunitySamples.swift */,
 			);
 			path = "Seed Data";
@@ -576,15 +634,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBD5D0132B8865D8007F6DD6 /* Lot Data - Amoonguna - NT.geojson in Resources */,
-				DBD5D0142B8865D8007F6DD6 /* Lot Data - Mutitjulu - NT.geojson in Resources */,
-				DBD5D0122B8865D8007F6DD6 /* Lot Data - Hermannsburg - NT.geojson in Resources */,
-				DBD5D0112B8865D8007F6DD6 /* Lot Data - Docker River - NT.geojson in Resources */,
-				DBD5D0152B8865D8007F6DD6 /* Lot Data - Areyonga - NT.geojson in Resources */,
+				DB0B6F762C42ACC700C8A0E6 /* Lot Data - WA - Jigalong.geojson in Resources */,
+				DBD5D0132B8865D8007F6DD6 /* Lot Data - NT - Amoonguna.geojson in Resources */,
+				DB0B6F722C427F3C00C8A0E6 /* Lot Data - NT - Bulman.geojson in Resources */,
+				DBD5D0142B8865D8007F6DD6 /* Lot Data - NT - Mutitjulu.geojson in Resources */,
+				DBD5D0122B8865D8007F6DD6 /* Lot Data - NT - Hermannsburg.geojson in Resources */,
+				DBD5D0112B8865D8007F6DD6 /* Lot Data - NT - Docker River.geojson in Resources */,
+				DBD5D0152B8865D8007F6DD6 /* Lot Data - NT - Areyonga.geojson in Resources */,
 				DBD5CF7F2B88645E007F6DD6 /* Preview Assets.xcassets in Resources */,
-				DBD5D01D2B886793007F6DD6 /* Lot Data - Santa Teresa - NT.geojson in Resources */,
+				DBD5D01D2B886793007F6DD6 /* Lot Data - NT - Santa Teresa.geojson in Resources */,
 				DBD5D01F2B8868D3007F6DD6 /* GoogleService-Info.plist in Resources */,
+				DB0B6F742C42878200C8A0E6 /* Lot Data - WA - Punmu.geojson in Resources */,
 				DBD5CF7C2B88645E007F6DD6 /* Assets.xcassets in Resources */,
+				DBB0E6CE2C3CD70200B5BC82 /* Lot Data - NT - Imanpa.geojson in Resources */,
 				DBD5D0102B8865D8007F6DD6 /* Remote-Community-Map-Data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,10 +661,14 @@
 				DBD5CFBF2B8865BB007F6DD6 /* LotInformationDetailView.swift in Sources */,
 				DBD5CFBA2B8865BB007F6DD6 /* LocationListView.swift in Sources */,
 				DBD5CFB72B8865BB007F6DD6 /* RemoteCommunityMapAllLocationsView.swift in Sources */,
+				DB11AEF22C24568A00CE70A1 /* Animation+.swift in Sources */,
 				DBD5D0252B8C8CE2007F6DD6 /* SignedInView.swift in Sources */,
+				DBB0E6D22C42292F00B5BC82 /* LocationManager.swift in Sources */,
+				DB11AEF02C2455D600CE70A1 /* View+.swift in Sources */,
 				DB64168E2C1E976700789767 /* SignInEmailViewModel.swift in Sources */,
 				DBD5CFF72B8865C9007F6DD6 /* FirebaseWriteTestView.swift in Sources */,
 				DBD5CFC12B8865BB007F6DD6 /* StartView.swift in Sources */,
+				DB429E802C23EBA300EE3B4F /* SplashScreenView.swift in Sources */,
 				DBD5CFC42B8865BB007F6DD6 /* AuthenticationManager.swift in Sources */,
 				DBD5D0282B8D4771007F6DD6 /* EmailAndNotificationsView.swift in Sources */,
 				DBD5CFBB2B8865BB007F6DD6 /* AddPointOfInterestView.swift in Sources */,
@@ -612,11 +678,13 @@
 				DBD5CFB62B8865BB007F6DD6 /* LotDetailAndMapView.swift in Sources */,
 				DBD5CFF82B8865C9007F6DD6 /* SODA.swift in Sources */,
 				DBD5CFD32B8865C3007F6DD6 /* RemoteCommunity.swift in Sources */,
+				DB0368D52C2D5EF3004C83D3 /* AdministratorManager.swift in Sources */,
 				DBD5CFB52B8865BB007F6DD6 /* RemoteCommunityView.swift in Sources */,
 				DBD5CFCA2B8865BB007F6DD6 /* SignInEmailView.swift in Sources */,
 				DBD5D0172B8865E0007F6DD6 /* SingleItemPreview.swift in Sources */,
 				DB6416872C1733CC00789767 /* SignInAppleHelper.swift in Sources */,
 				DBD5CFEF2B8865C9007F6DD6 /* CloudDataStoreRemoteCommunity.swift in Sources */,
+				DB11AEF42C24572500CE70A1 /* SplashScreen.swift in Sources */,
 				DBD5CFBC2B8865BB007F6DD6 /* EditPointOfInterestLocationView.swift in Sources */,
 				DBD5D0192B8865E7007F6DD6 /* RemoteCommunitySamples.swift in Sources */,
 				DBD5CFED2B8865C9007F6DD6 /* CloudLotInformation.swift in Sources */,
@@ -626,6 +694,7 @@
 				DB6416972C1EE2E800789767 /* ProductsView.swift in Sources */,
 				DBD5CFC72B8865BB007F6DD6 /* RootView.swift in Sources */,
 				DBD5D0032B8865CF007F6DD6 /* UtilityHelpers.swift in Sources */,
+				DB0368D32C2D5D62004C83D3 /* FirestoreAdminsView.swift in Sources */,
 				DBD5CFF32B8865C9007F6DD6 /* CloudDataStoreFruit.swift in Sources */,
 				DBD5CFCC2B8865BB007F6DD6 /* ContentView.swift in Sources */,
 				DBD5CFBE2B8865BB007F6DD6 /* ImageCardView.swift in Sources */,
@@ -639,6 +708,7 @@
 				DBD5D0212B8B18DD007F6DD6 /* UserProfileView.swift in Sources */,
 				DBD5CFC92B8865BB007F6DD6 /* OldAuthenticationView.swift in Sources */,
 				DBD5D0022B8865CF007F6DD6 /* Binding-OnChange.swift in Sources */,
+				DB11AEF62C24626E00CE70A1 /* CommunityMapsHomeScreenView.swift in Sources */,
 				DBD5CFB82B8865BB007F6DD6 /* LotInformationEditView.swift in Sources */,
 				DBD5CFC32B8865BB007F6DD6 /* LoginView.swift in Sources */,
 				DBD5CFC62B8865BB007F6DD6 /* HomeView.swift in Sources */,
@@ -650,6 +720,7 @@
 				DBD5CFF42B8865C9007F6DD6 /* CloudFruitDetailView.swift in Sources */,
 				DB6416992C1EE61100789767 /* ProductsManager.swift in Sources */,
 				DB6416902C1E980C00789767 /* UserProfileViewModel.swift in Sources */,
+				DBB0E6D02C3F86E300B5BC82 /* RemoteCommunitySortedByDistanceView.swift in Sources */,
 				DBD5CFBD2B8865BB007F6DD6 /* SheetHouseDetailsView.swift in Sources */,
 				DBD5CF782B88645C007F6DD6 /* Remote_Community_MapsApp.swift in Sources */,
 				DBD5CFC52B8865BB007F6DD6 /* AuthenticationView.swift in Sources */,
@@ -663,6 +734,7 @@
 				DBD5D0042B8865CF007F6DD6 /* DataController.swift in Sources */,
 				DBD5CFF92B8865C9007F6DD6 /* Agent.swift in Sources */,
 				DB4B77892B9D6293005FB6C5 /* MapTestView.swift in Sources */,
+				DB429E822C23EC7600EE3B4F /* ViewCoordinatorView.swift in Sources */,
 				DBD5D0232B8B19B1007F6DD6 /* AccountSettingsAndSecurityView.swift in Sources */,
 				DBD5CFF52B8865C9007F6DD6 /* CloudAllFruitsView.swift in Sources */,
 			);

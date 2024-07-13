@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var locationDataManager: LocationDataManager
+    @EnvironmentObject var locationManager: LocationManager
+    //@EnvironmentObject var locationDataManager: LocationDataManager
     //@EnvironmentObject var authService: AuthenticationManager
     @StateObject var firestoreManager = FirestoreManager.shared
     @StateObject var fruitDataStore = CloudDataStoreFruit.shared
@@ -98,32 +99,23 @@ struct ContentView: View {
                 
                     .toolbar {
                         
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button("Delete All Data") {
-                                do {
-                                    try modelContex.delete(model: RemoteCommunity.self)
-                                    try modelContex.delete(model: LotInformation.self)
-                                } catch {
-                                    print ("Failed to clear data")
-                                }
-                            }
-                        }
+                        
                         // Button("Add Destination", systemImage: "plus", action: createNewMap)
                         
                         
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: CloudAllRemoteCommunitiesView().environmentObject(self.remoteCommunityDataStore)) {
-                                Image(systemName: "plus")
-                            }
-                            .environmentObject(remoteCommunityDataStore)
-                        }
-                        
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: CloudAllFruitsView().environmentObject(self.fruitDataStore)) {
-                                Image(systemName: "cross")
-                            }
-                            .environmentObject(fruitDataStore)
-                        }
+//                        ToolbarItem(placement: .navigationBarTrailing) {
+//                            NavigationLink(destination: CloudAllRemoteCommunitiesView().environmentObject(self.remoteCommunityDataStore)) {
+//                                Image(systemName: "plus")
+//                            }
+//                            .environmentObject(remoteCommunityDataStore)
+//                        }
+//                        
+//                        ToolbarItem(placement: .navigationBarTrailing) {
+//                            NavigationLink(destination: CloudAllFruitsView().environmentObject(self.fruitDataStore)) {
+//                                Image(systemName: "cross")
+//                            }
+//                            .environmentObject(fruitDataStore)
+//                        }
                         
                         //                        NavigationLink(destination: StartView().environmentObject(self.authService)) {
                         //                            Image(systemName: "key")

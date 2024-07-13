@@ -44,7 +44,9 @@ struct Remote_Community_MapsApp: App {
     @ObservedObject var router = Router()
     @StateObject var authService = AuthenticationManager()
     @StateObject var firestoreManager = FirestoreManager()
-    @StateObject var locationDataManager: LocationDataManager
+    //@StateObject var locationDataManager: LocationDataManager
+    
+    @StateObject var locationManager: LocationManager
     
     let container: ModelContainer
 
@@ -52,14 +54,15 @@ struct Remote_Community_MapsApp: App {
     var body: some Scene {
         WindowGroup {
             //ViewCoordinatorView()
-            CommunityMapsHomeScreenView()
-            //ContentView()
+            //CommunityMapsHomeScreenView()
+            ContentView()
             //MapTestView()
             // SearchableTestView()
         }
         .environmentObject(authService)
         .environmentObject(firestoreManager)
         .environmentObject(router)
+        .environmentObject(locationManager)
         .modelContainer(container)
     }
     
@@ -69,8 +72,13 @@ struct Remote_Community_MapsApp: App {
         Swift.print ("Remote Community Maps : init ()")
         print (URL.applicationSupportDirectory.path(percentEncoded: false))
         
-        let locationDataManager = LocationDataManager()
-        _locationDataManager = StateObject(wrappedValue: locationDataManager)
+
+        let locationManager = LocationManager()
+        _locationManager = StateObject(wrappedValue: locationManager)
+        
+        
+//        let locationDataManager = LocationDataManager()
+//        _locationDataManager = StateObject(wrappedValue: locationDataManager)
         
         // Setup SwiftData
         let schema = Schema([RemoteCommunity.self])

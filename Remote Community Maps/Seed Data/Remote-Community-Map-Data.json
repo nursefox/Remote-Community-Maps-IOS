@@ -9,8 +9,8 @@
         "longitude": 134.37364305192244,
         "latitudinalMeters": 1200,
         "longitudinalMeters": 1200,
-        "mapDataFileName": "Lot Data - Santa Teresa - NT.geojson",
-        "imageFileName": "Profile Photo - Santa Teresa - NT",
+        "mapDataFileName": "Lot Data - NT - Santa Teresa.geojson",
+        "imageFileName": "Profile Photo - NT - Santa Teresa",
         "published": true
     },
     {
@@ -23,8 +23,8 @@
         "longitude": 132.7795533845188,
         "latitudinalMeters": 1600,
         "longitudinalMeters": 1600,
-        "mapDataFileName": "Lot Data - Hermannsburg - NT.geojson",
-        "imageFileName": "Profile Photo - Hermannsburg - NT",
+        "mapDataFileName": "Lot Data - NT - Hermannsburg.geojson",
+        "imageFileName": "Profile Photo - NT - Hermannsburg",
         "published": true
     },
     {
@@ -36,8 +36,8 @@
         "longitude": 133.9362352638119,
         "latitudinalMeters": 600,
         "longitudinalMeters": 600,
-        "mapDataFileName": "Lot Data - Amoonguna - NT.geojson",
-        "imageFileName": "Profile Photo - Amoonguna - NT",
+        "mapDataFileName": "Lot Data - NT - Amoonguna.geojson",
+        "imageFileName": "Profile Photo - NT - Amoonguna",
         "published": true
     },
     {
@@ -49,8 +49,8 @@
         "longitude": 131.06660522181556,
         "latitudinalMeters": 1200,
         "longitudinalMeters": 1200,
-        "mapDataFileName": "Lot Data - Mutitjulu - NT.geojson",
-        "imageFileName": "Profile Photo - Mutitjulu - NT",
+        "mapDataFileName": "Lot Data - NT - Mutitjulu.geojson",
+        "imageFileName": "Profile Photo - NT - Mutitjulu",
         "published": true
     },
     {
@@ -63,8 +63,8 @@
         "longitude": 129.08312996925764,
         "latitudinalMeters": 900,
         "longitudinalMeters": 900,
-        "mapDataFileName": "Lot Data - Docker River - NT.geojson",
-        "imageFileName": "Profile Photo - Docker River - NT",
+        "mapDataFileName": "Lot Data - NT - Docker River.geojson",
+        "imageFileName": "Profile Photo - NT - Docker River",
         "published": true
     },
     {
@@ -76,8 +76,63 @@
         "longitude": 132.26974161566577,
         "latitudinalMeters": 800,
         "longitudinalMeters": 800,
-        "mapDataFileName": "Lot Data - Areyonga - NT.geojson",
-        "imageFileName": "Profile Photo - Areyonga - NT",
+        "mapDataFileName": "Lot Data - NT - Areyonga.geojson",
+        "imageFileName": "Profile Photo - NT - Areyonga",
+        "published": true
+    },
+    {
+        "id": 6,
+        "name": "Imanpa",
+        "state": "Northern Territory",
+        "country": "Australia",
+        "latitude": -25.127795,
+        "longitude": 132.570817,
+        "latitudinalMeters": 1200,
+        "longitudinalMeters": 1200,
+        "mapDataFileName": "Lot Data - NT - Imanpa.geojson",
+        "imageFileName": "Profile Photo - NT - Imanpa",
+        "published": true
+    },
+    {
+        "id": 7,
+        "name": "Bulman",
+        "state": "Northern Territory",
+        "country": "Australia",
+        "latitude": -13.6658466,
+        "longitude": 134.3340984,
+        "latitudinalMeters": 1000,
+        "longitudinalMeters": 1000,
+        "mapDataFileName": "Lot Data - NT - Bulman.geojson",
+        "imageFileName": "Profile Photo - NT - Bulman",
+        "published": true
+    },
+    {
+        "id": 8,
+        "name": "Punmu",
+        "state": "Western Australia",
+        "country": "Australia",
+        "latitude": -22.04403,
+        "longitude": 123.12172,
+        "latitudinalMeters": 1000,
+        "longitudinalMeters": 1000,
+        "mapDataFileName": "Lot Data - WA - Punmu.geojson",
+        "imageFileName": "Profile Photo - WA - Punmu",
+        "published": true
+    },
+    {
+        "id": 9,
+        "name": "Jigalong",
+        "state": "Western Australia",
+        "country": "Australia",
+        "latitude": -23.3599,
+        "longitude": 120.7834,
+        "latitudinalMeters": 1000,
+        "longitudinalMeters": 1000,
+        "mapDataFileName": "Lot Data - WA - Jigalong.geojson",
+        "imageFileName": "Profile Photo - WA - Jigalong",
         "published": true
     }
 ]
+
+
+ 

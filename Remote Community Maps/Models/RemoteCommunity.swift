@@ -93,7 +93,14 @@ class RemoteCommunity: Codable, Hashable {
         MKCoordinateRegion(center: coordinate, latitudinalMeters: latitudinalMeters, longitudinalMeters: longitudinalMeters)
     }
     
-//    
+    
+    func distance(from location: CLLocation?) -> CLLocationDistance? {
+        guard let location = location else { return nil }
+        let targetLocation = CLLocation(latitude: latitude, longitude: longitude)
+        return location.distance(from: targetLocation)
+    }
+    
+//
 //    static func ==(lhs: RemoteCommunity, rhs: RemoteCommunity) -> Bool {
 //        return lhs.communityName == rhs.communityName
 //    }

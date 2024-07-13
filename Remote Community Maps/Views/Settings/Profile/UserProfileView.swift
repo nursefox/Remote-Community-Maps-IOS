@@ -99,6 +99,8 @@ struct UserProfileView: View {
                         }
 
                     }
+                } else {
+                    Text ("User Not Found")
                 }
             }
         }

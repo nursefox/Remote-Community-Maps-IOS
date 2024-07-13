@@ -175,6 +175,13 @@ struct RemoteCommunitySearchView: View {
         
         if searchTerm.isEmpty {
             print ("Doing nothing - search term empty")
+            annotatationsArray.removeAll()
+            
+            withAnimation {
+                cameraPosition = .region(remoteCommunity.region)
+            }
+            
+            
         } else {
             
             annotatationsArray.removeAll()

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    @Environment(\.modelContext) var modelContex
     @Environment(\.dismiss) var dismiss
     @Binding var showSignInView: Bool
     
@@ -133,6 +134,35 @@ struct SettingsView: View {
                             Text("Download Offline Maps")
                         }
                     }
+                    
+                   
+                    Button {
+                        do {
+                            try modelContex.delete(model: RemoteCommunity.self)
+                            try modelContex.delete(model: LotInformation.self)
+                        } catch {
+                            print ("Failed to clear data")
+                        }
+                    } label :  {
+                        HStack {
+                            Image(systemName:  "trash")
+                                .foregroundStyle(.blue)
+                            Text("Delete All Data")
+                        }
+                    }
+                    
+                    
+                    
+                    Button("Delete All Data") {
+                        do {
+                            try modelContex.delete(model: RemoteCommunity.self)
+                            try modelContex.delete(model: LotInformation.self)
+                        } catch {
+                            print ("Failed to clear data")
+                        }
+                    }
+                    
+                    
                 }
                 
                 if AuthenticationManager.shared.signedIn {

@@ -14,9 +14,9 @@ class FirestoreManager: ObservableObject {
     
     static let shared: FirestoreManager = FirestoreManager()
     
-    func saveRemoteCommunity( remoteCommunity: RemoteCommunity) {
+    func saveRemoteCommunity(remoteCommunity: RemoteCommunity) {
         do {
-            try db.collection("rewmote-communities").document(remoteCommunity.name).setData(from: remoteCommunity)
+            try db.collection("remote-communities").document(remoteCommunity.name).setData(from: remoteCommunity)
         } catch let error {
           print("Error writing remote community to Firestore: \(error)")
         }

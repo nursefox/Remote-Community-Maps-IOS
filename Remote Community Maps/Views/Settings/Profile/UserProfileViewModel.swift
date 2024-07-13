@@ -13,8 +13,11 @@ final class UserProfileViewModel: ObservableObject {
     @Published private(set) var user: DBUser? = nil
     
     func loadCurrentUser() async throws {
+        print ("UserProfileViewModel() : loadCurrentUser ()")
         let authDataResult = try AuthenticationManager.shared.getAuthenticatedUser()
+        print ("UserProfileViewModel() : loadCurrentUser () : \(authDataResult.uid)")
         self.user = try await UserManager.shared.getUser(userId: authDataResult.uid)
+        //print (self.user)
     }
     
     func togglePremiumStatus () {
