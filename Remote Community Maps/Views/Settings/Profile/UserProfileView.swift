@@ -87,7 +87,6 @@ struct UserProfileView: View {
                         Text ("User Preferences: \((user.preferences ?? []).joined(separator: ", "))")
                             .frame (maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                         
-                        
                         Button {
                             if user.favouriteMovie == nil {
                                 viewModel.addFavouriteMovie()
@@ -97,7 +96,6 @@ struct UserProfileView: View {
                         } label: {
                             Text ("Favourite Movie: \((user.favouriteMovie?.title ?? "").description.capitalized)")
                         }
-
                     }
                 } else {
                     Text ("User Not Found")

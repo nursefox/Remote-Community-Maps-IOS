@@ -29,7 +29,8 @@ final class SignInViewMobel: ObservableObject {
             return
         }
         
-        try await AuthenticationManager.shared.signInUser(email: email, password: password)
+        var result = try await AuthenticationManager.shared.signInUser(email: email, password: password)
+        print ("User Signed In Via Email: " + result.uid)
     }
     
 }

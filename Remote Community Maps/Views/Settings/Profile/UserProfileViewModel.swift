@@ -18,7 +18,28 @@ final class UserProfileViewModel: ObservableObject {
         print ("UserProfileViewModel() : loadCurrentUser () : \(authDataResult.uid)")
         self.user = try await UserManager.shared.getUser(userId: authDataResult.uid)
         //print (self.user)
+        
+        // Now find out if the user is an admin
+        try await loadAdminUser(userId: authDataResult.uid)
+        
     }
+    
+    func loadAdminUser(userId: String) async throws {
+        print ("UserProfileViewModel() : loadAdminUser ()")
+        let adminUser = try await AdministratorManager.shared.getAdminUser(userId: userId)
+        
+        print ("UserProfileViewModel() : loadAdminUser () : " + (adminUser.name ?? "No Name Specified"))
+        
+        
+//        let authDataResult = try AuthenticationManager.shared.getAuthenticatedUser()
+//        print ("UserProfileViewModel() : loadCurrentUser () : \(authDataResult.uid)")
+//        self.user = try await UserManager.shared.getUser(userId: authDataResult.uid)
+        
+        //print (self.user)
+    }
+    
+    
+    
     
     func togglePremiumStatus () {
         

@@ -203,7 +203,7 @@ struct RemoteCommunitySearchView: View {
             } else {
                 
                 // We didn't find an exact match on house number - let's search for house colour
-                var lotsFound = remoteCommunity.lotData.filter({ $0.colourDescriptor?.uppercased() == lotIdBeingSearched.uppercased() })
+                let lotsFound = remoteCommunity.lotData.filter({ $0.colourDescriptor?.uppercased() == lotIdBeingSearched.uppercased() })
                 
                 if lotsFound.count > 0 {
                     for lotInfo in lotsFound {

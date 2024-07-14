@@ -89,6 +89,7 @@ class AuthenticationManager: ObservableObject {
             //            for info in user.multiFactor.enrolledFactors {
             //                multiFactorString += info.displayName ?? "[DispayName]"
             //                multiFactorString += " "
+            
             return result
         }
         throw ("User Not Found")

@@ -22,7 +22,6 @@ struct SignInWithAppleButtonRepresentable: UIViewRepresentable {
     func updateUIView(_ uiView: UIViewType, context: Context) {
         
     }
-    
 }
 
 struct SignInWithAppleResult {
@@ -32,13 +31,11 @@ struct SignInWithAppleResult {
     let email: String?
 }
 
-
 @MainActor
 final class SignInAppleHelper: NSObject {
     
     private var currentNonce: String?
     private var completionHandler: ((Result<SignInWithAppleResult, Error>) -> Void)? = nil
-    
     
     func startSignInWithAppleFlow () async throws -> SignInWithAppleResult {
         try await withCheckedThrowingContinuation { continuation in
@@ -55,7 +52,6 @@ final class SignInAppleHelper: NSObject {
         }
     }
     
-    
     func startSignInWithAppleFlow(completion: @escaping (Result<SignInWithAppleResult, Error>) -> Void) {
         guard let topVC = Utilities.shared.getTopViewController() else {
             completion(.failure(URLError(.badURL)))
@@ -65,7 +61,6 @@ final class SignInAppleHelper: NSObject {
         let nonce = randomNonceString()
         currentNonce = nonce
         completionHandler = completion
-        
         
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
@@ -108,8 +103,6 @@ final class SignInAppleHelper: NSObject {
         
         return hashString
     }
-    
-    
 }
 
 
@@ -131,7 +124,6 @@ extension SignInAppleHelper: ASAuthorizationControllerDelegate {
         
         let tokens = SignInWithAppleResult(token: idTokenString, nonce: nonce, name: name, email: email)
         completionHandler?(.success(tokens))
-        
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {

@@ -11,11 +11,15 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var locationManager: LocationManager
+    @EnvironmentObject var adminManager: AdministratorManager
+    
     //@EnvironmentObject var locationDataManager: LocationDataManager
     //@EnvironmentObject var authService: AuthenticationManager
-    @StateObject var firestoreManager = FirestoreManager.shared
-    @StateObject var fruitDataStore = CloudDataStoreFruit.shared
-    @StateObject var remoteCommunityDataStore = CloudDataStoreRemoteCommunity.shared
+    //@StateObject var firestoreManager = FirestoreManager.shared
+
+    
+    
+
     
     @Environment(\.modelContext) var modelContex
     
@@ -58,6 +62,14 @@ struct ContentView: View {
         //        }
         //        .edgesIgnoringSafeArea(.all)
         //        .frame(height: 50)
+        
+        
+        
+        if (AdministratorManager.shared.isAdmin) {
+            Text ("Admin User is TRUE")
+        } else {
+            Text ("Admin User is FALSE")
+        }
         
         NavigationStack {
             VStack (alignment: .center) {
@@ -220,6 +232,10 @@ struct ContentView: View {
                 //SignInMethodView(showSignInView: $showSignInView)
                 //AuthenticationView(showSignInView: $showSignInView)
             }
+        }
+        .task {
+            print ("Checking for admin user ...")
+            try? await AdministratorManager.shared.loadAdminUser()
         }
         
     }

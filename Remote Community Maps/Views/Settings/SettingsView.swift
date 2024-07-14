@@ -114,7 +114,6 @@ struct SettingsView: View {
                 
                 
                 Section("Other") {
-                    
                     Button {
                         print ("Favourites Clicked")
                     } label :  {
@@ -150,19 +149,6 @@ struct SettingsView: View {
                             Text("Delete All Data")
                         }
                     }
-                    
-                    
-                    
-                    Button("Delete All Data") {
-                        do {
-                            try modelContex.delete(model: RemoteCommunity.self)
-                            try modelContex.delete(model: LotInformation.self)
-                        } catch {
-                            print ("Failed to clear data")
-                        }
-                    }
-                    
-                    
                 }
                 
                 if AuthenticationManager.shared.signedIn {

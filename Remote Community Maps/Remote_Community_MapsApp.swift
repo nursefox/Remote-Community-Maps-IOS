@@ -43,9 +43,8 @@ struct Remote_Community_MapsApp: App {
     
     @ObservedObject var router = Router()
     @StateObject var authService = AuthenticationManager()
+    @StateObject var administrationManager = AdministratorManager()
     @StateObject var firestoreManager = FirestoreManager()
-    //@StateObject var locationDataManager: LocationDataManager
-    
     @StateObject var locationManager: LocationManager
     
     let container: ModelContainer
@@ -61,6 +60,7 @@ struct Remote_Community_MapsApp: App {
         }
         .environmentObject(authService)
         .environmentObject(firestoreManager)
+        .environmentObject(administrationManager)
         .environmentObject(router)
         .environmentObject(locationManager)
         .modelContainer(container)
@@ -95,14 +95,6 @@ struct Remote_Community_MapsApp: App {
                 print ("Database already pre-seeded : Records Found = " + String(existingRemoteCommunities))
                 return
             }
-            
-//            // Load and decode the JSON.
-//            guard let url = Bundle.main.url(forResource: "Remote-Community-Map-Data", withExtension: "json") else {
-//                fatalError("Failed to find Remote-Community-Map-Data.json")
-//            }
-
-            // let data = try Data(contentsOf: url)
-            //let loadedRemoteCommunities = try JSONDecoder().decode([RemoteCommunity].self, from: data)
 
             let loadedRemoteCommunities = Bundle.main.decode([RemoteCommunity].self, from: "Remote-Community-Map-Data.json")
                         
@@ -112,16 +104,11 @@ struct Remote_Community_MapsApp: App {
                 container.mainContext.insert(remoteCommunity)
                 
                 print ("Searching for Map File" + String(remoteCommunity.mapDataFileName))
-                
                 Bundle.main.decodeGeoJSON( context: container.mainContext, community: remoteCommunity, from: remoteCommunity.mapDataFileName)
             }
-            
         } catch {
-            //print (error.localizedDescription)
+            print ("Failed to configure the SwiftData container")
             fatalError(error.localizedDescription)
-            //fatalError("Failed to configure the SwiftData container")
-            //print (error.localizedDescription)
-            
         }
     }
 }
