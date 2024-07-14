@@ -29,6 +29,7 @@
 		DB6416972C1EE2E800789767 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6416962C1EE2E800789767 /* ProductsView.swift */; };
 		DB6416992C1EE61100789767 /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6416982C1EE61100789767 /* ProductsManager.swift */; };
 		DB64169C2C1EF57300789767 /* ProductCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64169B2C1EF57300789767 /* ProductCellView.swift */; };
+		DB97C8C52C42C7B800BAECA9 /* RemoteCommunitiesCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97C8C42C42C7B800BAECA9 /* RemoteCommunitiesCountryView.swift */; };
 		DBB0E6CE2C3CD70200B5BC82 /* Lot Data - NT - Imanpa.geojson in Resources */ = {isa = PBXBuildFile; fileRef = DBB0E6CD2C3CD70200B5BC82 /* Lot Data - NT - Imanpa.geojson */; };
 		DBB0E6D02C3F86E300B5BC82 /* RemoteCommunitySortedByDistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0E6CF2C3F86E300B5BC82 /* RemoteCommunitySortedByDistanceView.swift */; };
 		DBB0E6D22C42292F00B5BC82 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0E6D12C42292F00B5BC82 /* LocationManager.swift */; };
@@ -72,8 +73,6 @@
 		DBD5CFED2B8865C9007F6DD6 /* CloudLotInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFD72B8865C9007F6DD6 /* CloudLotInformation.swift */; };
 		DBD5CFEE2B8865C9007F6DD6 /* CloudModelRemoteCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFD82B8865C9007F6DD6 /* CloudModelRemoteCommunity.swift */; };
 		DBD5CFEF2B8865C9007F6DD6 /* CloudDataStoreRemoteCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFDA2B8865C9007F6DD6 /* CloudDataStoreRemoteCommunity.swift */; };
-		DBD5CFF02B8865C9007F6DD6 /* CloudAllRemoteCommunitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFDC2B8865C9007F6DD6 /* CloudAllRemoteCommunitiesView.swift */; };
-		DBD5CFF12B8865C9007F6DD6 /* CloudRemoteCommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFDD2B8865C9007F6DD6 /* CloudRemoteCommunityDetailView.swift */; };
 		DBD5CFF22B8865C9007F6DD6 /* CloudModelFruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFE02B8865C9007F6DD6 /* CloudModelFruit.swift */; };
 		DBD5CFF32B8865C9007F6DD6 /* CloudDataStoreFruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFE12B8865C9007F6DD6 /* CloudDataStoreFruit.swift */; };
 		DBD5CFF42B8865C9007F6DD6 /* CloudFruitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5CFE32B8865C9007F6DD6 /* CloudFruitDetailView.swift */; };
@@ -134,6 +133,7 @@
 		DB6416962C1EE2E800789767 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		DB6416982C1EE61100789767 /* ProductsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManager.swift; sourceTree = "<group>"; };
 		DB64169B2C1EF57300789767 /* ProductCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellView.swift; sourceTree = "<group>"; };
+		DB97C8C42C42C7B800BAECA9 /* RemoteCommunitiesCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommunitiesCountryView.swift; sourceTree = "<group>"; };
 		DBB0E6CD2C3CD70200B5BC82 /* Lot Data - NT - Imanpa.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lot Data - NT - Imanpa.geojson"; sourceTree = "<group>"; };
 		DBB0E6CF2C3F86E300B5BC82 /* RemoteCommunitySortedByDistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommunitySortedByDistanceView.swift; sourceTree = "<group>"; };
 		DBB0E6D12C42292F00B5BC82 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -173,8 +173,6 @@
 		DBD5CFD72B8865C9007F6DD6 /* CloudLotInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudLotInformation.swift; sourceTree = "<group>"; };
 		DBD5CFD82B8865C9007F6DD6 /* CloudModelRemoteCommunity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudModelRemoteCommunity.swift; sourceTree = "<group>"; };
 		DBD5CFDA2B8865C9007F6DD6 /* CloudDataStoreRemoteCommunity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudDataStoreRemoteCommunity.swift; sourceTree = "<group>"; };
-		DBD5CFDC2B8865C9007F6DD6 /* CloudAllRemoteCommunitiesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudAllRemoteCommunitiesView.swift; sourceTree = "<group>"; };
-		DBD5CFDD2B8865C9007F6DD6 /* CloudRemoteCommunityDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudRemoteCommunityDetailView.swift; sourceTree = "<group>"; };
 		DBD5CFE02B8865C9007F6DD6 /* CloudModelFruit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudModelFruit.swift; sourceTree = "<group>"; };
 		DBD5CFE12B8865C9007F6DD6 /* CloudDataStoreFruit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudDataStoreFruit.swift; sourceTree = "<group>"; };
 		DBD5CFE32B8865C9007F6DD6 /* CloudFruitDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudFruitDetailView.swift; sourceTree = "<group>"; };
@@ -340,6 +338,7 @@
 				DBD5CFA72B8865BB007F6DD6 /* Authentication */,
 				DBD5CF9D2B8865BB007F6DD6 /* EditData */,
 				DB429E7E2C23EB8400EE3B4F /* Splash Screen */,
+				DB97C8C42C42C7B800BAECA9 /* RemoteCommunitiesCountryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -427,8 +426,6 @@
 		DBD5CFDB2B8865C9007F6DD6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DBD5CFDC2B8865C9007F6DD6 /* CloudAllRemoteCommunitiesView.swift */,
-				DBD5CFDD2B8865C9007F6DD6 /* CloudRemoteCommunityDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -702,7 +699,6 @@
 				DB64169C2C1EF57300789767 /* ProductCellView.swift in Sources */,
 				DBD5CFD12B8865C3007F6DD6 /* HealthCentre.swift in Sources */,
 				DB6416922C1EE22A00789767 /* ProductsDatabase.swift in Sources */,
-				DBD5CFF02B8865C9007F6DD6 /* CloudAllRemoteCommunitiesView.swift in Sources */,
 				DBD5D0082B8865CF007F6DD6 /* Bundle-Decodable.swift in Sources */,
 				DBD5CFC02B8865BB007F6DD6 /* RemoteCommunitySearchView.swift in Sources */,
 				DBD5D0212B8B18DD007F6DD6 /* UserProfileView.swift in Sources */,
@@ -713,8 +709,8 @@
 				DBD5CFC32B8865BB007F6DD6 /* LoginView.swift in Sources */,
 				DBD5CFC62B8865BB007F6DD6 /* HomeView.swift in Sources */,
 				DBD5D0062B8865CF007F6DD6 /* LocationDataManager.swift in Sources */,
-				DBD5CFF12B8865C9007F6DD6 /* CloudRemoteCommunityDetailView.swift in Sources */,
 				DBD5CFF62B8865C9007F6DD6 /* FirestoreManager.swift in Sources */,
+				DB97C8C52C42C7B800BAECA9 /* RemoteCommunitiesCountryView.swift in Sources */,
 				DBD5CFF22B8865C9007F6DD6 /* CloudModelFruit.swift in Sources */,
 				DBD5D0072B8865CF007F6DD6 /* Router.swift in Sources */,
 				DBD5CFF42B8865C9007F6DD6 /* CloudFruitDetailView.swift in Sources */,

@@ -5,6 +5,7 @@
 //  Created by Benjamin Fox on 6/1/2024.
 //
 
+import MapKit
 import SwiftData
 import SwiftUI
 
@@ -13,10 +14,13 @@ struct RemoteCommunitiesListView: View {
     @EnvironmentObject var locationManager: LocationManager
     @Environment (\.modelContext) var modelContext
     
-    //    @Query (sort: [SortDescriptor(\RemoteCommunity.name),]) var remoteCommunities: [RemoteCommunity]
-    //    @Query (sort: [SortDescriptor(\RemoteCommunity.name),]) var remoteCommunities: [RemoteCommunity]
-    
-    //@Query(sort: [SortDescriptor(\RemoteCommunity.name)])
+    @State private var cameraPosition: MapCameraPosition = .automatic
+    @State private var mapSelection: MKMapItem?
+    @State private var selectedTag: String?
+
+    @State private var selectedRemoteCommunity: RemoteCommunity?
+    @State var isPresenting = false
+
     @Query(sort: [SortDescriptor(\RemoteCommunity.state), SortDescriptor(\RemoteCommunity.name)])
     var remoteCommunities: [RemoteCommunity]
     
@@ -34,11 +38,7 @@ struct RemoteCommunitiesListView: View {
         }
     }
     
-    
-    
-    
     var body: some View {
-        
         if (sortType == "state") {
             let groupedCommunities = Dictionary(grouping: remoteCommunities, by: { $0.state })
             List {
@@ -62,6 +62,47 @@ struct RemoteCommunitiesListView: View {
                     .pickerStyle(.inline)
                 }
             }
+        } else if (sortType == "map") {
+        
+            Map(position: $cameraPosition, selection: $selectedTag) {
+                
+                UserAnnotation()
+                
+                withAnimation {
+                    ForEach(remoteCommunities, id:\.self) { community in
+                        
+                        Annotation(community.name, coordinate: community.coordinate) {
+                            Button {
+                                selectedRemoteCommunity = community
+                                isPresenting = true
+                            } label: {
+                                NavigationLink (value: Router.Destination.communityHomePageView(community)) {
+                                    Image(systemName: "mappin.circle.fill")
+                                        .foregroundColor(.red)
+                                        .font(.title)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationDestination(item: $selectedRemoteCommunity) { community in
+                RemoteCommunityView(remoteCommunity: community)
+            }
+//            .onChange(of: selectedTag ?? "", { oldValue, newValue in
+//                print ("mapSelection.name = " + String (newValue))
+//                
+//             })
+            .toolbar {
+                Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                    Picker ("Sort", selection: $sortType) {
+                        Text ("Distance").tag("distance")
+                        Text ("State").tag("state")
+                        Text ("Map").tag ("map")
+                    }
+                    .pickerStyle(.inline)
+                }
+            }
         } else if (sortType == "distance") {
             List {
                 ForEach (sortedLocations) { community in
@@ -74,7 +115,6 @@ struct RemoteCommunitiesListView: View {
                                         .italic()
                                         .foregroundStyle(.gray)
                                     
-                                    
                                     if let distance = community.distance(from: locationManager.currentLocation) {
                                         //if let distance = location.distance(from: locationManager.currentLocation) {
                                         Text("Distance: \(distance / 1000, specifier: "%.2f") km")
@@ -85,8 +125,6 @@ struct RemoteCommunitiesListView: View {
                                             .font(.subheadline)
                                             .foregroundColor(.secondary)
                                     }
-                                    
-                                    
                                 }
                                 
                                 Spacer()
@@ -101,8 +139,6 @@ struct RemoteCommunitiesListView: View {
                         }
                     }
                 }
-                
-                
             }
             .listStyle(.plain)
             .toolbar {
@@ -115,10 +151,8 @@ struct RemoteCommunitiesListView: View {
                     .pickerStyle(.inline)
                 }
             }
-            
         }
     }
-    
     
     init(sort: [SortDescriptor<RemoteCommunity>], searchString: String) {
         _remoteCommunities = Query(filter: #Predicate {
@@ -130,7 +164,6 @@ struct RemoteCommunitiesListView: View {
             }
         }, sort: sort)
     }
-    
 }
 
 #Preview {
